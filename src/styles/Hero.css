@@ -1,0 +1,130 @@
+/* src/styles/Hero.css */
+
+/* Contenitore hero con sfumatura orizzontale che vira verso il beige dell’immagine */
+
+.hero {
+  width: 100%;
+  padding-block: clamp(2rem, 3vw, 5rem);
+  background: linear-gradient(
+    to right,
+    #e0d7cb 0%,
+    #d2c8bb 14%,
+    #d1c7b6 28%,
+    #c4b7a7 42%,
+    #c6b8a4 57%,
+    #bfb4a2 71%,
+    #a2917a 85%,
+    #756953 100%
+  ), url('../assets/hero_figures_final.png');
+  overflow: hidden;
+  color: var(--color-text);
+  overflow: hidden;
+}
+.hero-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding-inline: var(--space-4);
+}
+
+.hero-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.hero-title {
+  font-family: var(--font-display, Georgia, serif);
+  font-weight: 700;
+  font-size: clamp(2.25rem, 3vw + 1.6rem, 3.5rem);
+  line-height: 1.15;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.hero-tagline {
+  font-size: var(--fs-body);
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.hero-button {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.hero-button:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-photo {
+  width: 100%;
+  max-width: 1 rem;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;       /* niente bordo */
+  box-shadow: none;       /* niente ombra */
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    padding-block: clamp(2rem, 4vw, 3rem);
+  }
+
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Il testo con CTA rimane visibile per primo */
+  .hero-left {
+    order: 1;
+    align-items: center;
+    margin-bottom: var(--space-4);
+  }
+
+  /* L’immagine delle avvocatesse viene nascosta su mobile */
+  .hero-right {
+    display: none;
+  }
+
+  /* Mostra l’icona della bilancia e definisci dimensioni e colore */
+  .hero-scale-icon {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin: var(--space-3) 0;
+    color: var(--color-accent); /* oro */
+  }
+
+  /* La CTA rimane centrata e visibile */
+  .hero-button {
+    align-self: center;
+  }
+
+  /* Limita la larghezza della sezione per evitare scorrimenti eccessivi */
+  .hero-container {
+    max-width: 90%;
+    margin-inline: auto;
+  }
+}

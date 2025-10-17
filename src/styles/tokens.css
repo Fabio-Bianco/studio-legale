@@ -7,7 +7,7 @@
 :root {
   /* ====== Colori ====== */
   --color-primary: #0B3C5D;        /* Brand / Primary */
-  --color-accent:  #CFAF70;        /* Brand / Accent  */
+  --color-accent:  #D8B072;         /* Brand / Accent  */
   --color-text:    #111827;        /* Text / Default  */
   --color-muted:   #6B7280;        /* Text / Muted    */
   --color-surface: #FFFFFF;        /* Surface / Base  */
@@ -15,7 +15,7 @@
   --color-nav:     #0A334E;        /* Nav/Footer BG   */
   --color-border:  #E5E7EB;        /* Border / Light  */
   --color-on-dark: #F8FAFC;        /* Text on dark    */
-  --color-accent-hover: #B89449;   /* Accent hover    */
+  --color-accent-hover:  #C79A49;   /* Accent hover    */
   --color-primary-72: rgba(11, 60, 93, 0.72); /* per dock blur */
 
   /* ====== Tipografia (fluid clamp) ======
