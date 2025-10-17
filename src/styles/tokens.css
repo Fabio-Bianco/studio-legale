@@ -1,0 +1,182 @@
+/* =========================================
+   TOKENS GLOBALI — FLUID & MOBILE FIRST
+   Unità: rem + clamp()  |  No px rigidi
+   ========================================= */
+
+/* Base: 1rem = dimensione font del browser (di solito 16px) */
+:root {
+  /* ====== Colori ====== */
+  --color-primary: #0B3C5D;        /* Brand / Primary */
+  --color-accent:  #CFAF70;        /* Brand / Accent  */
+  --color-text:    #111827;        /* Text / Default  */
+  --color-muted:   #6B7280;        /* Text / Muted    */
+  --color-surface: #FFFFFF;        /* Surface / Base  */
+  --color-page:    #F8F9FA;        /* Surface / Page  */
+  --color-nav:     #0A334E;        /* Nav/Footer BG   */
+  --color-border:  #E5E7EB;        /* Border / Light  */
+  --color-on-dark: #F8FAFC;        /* Text on dark    */
+  --color-accent-hover: #B89449;   /* Accent hover    */
+  --color-primary-72: rgba(11, 60, 93, 0.72); /* per dock blur */
+
+  /* ====== Tipografia (fluid clamp) ======
+     clamp(MIN, PREFERRED, MAX)
+     MIN per schermi piccoli, MAX per desktop grandi.
+  */
+  --fs-h1: clamp(2.25rem, 3vw + 1.6rem, 3.5rem);   /* ~36 → 56 */
+  --lh-h1: 1.15;
+
+  --fs-h2: clamp(1.75rem, 2.2vw + 1.2rem, 2.5rem); /* ~28 → 40 */
+  --lh-h2: 1.2;
+
+  --fs-h3: clamp(1.375rem, 1.4vw + 1rem, 1.75rem); /* ~22 → 28 */
+  --lh-h3: 1.25;
+
+  --fs-body: clamp(1rem, 0.3vw + 0.95rem, 1.125rem); /* 16 → 18 */
+  --lh-body: 1.55;
+
+  --fs-small: clamp(0.875rem, 0.2vw + 0.82rem, 0.9375rem); /* 14 → 15 */
+  --lh-small: 1.4;
+
+  --font-display: "Playfair Display", "Merriweather", Georgia, serif;
+  --font-sans: "Inter", "Lato", "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* ====== Layout fluido ======
+     Container centrale che “respira”: max width con padding lato inclusi.
+  */
+  --container-inline: min(100% - 2rem, 76rem); /* 2rem = 32px margini di respiro */
+  --section-y: clamp(3rem, 6vw, 6.5rem);       /* 48 → 104 spacing verticale */
+
+  /* ====== Spaziatura in scala rem ====== */
+  --space-1: 0.5rem;   /* 8  */
+  --space-2: 0.75rem;  /* 12 */
+  --space-3: 1rem;     /* 16 */
+  --space-4: 1.5rem;   /* 24 */
+  --space-5: 2rem;     /* 32 */
+  --space-6: 3rem;     /* 48 */
+  --space-7: 4rem;     /* 64 */
+
+  /* ====== Raggi & Ombre (rem) ====== */
+  --radius-card: 1rem;        /* 16 */
+  --radius-pill: 9999px;      /* pill */
+  --shadow-soft: 0 0.625rem 1.5rem rgba(0,0,0,0.08); /* 10/24 in rem */
+
+  /* ====== Bordi ====== */
+  --border-1: 1px solid var(--color-border);
+
+  /* Focus ring accessibile */
+  --focus-ring: 0 0 0 0.1875rem rgba(207,175,112,0.45); /* 3px in rem */
+}
+
+/* Dark mode opzionale */
+:root[data-theme="dark"] {
+  --color-page:  #0F172A;
+  --color-surface: #0B1224;
+  --color-text:  #E5E7EB;
+  --color-muted: #9CA3AF;
+  --color-border:#1F2937;
+  --color-nav:   #071E31;
+  --color-on-dark: #F9FAFB;
+}
+
+/* ==============
+   Primitive base
+   ============== */
+html { color-scheme: light; }
+:root[data-theme="dark"] html { color-scheme: dark; }
+
+body {
+  background: var(--color-page);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-text-size-adjust: 100%; /* iOS */
+  text-rendering: optimizeLegibility;
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-3);
+}
+h2, .h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  font-weight: 600;
+  margin: 0 0 var(--space-3);
+}
+h3, .h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  font-weight: 600;
+  margin: 0 0 var(--space-2);
+}
+
+.small { font-size: var(--fs-small); line-height: var(--lh-small); color: var(--color-muted); }
+
+/* Container centrale fluido */
+.container {
+  width: var(--container-inline);
+  margin-inline: auto;
+}
+
+/* Sezioni verticali coerenti */
+.section {
+  padding-block: var(--section-y);
+}
+
+/* Card generica */
+.card {
+  background: var(--color-surface);
+  border: var(--border-1);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+}
+
+/* CTA primaria */
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.75rem 1.25rem; /* 12 x 20 */
+  gap: 0.5rem;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  border-radius: 0.75rem;
+  border: none;
+  font-weight: 600;
+}
+.btn-primary:hover { background: var(--color-accent-hover); }
+.btn-primary:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+/* Dock Top (desktop) — pill traslucida */
+.dock {
+  position: sticky; top: 0.75rem;
+  margin-inline: auto;
+  width: max-content;
+  padding: 0.5rem 0.75rem;
+  backdrop-filter: blur(10px);
+  background: var(--color-primary-72);
+  color: var(--color-on-dark);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.18);
+}
+
+/* Footer scuro */
+.footer {
+  background: var(--color-nav);
+  color: var(--color-on-dark);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.footer a { color: var(--color-accent); }
+.footer a:hover { color: var(--color-accent-hover); }
+
+/* =============================
+   Accessibilità / Motion safety
+   ============================= */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
