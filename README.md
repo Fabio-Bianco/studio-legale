@@ -1,16 +1,62 @@
-# React + Vite
+# Studio Legale Livieri
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sito vetrina realizzato con **React** e **JavaScript**, dedicato allo Studio Legale Livieri.  
+Il progetto è in fase di sviluppo e verrà aggiornato man mano con nuove sezioni e funzionalità.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## React Compiler
+- **Frontend:** React + Vite  
+- **Linguaggio:** JavaScript (ES6)  
+- **UI Framework:** Bootstrap 5 + Bootstrap Icons  
+- **Gestione pacchetti:** npm  
+- **Routing:** React Router 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⚙️ Installazione e avvio
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Clona il progetto:
+
+```bash
+git clone https://github.com/Fabio-Bianco/studio-legale-livieri.git
+cd studio-legale-livieri
+npm install
+npm run dev
+npm run build
+```
+
+## 🧩 Struttura di base (in aggiornamento)
+```bash
+src/
+ ├── components/
+ ├── pages/
+ ├── assets/
+ ├── styles/
+ └── main.jsx
+```
+
+## 📅 Stato del progetto
+
+🟡 In corso di sviluppo
+Le sezioni principali previste:
+
+- Home
+
+- Studio
+
+- Aree di attività
+
+- Team
+
+- Contatti
+
+ - Privacy Policy
+
+## 👨‍💻 Autore
+
+Fabio Bianco
+alias b_bot
+
+📫 GitHub: Fabio-Bianco https://github.com/Fabio-Bianco
