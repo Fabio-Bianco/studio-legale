@@ -1,0 +1,145 @@
+/* src/styles/Main.css
+   MAIN — “Chi Siamo” con due mini-card affiancate
+   Overlap più profondo e elegante sull’hero.
+*/
+
+/* Overlap molto marcato (più immerso nell’hero) */
+.main-section {
+  position: relative;
+  z-index: 3;
+  transform: translateY(calc(-1 * var(--space-10, 8rem))); /* 👈 overlap più profondo */
+  margin-bottom: calc(-1 * var(--space-10, 8rem));
+}
+
+.main-container {
+  width: var(--container-inline);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+/* Titolo sezione */
+.main-title {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: clamp(1.5rem, 1.2vw + 1rem, 2rem);
+  line-height: 1.2;
+  margin: 0 0 var(--space-4);
+  color: var(--color-text);
+}
+
+/* Wrapper delle card, affiancate e spostate a sinistra */
+.cards {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  transform: translateX(calc(-1 * var(--space-7))); /* 👈 le spinge più a sinistra */
+}
+
+/* Card piccole e verticali */
+.card {
+  width: clamp(220px, 22vw, 280px);
+  background: var(--color-surface);
+  border: var(--border-1);
+  border-radius: 0.875rem;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12);
+}
+
+/* Foto sopra, testo sotto */
+.card-media {
+  position: relative;
+  height: 180px;
+  background: #ece9e4;
+  overflow: hidden;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.avatar--left  { object-position: left 55%; }
+.avatar--right { object-position: right 55%; }
+
+.card-body {
+  padding: var(--space-3);
+  display: grid;
+  gap: 0.5rem;
+}
+
+.card-name {
+  margin: 0;
+  font-size: clamp(1.05rem, 0.6vw + 1rem, 1.15rem);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.card-role {
+  margin: 0;
+  color: var(--color-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.card-text {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+.card-link {
+  margin-top: 0.25rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-primary);
+}
+.card-link:hover { text-decoration: underline; }
+
+/* ----------------- Responsive ----------------- */
+@media (max-width: 1024px) {
+  .main-section {
+    transform: translateY(calc(-1 * var(--space-8)));
+    margin-bottom: calc(-1 * var(--space-8));
+  }
+
+  .cards {
+    transform: translateX(calc(-1 * var(--space-5)));
+    gap: var(--space-3);
+  }
+
+  .card {
+    width: clamp(200px, 42vw, 260px);
+  }
+
+  .card-media {
+    height: 160px;
+  }
+}
+
+@media (max-width: 640px) {
+  .main-section {
+    transform: translateY(calc(-1 * var(--space-6)));
+    margin-bottom: calc(-1 * var(--space-6));
+  }
+
+  .cards {
+    flex-wrap: wrap;
+    transform: translateX(0);
+    gap: var(--space-3);
+  }
+
+  .card {
+    width: calc(50% - var(--space-3));
+    min-width: 190px;
+  }
+
+  .card-media {
+    height: 150px;
+  }
+}
