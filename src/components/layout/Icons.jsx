@@ -1,118 +1,77 @@
-// Icons.js
+// src/components/layout/Icons.jsx
 import React from "react";
 
-/** Icona Home */
-export const HomeIcon = ({ className = "", ...rest }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.6"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-    {...rest}
-  >
-    <path d="M3 9.75L12 3l9 6.75" />
-    <path d="M4.5 10.5v9a1.5 1.5 0 001.5 1.5h4.5V14h3v7.5h4.5a1.5 1.5 0 001.5-1.5v-9" />
-  </svg>
-);
+const cx = (...c) => c.filter(Boolean).join(" ");
 
-/** Icona Utenti / Chi siamo */
-export const UsersIcon = ({ className = "", ...rest }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.6"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-    {...rest}
-  >
-    <circle cx="8" cy="8" r="2.5" />
-    <circle cx="16" cy="8" r="2.5" />
-    <path d="M4 18c0-2.5 1.5-4 4-4" />
-    <path d="M20 18c0-2.5-1.5-4-4-4" />
-    <path d="M4 18h16" />
-  </svg>
-);
-
-/** Icona Bilancia / Aree */
 export const ScaleIcon = ({ className = "", ...rest }) => (
   <svg
-    className={className}
+    className={cx("icon", className)}
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="1.6"
+    strokeWidth="1.8"
     strokeLinecap="round"
     strokeLinejoin="round"
     aria-hidden="true"
     {...rest}
   >
-    <line x1="12" y1="4" x2="12" y2="19" />
-    <line x1="6" y1="7" x2="18" y2="7" />
-    <path d="M5 7l-2.5 6h5z" />
-    <path d="M21 7l-2.5 6h5z" />
+    <path d="M12 3v18M5 7h14" />
+    <path d="M7.5 7 4 14a4 4 0 0 0 8 0l-3.5-7" />
+    <path d="M16.5 7 13 14a4 4 0 0 0 8 0l-3.5-7" />
   </svg>
 );
 
-/** Icona Blog / Documento */
-export const BlogIcon = ({ className = "", ...rest }) => (
+export const BriefcaseIcon = ({ className = "", ...rest }) => (
   <svg
-    className={className}
+    className={cx("icon", className)}
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="1.6"
+    strokeWidth="1.8"
     strokeLinecap="round"
     strokeLinejoin="round"
     aria-hidden="true"
     {...rest}
   >
-    <rect x="3" y="4" width="18" height="16" rx="2" ry="2" />
-    <line x1="7" y1="9" x2="17" y2="9" />
-    <line x1="7" y1="13" x2="17" y2="13" />
-    <line x1="7" y1="17" x2="17" y2="17" />
+    <rect x="2" y="7" width="20" height="14" rx="2" />
+    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+    <path d="M2 13h20" />
   </svg>
 );
 
-/** Icona Mail / Contatti */
-export const MailIcon = ({ className = "", ...rest }) => (
+export const FileTextIcon = ({ className = "", ...rest }) => (
   <svg
-    className={className}
+    className={cx("icon", className)}
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="1.6"
+    strokeWidth="1.8"
     strokeLinecap="round"
     strokeLinejoin="round"
     aria-hidden="true"
     {...rest}
   >
-    <rect x="3" y="5" width="18" height="14" rx="2" ry="2" />
-    <polyline points="3,5 12,13 21,5" />
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+    <path d="M14 2v6h6" />
+    <path d="M16 13H8M16 17H8M10 9H8" />
   </svg>
 );
 
-/** Icona Telefono (utile per sezioni future) */
-export const PhoneIcon = ({ className = "", ...rest }) => (
+export const BuildingIcon = ({ className = "", ...rest }) => (
   <svg
-    className={className}
+    className={cx("icon", className)}
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="1.6"
+    strokeWidth="1.8"
     strokeLinecap="round"
     strokeLinejoin="round"
     aria-hidden="true"
     {...rest}
   >
-    <path d="M4.5 3.5h15a1 1 0 011 1v15a1 1 0 01-1 1h-15a1 1 0 01-1-1v-15a1 1 0 011-1z" />
-    <path d="M9 1h6v2H9z" />
-    <path d="M9 21h6v2H9z" />
+    <path d="M3 21h18" />
+    <path d="M4 21V7a2 2 0 0 1 2-2h6v16" />
+    <path d="M20 21V10a2 2 0 0 0-2-2h-6" />
+    <path d="M8 11h2M8 15h2M14 11h2M14 15h2" />
   </svg>
 );
