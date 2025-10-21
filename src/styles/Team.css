@@ -39,14 +39,14 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  /* Matching Hero badge exactly */
-  background: rgba(59, 130, 246, 0.1);
-  color: #1e40af;
+  /* Gold accent badge for premium positioning */
+  background: rgba(199, 158, 70, 0.12);
+  color: var(--color-primary); /* Navy text for excellent contrast */
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.875rem;
   font-weight: 600;
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(199, 158, 70, 0.3);
   backdrop-filter: blur(10px);
   margin-bottom: var(--space-3);
 }
@@ -61,11 +61,11 @@
   margin-top: var(--space-4);
   padding: var(--space-3);
   background: linear-gradient(135deg, 
-    rgba(59, 130, 246, 0.05) 0%, 
-    rgba(255, 255, 255, 0.8) 100%
+    rgba(199, 158, 70, 0.08) 0%, 
+    rgba(255, 255, 255, 0.9) 100%
   );
   border-radius: 12px;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(199, 158, 70, 0.2);
 }
 
 .inline-stat {
@@ -77,7 +77,7 @@
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.5rem;
-  color: #0B3C5D;
+  color: var(--color-accent); /* Strategic gold for important metrics */
   line-height: 1;
   margin-bottom: 0.25rem;
 }
@@ -145,9 +145,9 @@
   left: 0;
   right: 0;
   height: 3px;
-  /* Professional accent bar matching Hero palette */
-  background: linear-gradient(90deg, #a4937b, #0B3C5D);
-  opacity: 0.8;
+  /* Strategic gold accent for premium team positioning */
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+  opacity: 0.9;
 }
 
 /* Hover effects removed for performance and professional consistency */
@@ -191,11 +191,11 @@
 .team-card-role {
   font-weight: 600;
   font-size: 0.9375rem;
-  color: #a4937b;
+  color: var(--color-accent);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: var(--space-3);
-  background: linear-gradient(135deg, #c4b8a8, #a4937b);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -222,9 +222,9 @@
 .achievement-item {
   text-align: center;
   padding: var(--space-3);
-  background: rgba(59, 130, 246, 0.05);
+  background: rgba(199, 158, 70, 0.08); /* Subtle gold accent */
   border-radius: 12px;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(199, 158, 70, 0.15);
 }
 
 .achievement-number {
