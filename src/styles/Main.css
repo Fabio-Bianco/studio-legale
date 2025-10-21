@@ -2,12 +2,18 @@
    MAIN SECTION - AREE DI ATTIVITÀ
    ============================== */
 .main-section {
-  background: var(--color-background);
-  padding-top: var(--space-6); /* Padding normale */
-  margin-top: 0; /* Nessun margin per permettere overlap naturale */
+  /* Progressive gradient continuing Hero vibes */
+  background: linear-gradient(180deg, 
+    rgba(248, 249, 250, 0.6) 0%, 
+    rgba(211, 201, 189, 0.08) 25%, 
+    rgba(255, 255, 255, 0.95) 50%, 
+    rgba(248, 249, 250, 0.9) 100%
+  );
+  padding-top: var(--space-6);
+  margin-top: 0;
   position: relative;
-  z-index: 1; /* Z-index normale, sotto le card hero (50) */
-  border-radius: 24px 24px 0 0; /* Bordi arrotondati superiori */
+  z-index: 1;
+  border-radius: 24px 24px 0 0; /* Consistent with Team */
 }
 
 .main-container {
@@ -16,36 +22,202 @@
   padding-inline: var(--space-4);
 }
 
+/* BRIDGE SECTION - Connessione con Hero */
+.main-bridge {
+  text-align: center;
+  margin-bottom: var(--space-5); /* Reduced from space-8 to space-5 */
+  padding-top: var(--space-4); /* Reduced from space-6 to space-4 */
+}
+
+.bridge-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.bridge-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+  opacity: 0.9;
+}
+
+.bridge-subtitle {
+  color: var(--color-muted);
+  font-size: clamp(1rem, 1vw + 0.8rem, 1.125rem);
+  line-height: 1.5;
+}
+
 .main-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(2rem, 2.5vw + 1rem, 2.75rem);
+  font-size: clamp(2.25rem, 3vw + 1rem, 3rem);
   color: var(--color-primary);
   text-align: center;
+  margin-bottom: var(--space-3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.main-subtitle {
+  text-align: center;
+  color: var(--color-muted);
+  font-size: clamp(1rem, 1.2vw + 0.8rem, 1.25rem);
   margin-bottom: var(--space-7);
+  font-weight: 500;
 }
 
 /* AREE DI ATTIVITÀ */
-.activities { margin-top: var(--space-9); }
+.activities { margin-top: var(--space-2); }
+
+/* CTA SECTION INTEGRATA */
+.main-cta-section {
+  margin-top: var(--space-9);
+  padding: var(--space-8) var(--space-6);
+  background: linear-gradient(135deg, 
+    rgba(11, 60, 93, 0.03) 0%, 
+    rgba(199, 158, 70, 0.05) 100%
+  );
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid rgba(11, 60, 93, 0.1);
+}
+
+.main-cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.main-cta-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.main-cta-subtitle {
+  color: var(--color-muted);
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin-bottom: var(--space-4);
+}
+
+.main-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #0f4c75 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(11, 60, 93, 0.3);
+}
+
+/* CTA button hover removed for consistency */
 .activity-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-5);
-  margin-top: var(--space-5);
+  gap: var(--space-4); /* Reduced from space-5 to space-4 */
+  margin-top: var(--space-4); /* Reduced margin top */
 }
 .activity-card {
-  background: var(--color-surface);
-  border: var(--border-1);
-  border-radius: var(--radius-card);
-  padding: var(--space-5) var(--space-4);
+  /* Hero-inspired gradient matching Team cards */
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.98) 0%, 
+    rgba(250, 248, 245, 0.95) 25%, 
+    rgba(245, 242, 238, 0.92) 50%, 
+    rgba(248, 245, 241, 0.95) 75%, 
+    rgba(253, 252, 251, 0.98) 100%
+  );
+  border: 1px solid rgba(210, 198, 185, 0.25);
+  border-radius: 16px;
+  padding: var(--space-5) var(--space-4); /* Reduced padding for compactness */
   text-align: left;
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  /* Professional shadow consistent with Hero and Team */
+  box-shadow: 
+    0 8px 25px rgba(164, 147, 123, 0.08),
+    0 3px 10px rgba(196, 184, 168, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 20px rgba(250, 248, 245, 0.3);
+  position: relative;
+  backdrop-filter: blur(8px);
 }
-.activity-card:hover { transform: translateY(-6px); box-shadow: 0 1rem 2rem rgba(0,0,0,0.1); }
-.activity-icon { color: var(--color-accent); width: 40px; height: 40px; margin-bottom: var(--space-3); }
-.activity-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.1rem, .8vw + 1rem, 1.35rem); margin: 0 0 var(--space-2); }
-.activity-text { color: var(--color-muted); font-size: var(--fs-small); line-height: var(--lh-small); margin: 0; }
+
+.activity-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  /* Professional accent bar matching Hero/Team palette */
+  background: linear-gradient(90deg, #a4937b, #0B3C5D);
+  opacity: 0.8;
+}
+
+/* Hover effects removed for performance and consistency with Hero */
+
+.activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3); /* Reduced from space-4 to space-3 */
+}
+
+.activity-category {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: #a4937b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, #c4b8a8, #a4937b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Icon styles removed - replaced with professional category labels */
+
+.activity-badge {
+  background: rgba(59, 130, 246, 0.1);
+  color: #1e40af;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.activity-title { 
+  font-family: var(--font-display); 
+  font-weight: 700; 
+  font-size: clamp(1.25rem, 1vw + 1rem, 1.5rem); 
+  margin: 0 0 var(--space-3); 
+  color: var(--color-primary);
+}
+
+.activity-text { 
+  color: var(--color-text); 
+  font-size: 1rem; 
+  line-height: 1.6; 
+  margin: 0 0 var(--space-4); 
+}
+
+.activity-results {
+  background: rgba(34, 197, 94, 0.1);
+  color: #065f46;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
 
 @media (max-width: 1024px) {
   .main-section {
@@ -57,11 +229,33 @@
 
 @media (max-width: 640px) {
   .main-section {
-    padding-top: var(--space-4); /* Padding normale per mobile */
+    padding-top: var(--space-4);
     margin-top: 0;
-    border-radius: 16px 16px 0 0; /* Bordi più piccoli su mobile */
+    border-radius: 16px 16px 0 0;
   }
-  .activity-grid { grid-template-columns: 1fr; }
-  .activity-card { text-align: center; }
-  .activity-icon { margin-inline: auto; }
+  
+  .bridge-content {
+    padding-inline: var(--space-2);
+  }
+  
+  .activity-grid { 
+    grid-template-columns: 1fr; 
+    gap: var(--space-4);
+  }
+  
+  .activity-card { 
+    text-align: center;
+    padding: var(--space-4);
+  }
+  
+  .activity-header {
+    flex-direction: column;
+    gap: var(--space-2);
+    text-align: center;
+  }
+  
+  .main-cta-section {
+    margin-top: var(--space-6);
+    padding: var(--space-4);
+  }
 }

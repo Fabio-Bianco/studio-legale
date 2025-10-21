@@ -1,0 +1,422 @@
+/* ==============================
+   TEAM SECTION - Presentazione Avvocatesse
+   Strategically positioned between Hero and Main
+   ============================== */
+
+.team-section {
+  padding: var(--space-6) 0; /* Reduced from space-9 to space-6 */
+  /* Background matching Hero vibes - warm professional gradient */
+  background: linear-gradient(135deg, 
+    rgba(211, 201, 189, 0.15) 0%, 
+    rgba(224, 214, 201, 0.12) 25%, 
+    rgba(248, 249, 250, 0.8) 50%, 
+    rgba(196, 184, 168, 0.1) 75%, 
+    rgba(183, 167, 144, 0.15) 100%
+  );
+  position: relative;
+  z-index: 5;
+  border-radius: 24px 24px 0 0;
+}
+
+.team-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: var(--space-4);
+}
+
+/* ==============================
+   HEADER SECTION
+   ============================== */
+.team-header {
+  text-align: center;
+  margin-bottom: var(--space-5); /* Reduced from space-8 to space-5 */
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* Matching Hero badge exactly */
+  background: rgba(59, 130, 246, 0.1);
+  color: #1e40af;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  backdrop-filter: blur(10px);
+  margin-bottom: var(--space-3);
+}
+
+/* ==============================
+   INLINE STATS IN HEADER
+   ============================== */
+.team-inline-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding: var(--space-3);
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.05) 0%, 
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  border-radius: 12px;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.inline-stat {
+  text-align: center;
+}
+
+.inline-stat-number {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #0B3C5D;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.inline-stat-label {
+  font-size: 0.75rem;
+  color: #6B7280;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.team-title {
+  font-family: var(--font-display);
+  font-weight: 800; /* Matching Hero title weight */
+  font-size: clamp(2.25rem, 3.5vw + 1rem, 3rem); /* More consistent with Hero scale */
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.team-subtitle {
+  font-size: clamp(0.95rem, 1vw + 0.75rem, 1.125rem); /* Slightly smaller */
+  color: var(--color-muted);
+  line-height: 1.5; /* Reduced line height for compactness */
+  margin-bottom: 0;
+}
+
+/* ==============================
+   TEAM CARDS
+   ============================== */
+.team-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--space-4); /* Reduced from space-6 to space-4 */
+  margin-bottom: var(--space-6); /* Reduced from space-9 to space-6 */
+}
+
+.team-card {
+  /* Hero-inspired gradient with professional warmth */
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.98) 0%, 
+    rgba(250, 248, 245, 0.95) 25%, 
+    rgba(245, 242, 238, 0.92) 50%, 
+    rgba(248, 245, 241, 0.95) 75%, 
+    rgba(253, 252, 251, 0.98) 100%
+  );
+  border: 1px solid rgba(210, 198, 185, 0.25);
+  border-radius: 16px; /* Matching Hero card radius */
+  padding: var(--space-5); /* Reduced padding for vertical compactness */
+  /* Professional shadow - no hover effects */
+  box-shadow: 
+    0 8px 25px rgba(164, 147, 123, 0.08),
+    0 3px 10px rgba(196, 184, 168, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 20px rgba(250, 248, 245, 0.3);
+  position: relative;
+  backdrop-filter: blur(8px);
+}
+
+.team-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  /* Professional accent bar matching Hero palette */
+  background: linear-gradient(90deg, #a4937b, #0B3C5D);
+  opacity: 0.8;
+}
+
+/* Hover effects removed for performance and professional consistency */
+
+/* ==============================
+   CARD MEDIA
+   ============================== */
+.team-card-media {
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.team-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  object-fit: cover;
+  border: 3px solid rgba(210, 198, 185, 0.4);
+  box-shadow: 
+    0 8px 20px rgba(164, 147, 123, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* ==============================
+   CARD CONTENT
+   ============================== */
+.team-card-body {
+  text-align: center;
+}
+
+.team-card-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem; /* More professional sizing */
+  color: #0B3C5D; /* Hero navy color for consistency */
+  margin-bottom: var(--space-1);
+  line-height: 1.3;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.team-card-role {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: #a4937b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+  background: linear-gradient(135deg, #c4b8a8, #a4937b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.team-card-text {
+  font-size: 0.9375rem; /* Consistent with Hero sizing */
+  color: #374151; /* Hero text color for readability */
+  line-height: 1.5; /* Consistent line height */
+  margin-bottom: var(--space-3);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+/* ==============================
+   ACHIEVEMENTS GRID
+   ============================== */
+.team-card-achievements {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.achievement-item {
+  text-align: center;
+  padding: var(--space-3);
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.achievement-number {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.achievement-label {
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+/* ==============================
+   CREDENTIALS
+   ============================== */
+.team-card-credentials {
+  background: rgba(34, 197, 94, 0.08);
+  color: #065f46;
+  padding: var(--space-3);
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid rgba(34, 197, 94, 0.15);
+}
+
+/* ==============================
+   STUDIO VALUES SECTION
+   ============================== */
+.team-values {
+  margin-bottom: var(--space-5); /* Reduced from space-8 to space-5 */
+  text-align: center;
+}
+
+.values-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.values-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+  color: #0B3C5D;
+  margin-bottom: var(--space-5);
+  text-align: center;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Smaller min width */
+  gap: var(--space-3); /* Reduced gap */
+  margin-top: var(--space-3); /* Reduced top margin */
+}
+
+@media (max-width: 768px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  
+  .value-item {
+    padding: var(--space-3);
+  }
+  
+  .values-title {
+    font-size: 1.5rem;
+  }
+  
+  .team-inline-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+  }
+  
+  .inline-stat-number {
+    font-size: 1.25rem;
+  }
+}
+
+.value-item {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.9) 0%, 
+    rgba(250, 248, 245, 0.8) 100%
+  );
+  border: 1px solid rgba(210, 198, 185, 0.2);
+  border-radius: 12px;
+  padding: var(--space-3); /* Reduced padding for compactness */
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(164, 147, 123, 0.06);
+}
+
+/* Icon styles removed for professional appearance */
+
+.value-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #0B3C5D;
+  margin-bottom: var(--space-1);
+}
+
+.value-text {
+  font-size: 0.875rem;
+  color: #374151;
+  line-height: 1.5;
+}
+
+/* ==============================
+   TRUST SECTION
+   ============================== */
+.team-trust {
+  background: linear-gradient(135deg, 
+    rgba(11, 60, 93, 0.05) 0%, 
+    rgba(199, 158, 70, 0.08) 100%
+  );
+  padding: var(--space-6);
+  border-radius: 20px;
+  border: 1px solid rgba(11, 60, 93, 0.1);
+}
+
+.trust-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-4);
+  text-align: center;
+}
+
+.trust-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trust-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 2vw + 1rem, 2.25rem);
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.trust-label {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+   ============================== */
+@media (max-width: 768px) {
+  .team-section {
+    padding: var(--space-6) 0;
+  }
+  
+  .team-header {
+    margin-bottom: var(--space-6);
+  }
+  
+  .team-cards {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    margin-bottom: var(--space-6);
+  }
+  
+  .team-card {
+    padding: var(--space-4);
+  }
+  
+  .team-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .team-card-achievements {
+    gap: var(--space-2);
+  }
+  
+  .achievement-item {
+    padding: var(--space-2);
+  }
+  
+  .trust-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+}

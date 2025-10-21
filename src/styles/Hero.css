@@ -73,20 +73,41 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-2);
-  max-width: 500px;
+  gap: var(--space-3);
+  max-width: 550px;
   flex: 1;
+}
+
+/* Badge di social proof */
+.hero-badge {
+  background: rgba(59, 130, 246, 0.1);
+  color: #1e40af;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .hero-title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.75rem, 2.5vw + 1rem, 2.5rem);
+  font-weight: 800;
+  font-size: clamp(2.25rem, 4vw + 1rem, 3.5rem);
   line-height: 1.1;
   color: var(--color-primary);
   margin: 0;
   text-align: left;
   letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-title-highlight {
+  background: linear-gradient(135deg, #C79E46, #dcad4a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
 }
 
 .hero-tagline {
@@ -101,22 +122,47 @@
 /* ==============================
    CTA Button
    ============================== */
+.hero-cta-group {
+  margin-top: var(--space-2);
+}
+
 .hero-button {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2.5rem; /* Bottone più grande per maggiore impatto */
-  background: var(--color-accent);
-  color: var(--color-primary);
-  font-weight: 700; /* Più bold */
-  font-size: 1.125rem; /* Font più grande */
-  border-radius: var(--radius-pill);
+  padding: 1.25rem 2.75rem;
+  background: linear-gradient(135deg, #C79E46 0%, #dcad4a 100%);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 12px;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(199, 158, 70, 0.4); /* Ombra più prominente */
-  margin-top: var(--space-3); /* Più spazio sopra per enfasi */
+  box-shadow: 
+    0 8px 25px rgba(199, 158, 70, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
   align-self: flex-start;
-  letter-spacing: 0.025em; /* Migliore leggibilità */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-button-text {
+  font-size: 1.25rem;
+  letter-spacing: 0.025em;
+  margin-bottom: 0.125rem;
+}
+
+.hero-button-subtitle {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.hero-cta-trust {
+  margin-top: var(--space-2);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  font-weight: 500;
 }
 
 .hero-button:hover {
@@ -136,15 +182,7 @@
   display: none; /* Non più necessaria, immagine nel background */
 }
 
-/* ==============================
-   CHI SIAMO integrato nell'Hero
-   ============================== */
-.hero-chi-siamo {
-  margin-top: var(--space-6); /* Più spazio per enfatizzare la separazione */
-  width: 100%;
-  max-width: 600px;
-  position: relative; /* Contenitore di riferimento per le card absolute */
-}
+/* Card styles moved to dedicated Team section for better UX flow */
 
 .chi-siamo-title {
   font-family: var(--font-display);
@@ -158,145 +196,9 @@
   z-index: 10; /* Assicura che sia sopra eventuali overlay */
 }
 
-.hero-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-4);
-  width: 100%;
-  max-width: 600px;
-  position: absolute; /* Absolute rispetto al contenitore hero */
-  top: calc(100% + 20px); /* Più spazio per "Chi Siamo", ma ancora in overlap */
-  left: 0; /* Allineate al contenitore padre */
-  z-index: 50; /* Sopra il main (-1) ma sotto altri elementi */
-}
+/* Card styles moved to dedicated Team section for better UX flow */
 
-.hero-card {
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.98) 0%, 
-    rgba(250, 248, 245, 0.95) 25%, 
-    rgba(245, 242, 238, 0.92) 50%, 
-    rgba(248, 245, 241, 0.95) 75%, 
-    rgba(253, 252, 251, 0.98) 100%
-  );
-  border: 1px solid rgba(210, 198, 185, 0.25);
-  border-radius: 16px;
-  padding: var(--space-5, 2rem); /* Più padding per migliore leggibilità */
-  text-align: center;
-  box-shadow: 
-    0 8px 25px rgba(164, 147, 123, 0.08),
-    0 3px 10px rgba(196, 184, 168, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 0 20px rgba(250, 248, 245, 0.3);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  z-index: 15; /* Sopra il container cards */
-  backdrop-filter: blur(8px);
-  /* Altezza ottimizzata */
-  min-height: 140px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
-/* Hover effects rimossi per performance */
-
-.hero-card-media {
-  text-align: center;
-  margin-bottom: var(--space-2);
-}
-
-.hero-card-icon {
-  width: 56px;
-  height: 56px;
-  margin: 0 auto;
-  background: linear-gradient(135deg, #c4b8a8 0%, #a4937b 50%, #988a72 100%);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 28px;
-  box-shadow: 
-    0 8px 24px rgba(164, 147, 123, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-/* Card icon hover removed */
-
-.hero-avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  object-fit: cover;
-  border: 2px solid rgba(210, 198, 185, 0.4);
-  box-shadow: 
-    0 6px 20px rgba(164, 147, 123, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 0 0 1px rgba(250, 248, 245, 0.8);
-  transition: all 0.3s ease;
-}
-
-/* Avatar hover removed */
-
-.hero-card-body {
-  text-align: center;
-}
-
-.hero-card-name {
-  font-family: var(--font-display, "Playfair Display", serif);
-  font-weight: 700;
-  font-size: 1.25rem; /* Leggermente più grande per leggibilità */
-  color: #0B3C5D; /* Colore più scuro e contrastato */
-  margin-bottom: var(--space-1, 0.5rem);
-  line-height: 1.3;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8); /* Migliora contrasto */
-}
-
-.hero-card-role {
-  font-weight: 600;
-  font-size: 0.875rem;
-  color: #a4937b;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: var(--space-2);
-  background: linear-gradient(135deg, #c4b8a8, #a4937b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero-card-text {
-  font-size: 0.9375rem; /* Leggermente più grande */
-  color: #374151; /* Colore più scuro per migliore leggibilità */
-  line-height: 1.5; /* Migliore spaziatura per leggibilità */
-  margin-bottom: var(--space-3, 1rem);
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5); /* Sottile shadow per contrasto */
-}
-
-.hero-card-link {
-  display: inline-flex;
-  align-items: center;
-  font-weight: 600;
-  color: #a4937b;
-  text-decoration: none;
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(196, 184, 168, 0.1), rgba(164, 147, 123, 0.1));
-  border: 1px solid rgba(196, 184, 168, 0.2);
-  transition: all 0.3s ease;
-}
-
-/* Link hover removed */
-
-.hero-card-link::after {
-  content: '→';
-  margin-left: 6px;
-  transition: transform 0.3s ease;
-}
-
-/* Link arrow hover removed */
 
 /* ==============================
    Layout Mobile / Tablet
@@ -312,11 +214,7 @@
     align-items: flex-start;
   }
 
-  .hero-cards {
-    max-width: none;
-    transform: translateY(30%); /* Effetto cascata ridotto su tablet */
-    position: relative; /* Torna relative su tablet per evitare problemi */
-  }
+
 }
 
 @media (max-width: 768px) {
@@ -338,36 +236,7 @@
     font-size: 1rem; /* Font adeguato per mobile */
   }
 
-  .hero-chi-siamo {
-    margin-top: var(--space-3);
-  }
 
-  .chi-siamo-title {
-    font-size: 1.25rem;
-  }
 
-  .hero-cards {
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
-    transform: translateY(20%); /* Effetto cascata ridotto su mobile */
-    position: relative; /* Torna relative su mobile */
-  }
 
-  .hero-card {
-    padding: var(--space-3);
-  }
-
-  .hero-card-icon {
-    width: 44px;
-    height: 44px;
-    font-size: 16px;
-  }
-
-  .hero-card-name {
-    font-size: 1rem;
-  }
-
-  .hero-card-text {
-    font-size: 0.8rem;
-  }
 }
