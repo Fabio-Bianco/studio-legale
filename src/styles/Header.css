@@ -11,14 +11,48 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  background: var(--color-nav);
-  color: var(--color-on-dark);
-  padding-block: var(--space-2);
+  /* Professional navy background with modern glass effect */
+  background: linear-gradient(135deg, 
+    rgba(10, 51, 78, 0.95) 0%,    /* var(--color-nav) with opacity */
+    rgba(11, 60, 93, 0.92) 100%   /* var(--color-primary) with opacity */
+  );
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(199, 158, 70, 0.2); /* Gold accent border */
+  
+  padding-block: var(--space-3);
   padding-inline: var(--space-4);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(11, 60, 93, 0.15), 
+              0 8px 32px rgba(10, 51, 78, 0.08); /* Navy-based professional shadows */
+}
+
+/* ===================== BRAND SECTION ===================== */
+
+.header-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  color: var(--color-on-dark); /* White text on navy background */
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.brand-subtitle {
+  font-size: 0.75rem;
+  color: var(--color-accent); /* Beautiful gold accent */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.125rem;
 }
 
 /* ===================== NAVIGAZIONE DESKTOP ===================== */
@@ -37,37 +71,45 @@
   margin: 0;
   padding: 0;
 }
-.nav-desktop a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  color: var(--color-accent);      /* testo e icone oro chiaro */
+.nav-link {
+  font-family: var(--font-sans); /* Clear, readable fonts: Inter, Lato, Source Sans 3 */
+  font-weight: 500;
+  font-size: 0.9375rem;
+  color: var(--color-accent); /* Gold text for premium feel */
   text-decoration: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+/* Professional hover states with gold accent */
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--color-on-dark); /* White text on hover */
+  background: var(--color-accent); /* Gold background on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(199, 158, 70, 0.3);
+}
+
+/* CTA Button Styling - Gold for maximum conversion */
+.nav-cta {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+  color: var(--color-primary) !important; /* Navy text on gold background */
   font-weight: 600;
-  font-size: clamp(0.9rem, 0.3vw + 0.8rem, 1rem);
-  padding: 0.4rem 0.8rem;
-  border-radius: var(--radius-pill);
-  transition: color 0.2s ease, background 0.2s ease;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(199, 158, 70, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
-/* Stato hover/focus/attivo per il menu desktop */
-.nav-desktop a:hover,
-.nav-desktop a:focus,
-.nav-desktop a.is-active {
-  color: var(--color-on-dark);
-  background: var(--color-accent);
+
+.nav-cta:hover,
+.nav-cta:focus {
+  background: linear-gradient(135deg, var(--color-accent-hover) 0%, var(--color-accent) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(199, 158, 70, 0.45);
+  color: var(--color-primary) !important;
 }
-/* Dimensioni fisse per le icone */
-.nav-desktop svg {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-/* Eventuale lettera del logo usata come icona */
-.nav-desktop .logo-letter {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-accent);
-}
+/* Icons removed - text-only professional navigation */
 
 /* ===================== NAVIGAZIONE MOBILE ===================== */
 
@@ -87,43 +129,75 @@
   max-width: 480px;
   margin: 0;
   padding: 0;
+  background: rgba(248, 249, 250, 0.8);
+  border-radius: 16px;
+  padding: var(--space-1);
 }
-.nav-mobile a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-accent);
+.nav-mobile-link {
+  font-family: var(--font-sans); /* Consistent readable typography */
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #374151;
   text-decoration: none;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  transition: background 0.2s ease, color 0.2s ease;
+  padding: var(--space-2) var(--space-3);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  text-align: center;
+  min-width: 80px;
 }
-/* Feedback al passaggio del mouse o al focus */
-.nav-mobile a:hover,
-.nav-mobile a:focus {
-  background: var(--color-primary-72);
+.nav-mobile-link:hover,
+.nav-mobile-link:focus {
+  color: #0B3C5D;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 6px rgba(164, 147, 123, 0.15);
 }
-/* Dimensioni delle icone in mobile */
-.nav-mobile svg {
-  width: 22px;
-  height: 22px;
+
+.nav-mobile-cta {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+  color: var(--color-primary) !important;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(199, 158, 70, 0.25);
 }
-/* Stile per la lettera del logo nella versione mobile */
-.logo-letter {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--color-accent);
+
+.nav-mobile-cta:hover,
+.nav-mobile-cta:focus {
+  background: linear-gradient(135deg, var(--color-accent-hover) 0%, var(--color-accent) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(199, 158, 70, 0.35);
 }
+/* Clean text-only mobile navigation - no icons needed */
 
 /* ===================== BREAKPOINT DESKTOP ===================== */
 
-/* A partire da 1024px di larghezza mostra la barra desktop e nasconde la mobile */
-@media (min-width: 1024px) {
+/* Responsive breakpoints for professional layout */
+@media (min-width: 768px) {
   .nav-desktop {
     display: block;
   }
   .nav-mobile {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-subtitle {
+    display: none;
+  }
+  
+  .header-section {
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+  }
+  
+  .nav-mobile ul {
+    max-width: 100%;
+  }
+  
+  .nav-mobile-link {
+    font-size: 0.8125rem;
+    min-width: 60px;
   }
 }
