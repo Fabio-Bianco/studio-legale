@@ -34,9 +34,8 @@ export default function Hero() {
             Prenota una consulenza
           </a>
 
-          {/* Sezione Chi Siamo con effetto cascata */}
+          {/* Card presentazione avvocatesse con effetto cascata */}
           <div className="hero-chi-siamo">
-            <h2 className="chi-siamo-title">Chi Siamo</h2>
           
           <div className="hero-cards">
             <article className="hero-card">
