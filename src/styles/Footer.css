@@ -1,0 +1,316 @@
+/* ===================================================================
+   FOOTER — Professional Legal Studio Footer
+   Colori: Navy (#0B3C5D) e Gold (#C79E46) per coerenza con il brand
+   =================================================================== */
+
+.footer-section {
+  background: var(--color-nav); /* Navy scuro per professionalità */
+  color: var(--color-on-dark);
+  border-top: 2px solid rgba(199, 158, 70, 0.3); /* Sottile accento oro */
+  position: relative;
+}
+
+/* Main Footer Container */
+.footer-container {
+  max-width: var(--container-inline);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+/* ===================== BRAND SECTION ===================== */
+.footer-brand {
+  text-align: center;
+}
+
+.footer-brand-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: var(--color-on-dark);
+  margin: 0 0 var(--space-1);
+  letter-spacing: -0.01em;
+}
+
+.footer-brand-subtitle {
+  font-size: 0.875rem;
+  color: var(--color-accent); /* Gold accent */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* ===================== CONTENT SECTIONS ===================== */
+.footer-heading {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-accent); /* Gold headings */
+  margin: 0 0 var(--space-2);
+  letter-spacing: -0.01em;
+}
+
+/* Contact Section */
+.footer-contact {
+  text-align: center;
+}
+
+.footer-contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: var(--space-2);
+}
+
+.contact-label {
+  font-size: 0.75rem;
+  color: rgba(248, 250, 252, 0.7); /* Muted white */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-link {
+  color: var(--color-on-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.contact-link:hover {
+  color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.contact-value {
+  color: var(--color-on-dark);
+  font-weight: 500;
+}
+
+/* Services Section */
+.footer-services {
+  text-align: center;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.footer-link {
+  color: rgba(248, 250, 252, 0.8);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  padding: 0.25rem 0;
+}
+
+.footer-link:hover {
+  color: var(--color-accent);
+  transform: translateX(4px);
+}
+
+/* CTA Section */
+.footer-cta {
+  text-align: center;
+}
+
+.footer-cta-text {
+  color: rgba(248, 250, 252, 0.8);
+  font-size: 0.9375rem;
+  margin: 0 0 var(--space-3);
+  line-height: 1.4;
+}
+
+.footer-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 1.75rem;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+  color: var(--color-primary); /* Navy text on gold */
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(199, 158, 70, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-cta-button:hover {
+  background: linear-gradient(135deg, var(--color-accent-hover) 0%, #e6b654 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(199, 158, 70, 0.35);
+}
+
+/* ===================== BOTTOM BAR ===================== */
+.footer-bottom {
+  border-top: 1px solid rgba(199, 158, 70, 0.2);
+  background: rgba(0, 0, 0, 0.2); /* Darker overlay */
+  backdrop-filter: blur(10px);
+}
+
+.footer-bottom-container {
+  max-width: var(--container-inline);
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.footer-copyright {
+  font-size: 0.8125rem;
+  color: rgba(248, 250, 252, 0.6);
+  margin: 0;
+  text-align: center;
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.footer-legal-link {
+  font-size: 0.8125rem;
+  color: rgba(248, 250, 252, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-legal-link:hover {
+  color: var(--color-accent);
+}
+
+.footer-separator {
+  color: rgba(248, 250, 252, 0.4);
+  font-size: 0.8125rem;
+}
+
+/* ===================== RESPONSIVE BREAKPOINTS ===================== */
+
+/* Tablet */
+@media (min-width: 768px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    text-align: left;
+  }
+  
+  .footer-brand {
+    text-align: left;
+  }
+  
+  .footer-contact,
+  .footer-services,
+  .footer-cta {
+    text-align: left;
+  }
+  
+  .footer-contact-item {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  .footer-links {
+    align-items: flex-start;
+  }
+  
+  .footer-bottom-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .footer-container {
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: var(--space-8);
+    padding: var(--space-8) var(--space-6);
+  }
+  
+  .footer-brand-title {
+    font-size: 1.5rem;
+  }
+  
+  .footer-contact-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .contact-label {
+    margin-bottom: 0.125rem;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .footer-container {
+    padding: var(--space-9) var(--space-6);
+  }
+}
+
+/* ===================== ACCESSIBILITY & MOBILE OPTIMIZATION ===================== */
+
+/* Mobile touch targets */
+.footer-link,
+.contact-link,
+.footer-cta-button,
+.footer-legal-link {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .footer-link,
+  .contact-link,
+  .footer-cta-button {
+    transition: none;
+    transform: none;
+  }
+  
+  .footer-link:hover,
+  .contact-link:hover {
+    transform: none;
+  }
+}
+
+/* Small mobile optimization */
+@media (max-width: 480px) {
+  .footer-container {
+    padding: var(--space-4) var(--space-3);
+    gap: var(--space-4);
+  }
+  
+  .footer-bottom-container {
+    padding: var(--space-2) var(--space-3);
+  }
+  
+  .footer-legal {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  
+  .footer-separator {
+    display: none;
+  }
+}
