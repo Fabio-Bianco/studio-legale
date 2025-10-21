@@ -12,6 +12,7 @@
   --color-muted:   #6B7280;        /* Text / Muted    */
   --color-surface: #FFFFFF;        /* Surface / Base  */
   --color-page:    #F8F9FA;        /* Surface / Page  */
+  --color-background: #F8F9FA;     /* Alias per compatibilità */
   --color-nav:     #0A334E;        /* Nav/Footer BG   */
   --color-border:  #E5E7EB;        /* Border / Light  */
   --color-on-dark: #F8FAFC;        /* Text on dark    */
@@ -54,8 +55,11 @@
   --space-5: 2rem;     /* 32 */
   --space-6: 3rem;     /* 48 */
   --space-7: 4rem;   /* 64 */
-  --space-8: 5rem;
-  --space-9: 6rem;     /* 64 */
+  --space-8: 5rem;     /* 80 */
+  --space-9: 6rem;     /* 96 */
+  --space-10: 7rem;    /* 112 */
+  --space-11: 8rem;    /* 128 */
+  --space-12: 9rem;    /* 144 */
 
   /* ====== Raggi & Ombre (rem) ====== */
   --radius-card: 1rem;        /* 16 */
