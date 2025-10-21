@@ -1,0 +1,58 @@
+/* ==============================
+   DESKTOP PREMIUM UX DETAILS
+   Focus management and essential interactions
+   ============================== */
+
+@media (min-width: 1025px) {
+  /* Scroll Progress Indicator */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-hover));
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 1px 3px rgba(199, 158, 70, 0.3);
+  }
+
+  /* Focus management for better UX */
+  .hero-button:focus-visible,
+  .nav-cta:focus-visible,
+  .main-cta-button:focus-visible,
+  .footer-cta-button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* Text selection styling */
+  ::selection {
+    background: rgba(199, 158, 70, 0.3);
+    color: var(--color-primary);
+  }
+  
+  ::-moz-selection {
+    background: rgba(199, 158, 70, 0.3);
+    color: var(--color-primary);
+  }
+
+  /* Performance optimizations */
+  .hero-button,
+  .team-card,
+  .activity-card {
+    transform: translateZ(0); /* Hardware acceleration */
+  }
+}
+
+/* ==============================
+   REDUCED MOTION SUPPORT
+   ============================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

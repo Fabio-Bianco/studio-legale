@@ -3,59 +3,6 @@
    Unità: rem + clamp()  |  No px rigidi
    ========================================= */
 
-/* ====== CSS RESET MODERNO ====== */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-#root,
-#__next {
-  isolation: isolate;
-}
-
 /* Base: 1rem = dimensione font del browser (di solito 16px) */
 :root {
   /* ====== Colori ====== */
@@ -259,7 +206,14 @@ button, a, input, select, textarea {
   min-width: 44px;
 }
 
-/* Additional mobile optimizations already covered in reset and body */
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+  /* Optimize text rendering */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 /* Better mobile focus states */
 @media (hover: none) and (pointer: coarse) {

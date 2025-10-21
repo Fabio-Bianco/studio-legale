@@ -1,64 +1,100 @@
 // src/components/sections/Hero.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/Hero.css";
+import heroImage from "../../assets/hero_figures_final.webp";
 /**
- * Hero component con background image e effetto cascata
+ * Hero component con background image, effetto cascata e sticky CTA mobile
  */
 export default function Hero() {
+  const [showStickyCTA, setShowStickyCTA] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show sticky CTA when user scrolls past hero (mobile only)
+      const heroHeight = window.innerHeight * 0.6; // 60vh threshold
+      const shouldShow = window.scrollY > heroHeight && window.innerWidth <= 768;
+      setShowStickyCTA(shouldShow);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <section className="hero" aria-labelledby="hero-title">
+
+      {/* Responsive Hero Image with Enhanced Art Direction */}
+      <div className="hero-image-wrapper">
+        <picture className="hero-picture">
+          {/* Mobile-optimized versions with srcset for performance */}
+          <source 
+            media="(max-width: 480px)" 
+            srcSet={`${heroImage} 480w`}
+            sizes="100vw"
+          />
+          <source 
+            media="(max-width: 768px)" 
+            srcSet={`${heroImage} 768w`}
+            sizes="100vw"
+          />
+          {/* Tablet version */}
+          <source 
+            media="(max-width: 1024px)" 
+            srcSet={`${heroImage} 1024w`}
+            sizes="100vw"
+          />
+          {/* Desktop version */}
+          <img 
+            className="hero-bg-image" 
+            src={heroImage} 
+            alt="Avvocati esperti in diritto civile e contrattuale - Studio legale professionale"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            role="img"
+            aria-describedby="hero-title"
+          />
+        </picture>
+        
+        {/* Enhanced mobile overlay with intelligent gradient */}
+        <div className="hero-mobile-overlay"></div>
+        
+        {/* Mobile contrast enhancer - adaptive based on image */}
+        <div className="hero-text-backdrop"></div>
+      </div>
+      
       <div className="hero-container">
         {/* Contenuto principale a sinistra */}
         <div className="hero-content">
+          <div className="hero-badge">
+            ⚖️ Oltre 500 casi risolti con successo
+          </div>
+          
           <h1 id="hero-title" className="hero-title">
-            Un impegno:
-            <br />
-            la tua tutela.
+            Tutela Legale
+            <span className="hero-title-highlight">Professionale</span>
           </h1>
 
           <p className="hero-tagline">
-            Prenota una consulenza personalizzata con noi.
+            <strong>Consulenza gratuita entro 24h</strong> — Soluzioni concrete per famiglia, contratti e recupero crediti Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium cumque quae quo vitae dolor quia exercitationem provident, veritatis iure earum eius! Saepe sint debitis earum a, eius nisi dolorem.
           </p>
 
-          <a href="#prenota" className="hero-button">
-            Prenota una consulenza
-          </a>
-
-          {/* Sezione Chi Siamo con effetto cascata */}
-          <div className="hero-chi-siamo">
-            <h2 className="chi-siamo-title">Chi Siamo</h2>
-          
-          <div className="hero-cards">
-            <article className="hero-card">
-              <div className="hero-card-media">
-                <div className="hero-card-icon">
-                  ⚖️
-                </div>
-              </div>
-              <div className="hero-card-body">
-                <h3 className="hero-card-name">Diritto di Famiglia</h3>
-                <p className="hero-card-text">
-                  Separazioni, divorzi, affidamento minori e mediazione familiare con approccio empatico e professionale.
-                </p>
-                <a href="#famiglia" className="hero-card-link">Scopri di più</a>
-              </div>
-            </article>
-
-            <article className="hero-card">
-              <div className="hero-card-media">
-                <div className="hero-card-icon">
-                  📋
-                </div>
-              </div>
-              <div className="hero-card-body">
-                <h3 className="hero-card-name">Diritto Civile</h3>
-                <p className="hero-card-text">
-                  Contratti, recupero crediti, responsabilità civile e diritto immobiliare con strategie mirate ed efficaci.
-                </p>
-                <a href="#civile" className="hero-card-link">Scopri di più</a>
-              </div>
-            </article>
+          <div className="hero-cta-group">
+            <a href="#prenota" className="hero-button hero-button-primary">
+              <span className="hero-button-text">Consulenza Gratuita Ora</span>
+              <span className="hero-button-subtitle">Risposta in 2 ore</span>
+              <span className="hero-button-icon">→</span>
+            </a>
+            <p className="hero-cta-trust">
+              ✓ Nessun impegno • ✓ Consulenza telefonica gratuita
+            </p>
           </div>
+          
+          {/* Mobile Sticky CTA - appears only on mobile scroll */}
+          <div className={`hero-sticky-cta ${showStickyCTA ? 'visible' : ''}`}>
+            <a href="#prenota" className="sticky-cta-button">
+              <span>Consulenza Gratuita</span>
+              <span className="sticky-cta-indicator">→</span>
+            </a>
           </div>
         </div>
       </div>
