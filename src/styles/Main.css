@@ -3,10 +3,11 @@
    ============================== */
 .main-section {
   background: var(--color-background);
-  padding-top: calc(var(--space-8) + 100px); /* Spazio per le card che scendono */
-  margin-top: -60px; /* Overlap con l'hero */
+  padding-top: var(--space-6); /* Padding normale per translateY negativo */
+  margin-top: 0; /* Nessun margin per effetto negativo */
   position: relative;
   z-index: 1; /* Sotto le card dell'hero */
+  border-radius: 24px 24px 0 0; /* Bordi arrotondati superiori */
 }
 
 .main-container {
@@ -47,9 +48,19 @@
 .activity-text { color: var(--color-muted); font-size: var(--fs-small); line-height: var(--lh-small); margin: 0; }
 
 @media (max-width: 1024px) {
+  .main-section {
+    padding-top: calc(var(--space-6) + 120px); /* Spazio per card cascata tablet */
+    margin-top: -60px;
+  }
   .activity-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
 @media (max-width: 640px) {
+  .main-section {
+    padding-top: calc(var(--space-4) + 80px); /* Spazio per card cascata mobile */
+    margin-top: -40px;
+    border-radius: 16px 16px 0 0; /* Bordi più piccoli su mobile */
+  }
   .activity-grid { grid-template-columns: 1fr; }
   .activity-card { text-align: center; }
   .activity-icon { margin-inline: auto; }
