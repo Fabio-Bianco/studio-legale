@@ -3,10 +3,10 @@
    ============================== */
 .main-section {
   background: var(--color-background);
-  padding-top: var(--space-6); /* Padding normale per translateY negativo */
-  margin-top: 0; /* Nessun margin per effetto negativo */
+  padding-top: var(--space-6); /* Padding normale */
+  margin-top: 0; /* Nessun margin per permettere overlap naturale */
   position: relative;
-  z-index: 1; /* Sotto le card dell'hero */
+  z-index: 1; /* Z-index normale, sotto le card hero (50) */
   border-radius: 24px 24px 0 0; /* Bordi arrotondati superiori */
 }
 
@@ -49,16 +49,16 @@
 
 @media (max-width: 1024px) {
   .main-section {
-    padding-top: calc(var(--space-6) + 120px); /* Spazio per card cascata tablet */
-    margin-top: -60px;
+    padding-top: var(--space-5); /* Padding normale per tablet */
+    margin-top: 0;
   }
   .activity-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 640px) {
   .main-section {
-    padding-top: calc(var(--space-4) + 80px); /* Spazio per card cascata mobile */
-    margin-top: -40px;
+    padding-top: var(--space-4); /* Padding normale per mobile */
+    margin-top: 0;
     border-radius: 16px 16px 0 0; /* Bordi più piccoli su mobile */
   }
   .activity-grid { grid-template-columns: 1fr; }
