@@ -211,13 +211,30 @@
 }
 
 .activity-results {
-  background: rgba(34, 197, 94, 0.1);
-  color: #065f46;
+  /* Silicon Valley premium credential design */
+  background: linear-gradient(135deg, 
+    rgba(11, 60, 93, 0.08) 0%, 
+    rgba(199, 158, 70, 0.06) 50%, 
+    rgba(11, 60, 93, 0.04) 100%
+  );
+  color: var(--color-primary);
   padding: 0.75rem 1rem;
-  border-radius: 8px;
+  border-radius: 12px; /* More modern radius */
   font-size: 0.875rem;
   font-weight: 600;
-  border: 1px solid rgba(34, 197, 94, 0.2);
+  border: 1px solid rgba(199, 158, 70, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.activity-results::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--color-accent) 0%, var(--color-primary) 100%);
 }
 
 @media (max-width: 1024px) {

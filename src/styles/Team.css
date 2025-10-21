@@ -230,10 +230,27 @@
 .achievement-number {
   display: block;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--color-primary);
-  margin-bottom: 0.25rem;
+  font-weight: 800;
+  font-size: 1.75rem; /* Increased impact */
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  position: relative;
+  text-shadow: 0 2px 4px rgba(199, 158, 70, 0.15);
+}
+
+.achievement-number::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  opacity: 0.7;
 }
 
 .achievement-label {
@@ -246,14 +263,38 @@
    CREDENTIALS
    ============================== */
 .team-card-credentials {
-  background: rgba(34, 197, 94, 0.08);
-  color: #065f46;
+  /* Silicon Valley premium credential styling */
+  background: linear-gradient(135deg, 
+    rgba(199, 158, 70, 0.12) 0%, 
+    rgba(220, 173, 74, 0.08) 50%, 
+    rgba(11, 60, 93, 0.06) 100%
+  );
+  color: var(--color-primary);
   padding: var(--space-3);
-  border-radius: 12px;
+  border-radius: 16px; /* More premium feel */
   font-size: 0.875rem;
   font-weight: 600;
   text-align: center;
-  border: 1px solid rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(199, 158, 70, 0.3);
+  position: relative;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(199, 158, 70, 0.08);
+}
+
+.team-card-credentials::before {
+  content: '⚖️'; /* Legal symbol for premium positioning */
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  box-shadow: 0 2px 8px rgba(199, 158, 70, 0.3);
 }
 
 /* ==============================
@@ -271,11 +312,27 @@
 
 .values-title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
-  color: #0B3C5D;
+  font-weight: 800; /* More authoritative */
+  font-size: clamp(1.75rem, 2.5vw + 1rem, 2.5rem); /* Bigger presence */
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: var(--space-5);
   text-align: center;
+  position: relative;
+}
+
+.values-title::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  border-radius: 2px;
 }
 
 .values-grid {
@@ -310,25 +367,66 @@
 }
 
 .value-item {
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.9) 0%, 
-    rgba(250, 248, 245, 0.8) 100%
+  /* Silicon Valley premium card design */
+  background: linear-gradient(145deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(250, 248, 245, 0.9) 30%, 
+    rgba(199, 158, 70, 0.04) 70%, 
+    rgba(11, 60, 93, 0.03) 100%
   );
-  border: 1px solid rgba(210, 198, 185, 0.2);
-  border-radius: 12px;
-  padding: var(--space-3); /* Reduced padding for compactness */
+  border: 1px solid rgba(199, 158, 70, 0.2);
+  border-radius: 16px; /* More modern */
+  padding: var(--space-4); /* Increased for premium feel */
   text-align: center;
-  box-shadow: 0 4px 12px rgba(164, 147, 123, 0.06);
+  box-shadow: 
+    0 8px 25px rgba(199, 158, 70, 0.08),
+    0 3px 10px rgba(11, 60, 93, 0.05);
+  position: relative;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.value-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, transparent 100%);
+  border-radius: 16px 16px 0 0;
+}
+
+.value-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 35px rgba(199, 158, 70, 0.15),
+    0 6px 20px rgba(11, 60, 93, 0.08);
+  border-color: rgba(199, 158, 70, 0.4);
 }
 
 /* Icon styles removed for professional appearance */
 
 .value-name {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.125rem;
-  color: #0B3C5D;
-  margin-bottom: var(--space-1);
+  font-weight: 700;
+  font-size: 1.25rem;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-2);
+  position: relative;
+}
+
+.value-name::before {
+  content: '◆'; /* Premium diamond symbol */
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-accent);
+  font-size: 12px;
 }
 
 .value-text {
@@ -341,13 +439,37 @@
    TRUST SECTION
    ============================== */
 .team-trust {
-  background: linear-gradient(135deg, 
-    rgba(11, 60, 93, 0.05) 0%, 
-    rgba(199, 158, 70, 0.08) 100%
+  /* Enterprise-grade statistics section */
+  background: linear-gradient(145deg, 
+    rgba(11, 60, 93, 0.08) 0%, 
+    rgba(199, 158, 70, 0.12) 30%, 
+    rgba(220, 173, 74, 0.08) 70%, 
+    rgba(11, 60, 93, 0.06) 100%
   );
-  padding: var(--space-6);
-  border-radius: 20px;
-  border: 1px solid rgba(11, 60, 93, 0.1);
+  padding: var(--space-8) var(--space-6);
+  border-radius: 24px;
+  border: 2px solid rgba(199, 158, 70, 0.2);
+  position: relative;
+  backdrop-filter: blur(15px);
+  box-shadow: 
+    0 16px 40px rgba(199, 158, 70, 0.12),
+    0 8px 20px rgba(11, 60, 93, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.team-trust::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    var(--color-accent) 0%, 
+    var(--color-primary) 50%, 
+    var(--color-accent) 100%
+  );
+  border-radius: 24px 24px 0 0;
 }
 
 .trust-stats {
@@ -365,11 +487,27 @@
 
 .trust-number {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.75rem, 2vw + 1rem, 2.25rem);
-  color: var(--color-primary);
-  margin-bottom: 0.25rem;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-weight: 800;
+  font-size: clamp(2rem, 3vw + 1rem, 3rem); /* Bigger presence */
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(199, 158, 70, 0.2);
+  position: relative;
+}
+
+.trust-number::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 1px;
 }
 
 .trust-label {
