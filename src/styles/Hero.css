@@ -33,7 +33,7 @@
 }
 
 /* ==============================
-   IMMAGINE DI BACKGROUND HTML
+   RESPONSIVE HERO IMAGE WITH ART DIRECTION
    ============================== */
 .hero-image-wrapper {
   position: absolute;
@@ -43,12 +43,34 @@
   border-radius: inherit;
 }
 
+.hero-picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .hero-bg-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Opzioni: cover (riempie tutto) o contain (mostra tutta l'immagine) */
-  opacity: 0.7; /* Più visibile */
-  filter: brightness(0.9) contrast(1.05); /* Leggero aumento brightness e contrasto */
+  object-fit: cover;
+  opacity: 0.7;
+  filter: brightness(0.9) contrast(1.05);
+  object-position: center center;
+  transition: all 0.3s ease;
+  /* Prevent touch interference on mobile */
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Mobile overlay for enhanced text readability */
+.hero-mobile-overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  z-index: 1;
+  transition: all 0.3s ease;
 }
 
 .hero-container {
@@ -219,24 +241,104 @@
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 65vh; /* Più spazio anche su mobile */
+    min-height: 60vh; /* Ottimizzato per mobile */
     padding: var(--space-3) 0;
+  }
+
+  /* Mobile Image Optimizations */
+  .hero-bg-image {
+    /* Mobile: Focus on upper center for better composition */
+    object-position: center 25%; 
+    opacity: 0.5; /* Reduced opacity for better text readability */
+    filter: brightness(0.8) contrast(1.1) blur(0.5px);
+    /* Subtle mobile parallax - only if motion is not reduced */
+    transform: scale(1.02);
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-bg-image {
+      animation: subtle-float 8s ease-in-out infinite;
+    }
+  }
+  
+  @keyframes subtle-float {
+    0%, 100% { transform: scale(1.02) translateY(0px); }
+    50% { transform: scale(1.025) translateY(-2px); }
+  }
+
+  /* Enhanced mobile overlay for text readability - lighter */
+  .hero-mobile-overlay {
+    background: linear-gradient(
+      135deg, 
+      rgba(11, 60, 93, 0.25) 0%,
+      rgba(0, 0, 0, 0.15) 40%,
+      transparent 80%
+    );
+    opacity: 1;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 3; /* Above overlay */
   }
 
   .hero-title {
     font-size: clamp(1.5rem, 3.5vw, 2rem);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow for mobile */
   }
 
   .hero-tagline {
     font-size: 0.9rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   }
 
   .hero-button {
-    padding: 0.875rem 2rem; /* Mantiene proporzioni anche su mobile */
-    font-size: 1rem; /* Font adeguato per mobile */
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    box-shadow: 
+      0 6px 20px rgba(199, 158, 70, 0.4),
+      0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Small mobile optimization */
+@media (max-width: 480px) {
+  .hero {
+    min-height: 55vh; /* Più compatto su schermi piccoli */
   }
 
+  /* Small mobile: Focus even more on subject */
+  .hero-bg-image {
+    object-position: center 20%;
+    opacity: 0.4; /* Even less opacity for tiny screens */
+    transform: scale(1.05); /* Slight zoom for better mobile composition */
+  }
 
+  /* Balanced overlay on small mobile */
+  .hero-mobile-overlay {
+    background: linear-gradient(
+      135deg, 
+      rgba(11, 60, 93, 0.3) 0%,
+      rgba(0, 0, 0, 0.2) 50%,
+      transparent 85%
+    );
+    opacity: 1;
+  }
 
+  .hero-container {
+    padding-inline: var(--space-3);
+  }
 
+  .hero-content {
+    max-width: 100%; /* Full width on small mobile */
+  }
+
+  .hero-title {
+    font-size: clamp(1.375rem, 6vw, 1.75rem);
+  }
+
+  .hero-tagline {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
 }

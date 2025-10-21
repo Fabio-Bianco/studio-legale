@@ -1,8 +1,35 @@
 // src/components/sections/Main.jsx
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/Main.css";
 
 export default function Main() {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Detect mobile screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+      // Auto-expand on desktop
+      if (window.innerWidth > 768) {
+        setIsExpanded(true);
+      }
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const toggleExpanded = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsExpanded(!isExpanded);
+      setIsLoading(false);
+    }, 150); // Small delay for smooth UX
+  };
   return (
     <main className="main-section" aria-labelledby="activities-title">
       <div className="main-container">
@@ -22,7 +49,8 @@ export default function Main() {
           <h2 id="activities-title" className="main-title">Come Ti Aiutiamo</h2>
           <p className="main-subtitle">Soluzioni concrete per ogni situazione legale</p>
 
-          <div className="activity-grid">
+          <div className={`activity-grid ${isMobile && !isExpanded ? 'collapsed' : 'expanded'}`}>
+            {/* Card 1 - Always visible */}
             <div className="activity-card">
               <div className="activity-header">
                 <div className="activity-category">Diritto di Famiglia</div>
@@ -38,6 +66,7 @@ export default function Main() {
               </div>
             </div>
 
+            {/* Card 2 - Always visible */}
             <div className="activity-card">
               <div className="activity-header">
                 <div className="activity-category">Diritto Contrattuale</div>
@@ -53,7 +82,8 @@ export default function Main() {
               </div>
             </div>
 
-            <div className="activity-card">
+            {/* Collapsible Cards - Hidden on mobile when collapsed */}
+            <div className={`activity-card ${isMobile && !isExpanded ? 'mobile-hidden' : ''}`}>
               <div className="activity-header">
                 <div className="activity-category">Recupero Crediti</div>
                 <div className="activity-badge">Risultati Garantiti</div>
@@ -68,7 +98,7 @@ export default function Main() {
               </div>
             </div>
 
-            <div className="activity-card">
+            <div className={`activity-card ${isMobile && !isExpanded ? 'mobile-hidden' : ''}`}>
               <div className="activity-header">
                 <div className="activity-category">Diritto d'Impresa</div>
                 <div className="activity-badge">Legal Protection</div>
@@ -83,6 +113,31 @@ export default function Main() {
               </div>
             </div>
           </div>
+
+          {/* Mobile Toggle Button */}
+          {isMobile && (
+            <div className="mobile-toggle-section">
+              {!isExpanded && (
+                <div className="hidden-cards-indicator">
+                  <span className="indicator-text">+2 servizi aggiuntivi</span>
+                </div>
+              )}
+              <button 
+                className={`mobile-toggle-btn ${isLoading ? 'loading' : ''}`}
+                onClick={toggleExpanded}
+                aria-expanded={isExpanded}
+                aria-controls="activity-grid"
+                disabled={isLoading}
+              >
+                <span className="toggle-text">
+                  {isLoading ? 'Caricamento...' : (isExpanded ? 'Mostra Meno' : 'Scopri Altri Servizi')}
+                </span>
+                <span className={`toggle-icon ${isExpanded ? 'rotated' : ''} ${isLoading ? 'spinning' : ''}`}>
+                  {isLoading ? '⟳' : '▼'}
+                </span>
+              </button>
+            </div>
+          )}
 
           {/* CTA Section integrata */}
           <div className="main-cta-section">

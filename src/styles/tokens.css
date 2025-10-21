@@ -181,8 +181,51 @@ h3, .h3 {
 .footer a:hover { color: var(--color-accent-hover); }
 
 /* =============================
-   Accessibilità / Motion safety
+   Accessibilità / Motion safety / Mobile Optimization
    ============================= */
+
+/* Mobile-first optimizations */
+html {
+  /* Prevent zoom on inputs in iOS */
+  -webkit-text-size-adjust: 100%;
+  /* Smooth scrolling for mobile */
+  scroll-behavior: smooth;
+  /* Better touch scrolling */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optimize mobile touch targets */
+button, a, input, select, textarea {
+  /* Minimum touch target size 44px */
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+  /* Optimize text rendering */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Better mobile focus states */
+@media (hover: none) and (pointer: coarse) {
+  /* Touch device specific styles */
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Larger touch targets */
+  .nav-mobile-link, .nav-link {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }

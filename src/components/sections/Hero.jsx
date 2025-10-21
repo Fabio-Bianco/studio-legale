@@ -8,13 +8,30 @@ import heroImage from "../../assets/hero_figures_final.webp";
 export default function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
-      {/* Immagine di background */}
+
+      {/* Responsive Hero Image with Art Direction */}
       <div className="hero-image-wrapper">
-        <img 
-          className="hero-bg-image" 
-          src={heroImage} 
-          alt="Studio legale - Giustizia e professionalità" 
-        />
+        <picture className="hero-picture">
+          {/* Mobile-optimized version */}
+          <source 
+            media="(max-width: 768px)" 
+            srcSet={heroImage}
+          />
+          {/* Desktop version */}
+          <img 
+            className="hero-bg-image" 
+            src={heroImage} 
+            alt="Avvocati esperti in diritto civile e contrattuale - Studio legale professionale"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            role="img"
+            aria-describedby="hero-title"
+          />
+        </picture>
+        
+        {/* Mobile overlay for better text contrast */}
+        <div className="hero-mobile-overlay"></div>
       </div>
       
       <div className="hero-container">

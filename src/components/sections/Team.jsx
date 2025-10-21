@@ -17,28 +17,34 @@ export default function Team() {
             Chi Siamo
           </div>
           <h2 id="team-title" className="team-title">
-            Esperienza al Vostro Servizio
+            <span className="title-desktop">Esperienza al Vostro Servizio</span>
+            <span className="title-mobile">Le Nostre Esperte</span>
           </h2>
           <p className="team-subtitle">
-            <strong>15 anni di eccellenza legale</strong> — Un team di professioniste specializzate in diritto civile, 
-            famiglia e contratti. La nostra missione è trasformare la complessità legale in soluzioni concrete e accessibili.
+            <span className="subtitle-desktop">
+              <strong>15 anni di eccellenza legale</strong> — Un team di professioniste specializzate in diritto civile, 
+              famiglia e contratti. La nostra missione è trasformare la complessità legale in soluzioni concrete e accessibili.
+            </span>
+            <span className="subtitle-mobile">
+              <strong>15 anni di esperienza</strong> in diritto civile e contratti.
+            </span>
           </p>
           
           {/* Inline Trust Stats for compact layout */}
           <div className="team-inline-stats">
-            <div className="inline-stat">
+            <div className="inline-stat essential">
               <span className="inline-stat-number">500+</span>
               <span className="inline-stat-label">Casi Risolti</span>
             </div>
-            <div className="inline-stat">
+            <div className="inline-stat essential">
               <span className="inline-stat-number">15+</span>
               <span className="inline-stat-label">Anni Esperienza</span>
             </div>
-            <div className="inline-stat">
+            <div className="inline-stat secondary">
               <span className="inline-stat-number">98%</span>
               <span className="inline-stat-label">Clienti Soddisfatti</span>
             </div>
-            <div className="inline-stat">
+            <div className="inline-stat secondary">
               <span className="inline-stat-number">24h</span>
               <span className="inline-stat-label">Tempo Risposta</span>
             </div>
