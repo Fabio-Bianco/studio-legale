@@ -1,21 +1,46 @@
 // src/components/sections/Hero.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/Hero.css";
 import heroImage from "../../assets/hero_figures_final.webp";
 /**
- * Hero component con background image e effetto cascata
+ * Hero component con background image, effetto cascata e sticky CTA mobile
  */
 export default function Hero() {
+  const [showStickyCTA, setShowStickyCTA] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show sticky CTA when user scrolls past hero (mobile only)
+      const heroHeight = window.innerHeight * 0.6; // 60vh threshold
+      const shouldShow = window.scrollY > heroHeight && window.innerWidth <= 768;
+      setShowStickyCTA(shouldShow);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <section className="hero" aria-labelledby="hero-title">
 
-      {/* Responsive Hero Image with Art Direction */}
+      {/* Responsive Hero Image with Enhanced Art Direction */}
       <div className="hero-image-wrapper">
         <picture className="hero-picture">
-          {/* Mobile-optimized version */}
+          {/* Mobile-optimized versions with srcset for performance */}
+          <source 
+            media="(max-width: 480px)" 
+            srcSet={`${heroImage} 480w`}
+            sizes="100vw"
+          />
           <source 
             media="(max-width: 768px)" 
-            srcSet={heroImage}
+            srcSet={`${heroImage} 768w`}
+            sizes="100vw"
+          />
+          {/* Tablet version */}
+          <source 
+            media="(max-width: 1024px)" 
+            srcSet={`${heroImage} 1024w`}
+            sizes="100vw"
           />
           {/* Desktop version */}
           <img 
@@ -30,8 +55,11 @@ export default function Hero() {
           />
         </picture>
         
-        {/* Mobile overlay for better text contrast */}
+        {/* Enhanced mobile overlay with intelligent gradient */}
         <div className="hero-mobile-overlay"></div>
+        
+        {/* Mobile contrast enhancer - adaptive based on image */}
+        <div className="hero-text-backdrop"></div>
       </div>
       
       <div className="hero-container">
@@ -51,16 +79,23 @@ export default function Hero() {
           </p>
 
           <div className="hero-cta-group">
-            <a href="#prenota" className="hero-button">
+            <a href="#prenota" className="hero-button hero-button-primary">
               <span className="hero-button-text">Consulenza Gratuita Ora</span>
               <span className="hero-button-subtitle">Risposta in 2 ore</span>
+              <span className="hero-button-icon">→</span>
             </a>
             <p className="hero-cta-trust">
               ✓ Nessun impegno • ✓ Consulenza telefonica gratuita
             </p>
           </div>
-
-
+          
+          {/* Mobile Sticky CTA - appears only on mobile scroll */}
+          <div className={`hero-sticky-cta ${showStickyCTA ? 'visible' : ''}`}>
+            <a href="#prenota" className="sticky-cta-button">
+              <span>Consulenza Gratuita</span>
+              <span className="sticky-cta-indicator">→</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

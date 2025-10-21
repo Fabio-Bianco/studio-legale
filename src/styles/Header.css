@@ -127,28 +127,44 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 48px;
-  height: 48px;
-  background: transparent;
-  border: none;
+  width: 52px; /* Increased for better touch target */
+  height: 52px; /* Increased for better touch target */
+  background: rgba(199, 158, 70, 0.05);
+  border: 1px solid rgba(199, 158, 70, 0.2);
+  border-radius: 12px;
   cursor: pointer;
   padding: 0;
   z-index: 1001;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
 }
 
 @media (max-width: 768px) {
   .hamburger-btn {
     display: flex;
   }
+  
+  .hamburger-btn:hover {
+    background: rgba(199, 158, 70, 0.1);
+    border-color: rgba(199, 158, 70, 0.4);
+    transform: scale(1.05);
+  }
+  
+  .hamburger-btn:active {
+    transform: scale(0.95);
+    background: rgba(199, 158, 70, 0.15);
+  }
 }
 
 .hamburger-line {
-  width: 24px;
-  height: 2px;
-  background: var(--color-accent);
-  margin: 2px 0;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 26px;
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+  margin: 3px 0;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Spring easing */
   transform-origin: center;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(199, 158, 70, 0.2);
 }
 
 /* Hamburger animation to X */
@@ -371,28 +387,44 @@
 }
 /* ===================== RESPONSIVE BREAKPOINTS ===================== */
 
-/* Desktop - Full navigation visible */
+/* Desktop - Professional Navigation Excellence */
 @media (min-width: 769px) {
   .header-section {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: var(--space-3) var(--space-4);
+    padding: var(--space-4) var(--space-6); /* More spacious desktop padding */
+    border-bottom-width: 2px; /* Stronger border for desktop */
   }
   
   .header-brand {
     align-items: flex-start;
     text-align: left;
+    transition: transform 0.3s ease;
   }
   
+
+  
   .nav-desktop ul {
-    gap: var(--space-4);
+    gap: var(--space-5); /* More spacing between nav items */
   }
   
   .nav-link {
-    font-size: 0.9375rem;
-    padding: var(--space-2) var(--space-3);
+    font-size: 1rem; /* Slightly larger for desktop */
+    padding: var(--space-3) var(--space-4);
+    position: relative;
+    overflow: hidden;
   }
+  
+
+  
+  /* Enhanced CTA styling for desktop */
+  .nav-cta {
+    position: relative;
+    overflow: hidden;
+  }
+  
+
 }
 
 /* Large desktop */

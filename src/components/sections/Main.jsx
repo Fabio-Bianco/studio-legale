@@ -34,20 +34,11 @@ export default function Main() {
     <main className="main-section" aria-labelledby="activities-title">
       <div className="main-container">
         
-        {/* Bridge Section - Collegamento con Hero */}
-        <section className="main-bridge">
-          <div className="bridge-content">
-            <h2 className="bridge-title">Dalla Consulenza alla Soluzione</h2>
-            <p className="bridge-subtitle">
-              Le nostre specializzazioni al servizio del tuo caso specifico
-            </p>
-          </div>
-        </section>
-
-        {/* Aree di Attività (icone locali) */}
+        {/* Aree di Attività - Sezione principale */}
         <section className="activities" aria-labelledby="activities-title">
-          <h2 id="activities-title" className="main-title">Come Ti Aiutiamo</h2>
-          <p className="main-subtitle">Soluzioni concrete per ogni situazione legale</p>
+          <h2 id="activities-title" className="main-title">Dalla Consulenza alla Soluzione</h2>
+          <p className="main-subtitle">Le nostre specializzazioni</p>
+          <p className="main-description">Soluzioni concrete per ogni situazione legale</p>
 
           <div className={`activity-grid ${isMobile && !isExpanded ? 'collapsed' : 'expanded'}`}>
             {/* Card 1 - Always visible */}

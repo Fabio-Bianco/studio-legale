@@ -637,6 +637,71 @@
   }
 }
 
+/* Desktop Executive Presentation */
+@media (min-width: 1025px) {
+  .team-section {
+    padding: var(--space-9) 0; /* More dramatic spacing on desktop */
+  }
+  
+  .team-container {
+    max-width: 1400px; /* Expanded container for desktop */
+  }
+  
+  /* Symmetric layout for team cards */
+  .team-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Symmetric layout */
+    gap: var(--space-6); /* Consistent gaps */
+    align-items: stretch; /* Same height cards */
+  }
+  
+  .team-card {
+    height: 100%; /* Ensure equal height */
+  }
+  
+  /* Enhanced desktop stats presentation */
+  .team-inline-stats {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+    padding: var(--space-4);
+    margin-top: var(--space-5);
+  }
+  
+  .inline-stat {
+    padding: var(--space-3);
+  }
+  
+  .inline-stat-number {
+    font-size: 2rem; /* Bigger numbers for desktop impact */
+  }
+  
+  /* Values section desktop enhancement */
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+/* Tablet optimizations - show all stats */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Show all stats on tablet and up */
+  .inline-stat.secondary {
+    display: block;
+  }
+  
+  /* 4-column layout for all stats on tablet */
+  .team-inline-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .inline-stat {
+    text-align: center;
+    padding: var(--space-2);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+  }
+}
+
 .value-item {
   /* Silicon Valley premium card design */
   background: linear-gradient(145deg, 
@@ -668,13 +733,7 @@
   border-radius: 16px 16px 0 0;
 }
 
-.value-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 
-    0 12px 35px rgba(199, 158, 70, 0.15),
-    0 6px 20px rgba(11, 60, 93, 0.08);
-  border-color: rgba(199, 158, 70, 0.4);
-}
+
 
 /* Icon styles removed for professional appearance */
 
