@@ -1,16 +1,20 @@
+// src/components/layout/Footer.jsx
+import React from 'react';
+import { Link } from 'react-router-dom';  
 import '../../styles/Footer.css';
 
 export default function Footer() {
   return (
     <footer className="footer-section">
       <div className="footer-container">
+        
         {/* Brand Section */}
         <div className="footer-brand">
           <h3 className="footer-brand-title">Studio Legale Professionale</h3>
           <p className="footer-brand-subtitle">Esperienza • Competenza • Risultati</p>
         </div>
 
-        {/* Contact Info */}
+        {/* Contact Info - Link a /contact per info generali */}
         <div className="footer-contact">
           <h4 className="footer-heading">Contatti</h4>
           <div className="footer-contact-item">
@@ -23,45 +27,62 @@ export default function Footer() {
           </div>
           <div className="footer-contact-item">
             <span className="contact-label">Indirizzo</span>
-            <span className="contact-value">Via Roma 123, Milano</span>
+            <Link to="/contact" className="contact-link">Via Roma 123, Milano</Link>  {/* 📍 Info dettagliate */}
           </div>
         </div>
 
-        {/* Services */}
+        {/* Services Links */}
         <div className="footer-services">
           <h4 className="footer-heading">Servizi</h4>
           <ul className="footer-links">
-            <li><a href="#civile" className="footer-link">Diritto Civile</a></li>
-            <li><a href="#penale" className="footer-link">Diritto Penale</a></li>
-            <li><a href="#aziendale" className="footer-link">Diritto Aziendale</a></li>
-            <li><a href="#famiglia" className="footer-link">Diritto di Famiglia</a></li>
+            <li><Link to="/services#famiglia" className="footer-link">Diritto di Famiglia</Link></li>
+            <li><Link to="/services#civile" className="footer-link">Diritto Civile</Link></li>
+            <li><Link to="/services#impresa" className="footer-link">Diritto d'Impresa</Link></li>
+            <li><Link to="/services#recupero" className="footer-link">Recupero Crediti</Link></li>
           </ul>
         </div>
 
-        {/* CTA */}
+        {/* 🎯 CTA Section - CONVERSION FOCUS */}
         <div className="footer-cta">
-          <h4 className="footer-heading">Consulenza Gratuita</h4>
-          <p className="footer-cta-text">Ricevi assistenza legale professionale</p>
-          <a href="#prenota" className="footer-cta-button">
-            Contattaci Ora
-          </a>
+          <h4 className="footer-heading">Hai Bisogno di Aiuto?</h4>
+          <p className="footer-cta-text">
+            Ricevi una consulenza legale gratuita entro 24 ore
+          </p>
+          {/* ✅ LINK PRINCIPALE A CONSULTATION */}
+          <Link to="/consultation" className="footer-cta-button">
+            Consulenza Gratuita Ora
+          </Link>
+          
+          {/* Link secondario a contatti generali */}
+          <Link 
+            to="/contact" 
+            style={{
+              display: 'block',
+              marginTop: 'var(--space-2)',
+              fontSize: 'var(--fs-small)',
+              color: 'var(--color-muted)',
+              textDecoration: 'none'
+            }}
+          >
+            📞 Oppure visualizza tutti i contatti
+          </Link>
         </div>
+
       </div>
 
-      {/* Bottom Bar */}
+      {/* Bottom Section */}
       <div className="footer-bottom">
         <div className="footer-bottom-container">
           <p className="footer-copyright">
             © 2025 Studio Legale Professionale. Tutti i diritti riservati.
           </p>
           <div className="footer-legal">
-            <a href="#privacy" className="footer-legal-link">Privacy Policy</a>
+            <Link to="/privacy" className="footer-legal-link">Privacy Policy</Link>
             <span className="footer-separator">•</span>
-            <a href="#terms" className="footer-legal-link">Termini di Servizio</a>
+            <Link to="/terms" className="footer-legal-link">Termini di Servizio</Link>
           </div>
         </div>
       </div>
     </footer>
   );
 }
-    

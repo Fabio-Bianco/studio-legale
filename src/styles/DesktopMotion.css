@@ -1,0 +1,44 @@
+/* ==============================
+   DESKTOP MOTION DESIGN SYSTEM
+   Essential animations for professional UX
+   ============================== */
+
+/* ==============================
+   PERFORMANCE OPTIMIZATIONS
+   ============================== */
+@media (min-width: 1025px) {
+  /* GPU acceleration for smooth animations */
+  .hero-button,
+  .team-card,
+  .activity-card,
+  .nav-cta,
+  .main-cta-button {
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+  
+  /* Contain layout shifts */
+  .hero-container,
+  .team-container,
+  .main-container {
+    contain: layout style;
+  }
+}
+
+/* ==============================
+   REDUCED MOTION RESPECT
+   ============================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .hero::before {
+    display: none;
+  }
+}

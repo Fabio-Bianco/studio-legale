@@ -1,0 +1,12 @@
+/* src/styles/Layout.css */
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1;
+  /* Il contenuto prende tutto lo spazio disponibile */
+  /* Footer sempre in fondo anche con poco contenuto */
+}

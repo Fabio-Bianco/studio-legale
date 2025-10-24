@@ -1,22 +1,16 @@
-import Header from "../components/layout/Header.jsx";
-import Hero from "../components/sections/Hero.jsx";
-import Team from "../components/sections/Team.jsx";
-import Main from "../components/sections/Main.jsx";
-import Footer from "../components/layout/Footer.jsx";
-import ScrollProgress from "../components/desktop/ScrollProgress.jsx";
+// src/pages/Home.jsx - DOPO
+import React from 'react';
+import Layout from '../components/layout/Layout';
+import Hero from '../components/sections/Hero';
+import Team from '../components/sections/Team';
+import Main from '../components/sections/Main';
 
 export default function Home() {
   return (
-    <>
-      {/* Desktop Premium UX Components */}
-      <ScrollProgress />
-      
-      {/* Main Layout */}
-      <Header />
+    <Layout className="home-page">
       <Hero />
       <Team />
       <Main />
-      <Footer />
-    </>
+    </Layout>
   );
 }

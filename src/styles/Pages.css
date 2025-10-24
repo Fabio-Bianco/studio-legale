@@ -1,0 +1,199 @@
+/* src/styles/Pages.css */
+
+/* ==============================
+   COMMON PAGE STYLES
+   ============================== */
+
+/* Hero Section - Common to all pages */
+.page-hero {
+  padding: var(--section-y) 0;
+  background: 
+    linear-gradient(135deg, 
+      rgba(211, 201, 189, 0.4) 0%, 
+      rgba(217, 208, 195, 0.35) 15%, 
+      rgba(224, 214, 201, 0.3) 30%, 
+      rgba(196, 184, 168, 0.25) 45%, 
+      rgba(211, 198, 181, 0.3) 60%, 
+      rgba(199, 186, 165, 0.35) 75%, 
+      rgba(183, 167, 144, 0.4) 85%, 
+      rgba(164, 147, 123, 0.45) 95%, 
+      rgba(152, 138, 114, 0.5) 100%
+    );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-primary);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero-container {
+  max-width: var(--container-inline);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero-title {
+  font-size: var(--fs-h1);
+  margin-bottom: var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-primary);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-hero-description {
+  font-size: var(--fs-body);
+  opacity: 0.95;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+/* Content Sections */
+.page-section {
+  padding: var(--section-y) 0;
+}
+
+.page-container {
+  max-width: var(--container-inline);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+/* Card Grid Layout */
+.page-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.page-card {
+  background: var(--color-surface);
+  padding: var(--space-6);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.page-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.page-card-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-3);
+  display: block;
+}
+
+.page-card-title {
+  font-size: var(--fs-h3);
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+}
+
+.page-card-content {
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.page-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.page-card-list li {
+  margin-bottom: var(--space-2);
+  padding-left: var(--space-4);
+  position: relative;
+}
+
+.page-card-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+/* Contact Info Styles */
+.contact-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-hero {
+    padding: var(--space-6) 0;
+  }
+  
+  .page-hero-title {
+    font-size: var(--fs-h2);
+  }
+  
+  .page-card-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .page-card {
+    padding: var(--space-4);
+  }
+  
+  .page-card-icon {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-hero-container,
+  .page-container {
+    padding: 0 var(--space-3);
+  }
+  
+  .page-card {
+    padding: var(--space-3);
+    border-radius: 12px;
+  }
+  
+  .page-card-icon {
+    font-size: 2rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .page-card {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .page-card {
+    transition: none;
+  }
+  
+  .page-card:hover {
+    transform: none;
+  }
+}

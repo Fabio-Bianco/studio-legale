@@ -1,5 +1,6 @@
 // src/components/sections/Hero.jsx
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "../../styles/Hero.css";
 import heroImage from "../../assets/hero_figures_final.webp";
 /**
@@ -79,11 +80,11 @@ export default function Hero() {
           </p>
 
           <div className="hero-cta-group">
-            <a href="#prenota" className="hero-button hero-button-primary">
+            <Link to="/consultation" className="hero-button hero-button-primary">
               <span className="hero-button-text">Consulenza Gratuita Ora</span>
               <span className="hero-button-subtitle">Risposta in 2 ore</span>
               <span className="hero-button-icon">→</span>
-            </a>
+            </Link>
             <p className="hero-cta-trust">
               ✓ Nessun impegno • ✓ Consulenza telefonica gratuita
             </p>
@@ -91,10 +92,10 @@ export default function Hero() {
           
           {/* Mobile Sticky CTA - appears only on mobile scroll */}
           <div className={`hero-sticky-cta ${showStickyCTA ? 'visible' : ''}`}>
-            <a href="#prenota" className="sticky-cta-button">
+            <Link to="/consultation" className="sticky-cta-button">
               <span>Consulenza Gratuita</span>
               <span className="sticky-cta-indicator">→</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

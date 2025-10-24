@@ -1,5 +1,6 @@
 // src/components/sections/Main.jsx
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../../styles/Main.css";
 
 export default function Main() {
@@ -135,9 +136,9 @@ export default function Main() {
             <div className="main-cta-content">
               <h3 className="main-cta-title">Quale Situazione Descrive il Tuo Caso?</h3>
               <p className="main-cta-subtitle">Parlaci del tuo problema, troveremo la soluzione più efficace</p>
-              <a href="#prenota" className="main-cta-button">
+              <Link to="/consultation" className="main-cta-button">
                 Descrivi la Tua Situazione
-              </a>
+              </Link>
             </div>
           </div>
         </section>
