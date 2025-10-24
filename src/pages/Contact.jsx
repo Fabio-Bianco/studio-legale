@@ -69,49 +69,17 @@ export default function Contact() {
           </div>
 
           {/* CTA Section */}
-          <div className="page-card" style={{ 
-            marginTop: 'var(--space-8)', 
-            background: 'linear-gradient(135deg, var(--color-accent) 0%, #dcad4a 100%)',
-            color: '#ffffff',
-            textAlign: 'center'
-          }}>
-            <h3 style={{ 
-              fontSize: 'var(--fs-h2)', 
-              marginBottom: 'var(--space-3)',
-              color: '#ffffff'
-            }}>
+          <div className="page-card page-card-cta">
+            <h3>
               Hai Bisogno di Assistenza Legale Immediata?
             </h3>
-            <p style={{ 
-              fontSize: 'var(--fs-body)', 
-              marginBottom: 'var(--space-4)',
-              opacity: 0.95
-            }}>
+            <p>
               Non perdere tempo con pratiche complesse. Richiedi una consulenza gratuita 
               e parla direttamente con un avvocato esperto.
             </p>
             <Link 
               to="/consultation" 
-              style={{
-                display: 'inline-block',
-                padding: 'var(--space-3) var(--space-6)',
-                background: '#ffffff',
-                color: 'var(--color-primary)',
-                borderRadius: '12px',
-                textDecoration: 'none',
-                fontWeight: '700',
-                fontSize: 'var(--fs-body)',
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
-                transition: 'all 0.2s ease'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.25)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
-              }}
+              className="cta-button"
             >
               🎯 Consulenza Gratuita Ora
             </Link>

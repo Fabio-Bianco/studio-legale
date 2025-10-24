@@ -114,7 +114,12 @@
   background: var(--color-surface);
   padding: var(--space-6);
   border-radius: var(--radius-card);
-  box-shadow: var(--shadow-soft);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
 }
 
 .consultation-form-title {
@@ -134,13 +139,6 @@
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.consultation-form-wrapper {
-  background: var(--color-surface);
-  padding: var(--space-6);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-soft);
 }
 
 /* Form Styles */
@@ -295,14 +293,17 @@
   transition: all 0.3s ease;
   box-shadow: 
     0 8px 25px rgba(199, 158, 70, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
 }
 
 .consultation-form-submit:hover:not(:disabled) {
   background: linear-gradient(135deg, #dcad4a 0%, #e6b654 100%);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: 
     0 12px 30px rgba(199, 158, 70, 0.5),
+    0 6px 16px rgba(0, 0, 0, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
