@@ -128,32 +128,29 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 52px; /* Increased for better touch target */
-  height: 52px; /* Increased for better touch target */
-  background: rgba(199, 158, 70, 0.05);
-  border: 1px solid rgba(199, 158, 70, 0.2);
+  width: 48px;
+  height: 48px;
+  background: rgba(199, 158, 70, 0.1);
+  border: 1px solid rgba(199, 158, 70, 0.3);
   border-radius: 12px;
   cursor: pointer;
   padding: 0;
-  z-index: 1001;
+  z-index: 1002; /* Più alto del menu */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
+  position: relative;
+  -webkit-tap-highlight-color: transparent; /* Remove iOS highlight */
 }
 
+/* Mostra hamburger su mobile */
 @media (max-width: 768px) {
   .hamburger-btn {
-    display: flex;
+    display: flex !important;
   }
   
-  .hamburger-btn:hover {
-    background: rgba(199, 158, 70, 0.1);
-    border-color: rgba(199, 158, 70, 0.4);
-    transform: scale(1.05);
-  }
-  
-  .hamburger-btn:active {
-    transform: scale(0.95);
-    background: rgba(199, 158, 70, 0.15);
+  /* Nascondi nav desktop su mobile */
+  .nav-desktop {
+    display: none !important;
   }
 }
 
@@ -169,8 +166,13 @@
 }
 
 /* Hamburger animation to X */
+.hamburger-btn.active {
+  background: rgba(199, 158, 70, 0.2);
+  border-color: rgba(199, 158, 70, 0.5);
+}
+
 .hamburger-btn.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(6px, 6px);
 }
 
 .hamburger-btn.active .hamburger-line:nth-child(2) {
@@ -179,7 +181,7 @@
 }
 
 .hamburger-btn.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* ===================== MOBILE SLIDE MENU ===================== */
@@ -190,7 +192,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 999;
   opacity: 0;
   visibility: hidden;
@@ -210,16 +212,19 @@
   width: 320px;
   max-width: 85vw;
   height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
   background: linear-gradient(135deg, 
     rgba(11, 60, 93, 0.98) 0%, 
     rgba(10, 51, 78, 0.96) 100%
   );
   backdrop-filter: blur(20px);
-  z-index: 1000;
+  z-index: 1001;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   box-shadow: -8px 0 32px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  overscroll-behavior: contain; /* Prevent scroll chaining */
 }
 
 .nav-mobile.active {
@@ -282,24 +287,31 @@
 }
 
 .close-btn {
-  width: 40px;
-  height: 40px;
-  background: rgba(199, 158, 70, 0.1);
-  border: 1px solid rgba(199, 158, 70, 0.3);
+  width: 44px;
+  height: 44px;
+  background: rgba(199, 158, 70, 0.15);
+  border: 1px solid rgba(199, 158, 70, 0.4);
   border-radius: 8px;
   color: var(--color-accent);
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 300;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1;
+  min-width: 44px; /* Touch target size */
+  min-height: 44px;
 }
 
-.close-btn:hover {
-  background: rgba(199, 158, 70, 0.2);
+.close-btn:hover,
+.close-btn:active {
+  background: rgba(199, 158, 70, 0.25);
+  border-color: rgba(199, 158, 70, 0.6);
   transform: scale(1.05);
+  color: var(--color-on-dark);
 }
 
 /* Mobile Navigation List */
