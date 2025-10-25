@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'; 
 import "../../styles/Header.css";
+import { studioInfo } from "../../data/teamData";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,8 +48,8 @@ export default function Header() {
       {/* Logo/Brand Section */}
       <div className="header-brand">
         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <h1 className="brand-title">Studio Legale</h1>
-          <span className="brand-subtitle">Esperti in Diritto Civile</span>
+          <h1 className="brand-title">{studioInfo.name}</h1>
+          <span className="brand-subtitle">{studioInfo.subtitle}</span>
         </Link>
       </div>
 
@@ -92,8 +93,8 @@ export default function Header() {
         {/* Mobile Menu Header */}
         <div className="mobile-menu-header">
           <div className="mobile-brand">
-            <h2 className="mobile-brand-title">Studio Legale</h2>
-            <span className="mobile-brand-subtitle">Esperti in Diritto Civile</span>
+            <h2 className="mobile-brand-title">{studioInfo.shortName}</h2>
+            <span className="mobile-brand-subtitle">{studioInfo.mobileSubtitle}</span>
           </div>
           <button className="close-btn" aria-label="Chiudi menu" onClick={closeMenu}>
             ×

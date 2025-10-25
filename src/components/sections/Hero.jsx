@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/Hero.css";
 import heroImage from "../../assets/hero_figures_final.webp";
+import { studioStats } from "../../data/teamData";
 /**
  * Hero component con background image, effetto cascata e sticky CTA mobile
  */
@@ -67,7 +68,7 @@ export default function Hero() {
         {/* Contenuto principale a sinistra */}
         <div className="hero-content">
           <div className="hero-badge">
-            ⚖️ Oltre 500 casi risolti con successo
+            ⚖️ Oltre {studioStats.find(stat => stat.label === "Casi Risolti")?.number || "500+"} casi risolti con successo
           </div>
           
           <h1 id="hero-title" className="hero-title">
@@ -82,11 +83,10 @@ export default function Hero() {
           <div className="hero-cta-group">
             <Link to="/consultation" className="hero-button hero-button-primary">
               <span className="hero-button-text">Consulenza Gratuita Ora</span>
-              <span className="hero-button-subtitle">Risposta in 2 ore</span>
-              <span className="hero-button-icon">→</span>
-            </Link>
+              <span className="hero-button-subtitle">Rispondiamo entro le 24h</span>
+                          </Link>
             <p className="hero-cta-trust">
-              ✓ Nessun impegno • ✓ Consulenza telefonica gratuita
+              ✓ Nessun impegno  ✓ Consulenza gratuita
             </p>
           </div>
           

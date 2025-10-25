@@ -60,7 +60,7 @@ export default function FreeConsultation() {
     }
 
     // Phone validation (Italian format)
-    const phonePattern = /^[\+]?[0-9\s\-\(\)]{8,15}$/;
+    const phonePattern = /^[+]?[0-9\s\-()]{8,15}$/;
     if (!formData.phone.trim()) {
       newErrors.phone = 'Il numero di telefono è obbligatorio';
     } else if (!phonePattern.test(formData.phone.replace(/\s/g, ''))) {
