@@ -1,148 +1,91 @@
-/* ==============================
-   TEAM SECTION - Solo Card delle Avvocatesse - AGGIORNATO
-   Posizionata dopo About per mostrare i professionisti
-   ============================== */
+/* src/styles/Team-cleaned.css */
+/* File CSS pulito con solo le classi effettivamente utilizzate */
 
+/* ==============================
+   TEAM SECTION BASE
+   ============================== */
 .team-section {
-  padding: var(--space-2) 0; /* Ridotto ulteriormente per avvicinare all'Hero */
-  /* Background matching previous sections */
-  background: linear-gradient(135deg, 
-    rgba(211, 201, 189, 0.15) 0%, 
-    rgba(224, 214, 201, 0.12) 25%, 
-    rgba(248, 249, 250, 0.8) 50%, 
-    rgba(196, 184, 168, 0.1) 75%, 
-    rgba(183, 167, 144, 0.15) 100%
-  );
+  background: #F8F9FA; /* Background uniforme */
+  padding: var(--space-8) 0 var(--space-6);
   position: relative;
-  z-index: 5;
 }
 
 .team-container {
-  max-width: 1200px;
+  max-width: 1400px; /* Più largo per le card allargate */
   margin: 0 auto;
   padding-inline: var(--space-4);
+  position: relative;
 }
 
 /* ==============================
-   TEAM HEADER - Badge + Titolo + Sottotitolo
+   TEAM HEADER
    ============================== */
 .team-header {
   text-align: center;
-  margin-bottom: var(--space-6); /* Ridotto da space-8 per avvicinare le sezioni */
-  max-width: 900px;
+  margin-bottom: var(--space-8); /* Ridotto da space-10 per compattare */
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .team-badge {
   display: inline-block;
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
-  color: white;
-  padding: var(--space-2) var(--space-4);
-  border-radius: 25px;
+  background: linear-gradient(135deg, 
+    var(--color-primary) 0%, 
+    var(--color-accent) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--space-3);
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-4);
+  position: relative;
+}
+
+.team-badge::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--color-accent) 50%, 
+    transparent 100%
+  );
+  border-radius: 1px;
 }
 
 .team-title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2rem, 4vw + 1rem, 3rem);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 4vw + 1rem, 3.5rem);
   color: var(--color-primary);
   margin-bottom: var(--space-3);
-  line-height: 1.2;
+  line-height: 1.1;
+  text-shadow: 0 2px 4px rgba(11, 60, 93, 0.1);
+  position: relative;
+  white-space: nowrap; /* Forza su una sola riga */
 }
 
 .team-subtitle {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 1.2vw + 0.8rem, 1.25rem);
   color: var(--color-muted);
   line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 650px;
+  margin: 0 auto var(--space-2);
+  padding: var(--space-2) 0;
 }
 
-/* Mobile/Desktop content switching */
-.title-mobile, .subtitle-mobile {
+/* Responsive title/subtitle variants */
+.title-mobile,
+.subtitle-mobile {
   display: none;
-}
-
-@media (max-width: 768px) {
-  .title-desktop, .subtitle-desktop {
-    display: none;
-  }
-  
-  .title-mobile, .subtitle-mobile {
-    display: block;
-  }
-}
-
-/* ==============================
-   CARDS HEADER SECTION - OBSOLETO
-   ============================== */
-.team-cards-header {
-  text-align: center;
-  margin-bottom: var(--space-5);
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.team-cards-title {
-  font-family: var(--font-display);
-  font-weight: 800; /* Matching Hero title weight */
-  font-size: clamp(2.25rem, 3.5vw + 1rem, 3rem); /* More consistent with Hero scale */
-  color: var(--color-primary);
-  margin-bottom: var(--space-2);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.team-cards-subtitle {
-  font-size: clamp(0.95rem, 1vw + 0.75rem, 1.125rem);
-  color: var(--color-muted);
-  line-height: 1.5;
-  margin-bottom: var(--space-5);
-}
-
-/* ==============================
-   INLINE STATS IN TEAM
-   ============================== */
-.team-inline-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: var(--space-2);
-  margin-top: var(--space-4);
-  padding: var(--space-3);
-  background: linear-gradient(135deg, 
-    rgba(199, 158, 70, 0.08) 0%, 
-    rgba(255, 255, 255, 0.9) 100%
-  );
-  border-radius: 12px;
-  border: 1px solid rgba(199, 158, 70, 0.2);
-}
-
-.inline-stat {
-  text-align: center;
-}
-
-.inline-stat-number {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.5rem;
-  color: var(--color-accent); /* Strategic gold for important metrics */
-  line-height: 1;
-  margin-bottom: 0.25rem;
-}
-
-.inline-stat-label {
-  font-size: 0.75rem;
-  color: #6B7280;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 /* ==============================
@@ -152,146 +95,96 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   gap: var(--space-7);
-  margin-bottom: var(--space-7); /* Ridotto da space-9 per compattare */
-  max-width: 1400px; /* Allargate per miglior leggibilità */
+  margin-bottom: var(--space-7);
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .team-card {
-  /* Hero-inspired gradient with professional warmth */
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.98) 0%, 
-    rgba(250, 248, 245, 0.95) 25%, 
-    rgba(245, 242, 238, 0.92) 50%, 
-    rgba(248, 245, 241, 0.95) 75%, 
-    rgba(253, 252, 251, 0.98) 100%
+  background: linear-gradient(145deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(250, 248, 245, 0.9) 30%, 
+    rgba(199, 158, 70, 0.04) 70%, 
+    rgba(11, 60, 93, 0.03) 100%
   );
   border: 1px solid rgba(210, 198, 185, 0.25);
-  border-radius: 16px; /* Torno al radius originale per look più classico */
-  padding: var(--space-7); /* Padding generoso ma non eccessivo */
-  /* Shadows delicate per eleganza senza pesantezza */
+  border-radius: 20px;
+  padding: var(--space-6);
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
   box-shadow: 
-    0 8px 24px rgba(164, 147, 123, 0.08),
-    0 3px 8px rgba(196, 184, 168, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    0 8px 25px rgba(199, 158, 70, 0.08),
+    0 3px 10px rgba(11, 60, 93, 0.05);
   position: relative;
-  backdrop-filter: blur(8px);
-  display: flex;
-  flex-direction: column;
-  min-height: 360px; /* Altezza più generosa per contenuto */
+  backdrop-filter: blur(10px);
 }
 
-/* Rimuovo hover effects per semplicità e pulizia */
-
-/* Rende il body della card flessibile per distribuire lo spazio */
-.team-card-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  text-align: center;
-}
-
-/* Spinge gli achievements e credentials verso il basso */
-.team-card-text {
-  flex: 1;
-  margin-bottom: var(--space-4);
-}
-
-.team-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px; /* Torno alla dimensione originale per eleganza */
-  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
-  opacity: 0.9;
-  border-radius: 16px 16px 0 0;
-}
-
-/* Hover effects removed for performance and professional consistency */
-
-/* ==============================
-   CARD MEDIA
-   ============================== */
 .team-card-media {
-  text-align: center;
-  margin-bottom: var(--space-4);
+  flex-shrink: 0;
 }
 
 .team-avatar {
   width: 120px;
   height: 120px;
-  border-radius: 20px;
+  border-radius: 50%;
   object-fit: cover;
-  border: 3px solid rgba(210, 198, 185, 0.4);
-  box-shadow: 
-    0 8px 20px rgba(164, 147, 123, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border: 3px solid rgba(199, 158, 70, 0.3);
+  box-shadow: 0 4px 12px rgba(199, 158, 70, 0.2);
 }
 
-/* ==============================
-   CARD CONTENT
-   ============================== */
 .team-card-body {
-  text-align: center;
+  flex: 1;
+  min-width: 0;
 }
 
 .team-card-name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.375rem; /* Leggermente più grande per impatto */
-  color: #0B3C5D;
-  margin-bottom: var(--space-2); /* Più spazio sotto il nome */
-  line-height: 1.2;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-1);
 }
 
 .team-card-title {
-  font-weight: 500;
-  font-size: 0.9375rem; /* Leggermente più grande */
-  color: var(--color-muted);
-  margin-bottom: var(--space-3); /* Più spazio per respirare */
-  font-style: italic;
+  font-size: 1rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
 }
 
 .team-card-role-badge {
   display: inline-block;
-  font-weight: 600;
-  font-size: 0.8125rem;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--space-4); /* Più spazio sotto il badge */
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
-  padding: 0.625rem 1.25rem; /* Padding più generoso */
+  background: linear-gradient(135deg, 
+    rgba(199, 158, 70, 0.12) 0%, 
+    rgba(11, 60, 93, 0.06) 100%
+  );
+  color: var(--color-primary);
+  padding: var(--space-1) var(--space-3);
   border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(199, 158, 70, 0.25);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-4);
+  border: 1px solid rgba(199, 158, 70, 0.2);
 }
 
 .team-card-text {
-  font-size: 1rem; /* Dimensione più leggibile */
-  color: #374151;
-  line-height: 1.65; /* Line-height più generoso per leggibilità */
-  margin-bottom: var(--space-5); /* Più spazio prima degli achievements */
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-  text-align: left;
-  hyphens: auto;
-  word-spacing: 0.05em;
-  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
 }
 
-/* Bottone "Scopri di più" */
 .read-more-btn {
   background: none;
   border: none;
   color: var(--color-accent);
-  font-weight: 600;
   font-size: 0.875rem;
+  font-weight: 600;
   cursor: pointer;
-  margin-top: var(--space-2);
   padding: var(--space-1) 0;
   text-decoration: underline;
   transition: all 0.2s ease;
@@ -304,27 +197,24 @@
 }
 
 .team-card-philosophy {
-  font-size: 1rem; /* Consistente con il testo */
-  color: var(--color-accent);
   font-style: italic;
-  font-weight: 500;
-  margin: var(--space-4) 0; /* Più spazio sopra e sotto */
-  padding: var(--space-3) var(--space-4); /* Padding più generoso */
+  font-size: 0.9rem;
+  color: var(--color-accent);
   background: rgba(199, 158, 70, 0.08);
+  padding: var(--space-3);
+  border-radius: 12px;
   border-left: 3px solid var(--color-accent);
-  border-radius: 0 8px 8px 0;
-  text-align: center;
+  margin-top: var(--space-3);
+  line-height: 1.5;
 }
 
 /* ==============================
-   1. I NOSTRI VALORI - Sezione orizzontale coerente con le card
+   TEAM VALUES SECTION
    ============================== */
 .team-values-section {
-  margin-top: var(--space-6); /* Ridotto da space-8 */
-  margin-bottom: var(--space-7); /* Ridotto da space-8 */
-  max-width: 1400px; /* Stessa larghezza delle card */
-  margin-left: auto;
-  margin-right: auto;
+  background: #F8F9FA;
+  padding: var(--space-6) 0;
+  margin-bottom: var(--space-6);
 }
 
 .values-header {
@@ -335,7 +225,7 @@
 .values-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 2.25rem;
+  font-size: 2rem;
   color: var(--color-primary);
   margin-bottom: var(--space-3);
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
@@ -347,45 +237,65 @@
 .values-subtitle {
   font-size: 1.125rem;
   color: var(--color-muted);
-  line-height: 1.6;
-  max-width: 700px;
+  line-height: 1.5;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 .values-horizontal {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
-  padding: var(--space-6);
-  background: #F8F9FA; /* Background uniforme del body */
-  border-radius: 24px;
-  border: 1px solid rgba(199, 158, 70, 0.2);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 
-              0 2px 4px rgba(0, 0, 0, 0.06); /* Effetto tridimensionale */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-5);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
 }
 
 .value-item {
-  text-align: center;
-  padding: var(--space-5);
-  background: rgba(255, 255, 255, 0.8); /* Background contrastante rispetto al contenitore */
-  border-radius: 20px;
+  background: linear-gradient(145deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(250, 248, 245, 0.9) 30%, 
+    rgba(199, 158, 70, 0.04) 70%, 
+    rgba(11, 60, 93, 0.03) 100%
+  );
   border: 1px solid rgba(199, 158, 70, 0.2);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08), 
-              0 1px 4px rgba(0, 0, 0, 0.06); /* Effetto tridimensionale */
+  border-radius: 16px;
+  padding: var(--space-4);
+  text-align: center;
+  box-shadow: 
+    0 8px 25px rgba(199, 158, 70, 0.08),
+    0 3px 10px rgba(11, 60, 93, 0.05);
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.value-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, transparent 100%);
+  border-radius: 16px 16px 0 0;
 }
 
 .value-icon {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: var(--space-3);
-  opacity: 0.8;
+  display: block;
 }
 
 .value-name {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.25rem;
   color: var(--color-primary);
   margin-bottom: var(--space-2);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .value-text {
@@ -395,28 +305,24 @@
 }
 
 /* ==============================
-   2. SEZIONI AFFIANCATE: Esperienza | Risultati 
+   TWO COLUMNS LAYOUT
    ============================== */
 .team-two-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-7);
-  max-width: 1400px; /* Coerente con card e valori */
-  margin: 0 auto var(--space-8) auto;
+  gap: var(--space-6);
+  background: #F8F9FA;
+  padding: var(--space-6) 0;
 }
 
-/* Stili comuni per entrambe le sezioni */
-.numbers-section,
-.results-section {
-  background: #F8F9FA; /* Background uniforme del body */
-  border-radius: 24px;
+/* ==============================
+   NUMBERS SECTION (SEZIONE A)
+   ============================== */
+.numbers-section {
+  background: #F8F9FA;
   padding: var(--space-6);
-  border: 1px solid rgba(199, 158, 70, 0.2);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 
-              0 2px 4px rgba(0, 0, 0, 0.06); /* Effetto tridimensionale */
+  border-radius: 16px;
 }
-
-
 
 .section-header {
   text-align: center;
@@ -439,22 +345,18 @@
   font-size: 1rem;
   color: var(--color-muted);
   line-height: 1.5;
-  font-weight: 500;
 }
 
-/* ==============================
-   SEZIONE A: LA NOSTRA ESPERIENZA IN NUMERI
-   ============================== */
 .numbers-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Una sola riga con 4 colonne */
-  gap: var(--space-3); /* Gap ridotto per compensare */
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
 }
 
 .number-item {
   text-align: center;
   padding: var(--space-4);
-  background: #F8F9FA; /* Background uniforme del body */
+  background: #F8F9FA;
   border-radius: 16px;
 }
 
@@ -462,13 +364,13 @@
   display: block;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 2.5rem;
+  font-size: 2rem;
   background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
 }
 
 .number-label {
@@ -480,111 +382,35 @@
 }
 
 /* ==============================
-   SEZIONE B: RISULTATI SPECIALIZZAZIONE
+   RESULTS SECTION (SEZIONE B)
    ============================== */
+.results-section {
+  background: #F8F9FA;
+  padding: var(--space-6);
+  border-radius: 16px;
+}
+
 .results-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Una sola riga con 4 colonne */
-  gap: var(--space-3); /* Gap ridotto per compensare */
+  grid-template-columns: repeat(4, 1fr); /* Una sola riga con 4 colonne, identica alla sezione A */
+  gap: var(--space-3); /* Gap ridotto per compensare, identico alla sezione A */
 }
 
 .result-item {
   display: flex;
-  flex-direction: column; /* Disposizione verticale all'interno di ogni item */
+  flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: var(--space-2); /* Gap ridotto interno */
-  padding: var(--space-3); /* Padding ridotto */
-  background: #F8F9FA; /* Background uniforme del body */
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: #F8F9FA;
   border-radius: 16px;
 }
 
 .result-number {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.75rem; /* Dimensione ridotta per layout compatto */
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: var(--space-1);
-}
-
-.result-content {
-  text-align: center; /* Centrato per layout verticale */
-  width: 100%;
-}
-
-.result-label {
-  font-size: 0.8rem; /* Dimensione ridotta per compattezza */
-  color: var(--color-primary);
-  font-weight: 600;
-  margin-bottom: var(--space-1);
-  line-height: 1.2;
-}
-
-.result-member {
-  font-size: 0.7rem; /* Dimensione ridotta per compattezza */
-  color: var(--color-accent);
-  font-weight: 500;
-  font-style: italic;
-}
-
-/* ==============================
-   2. NUMERI + RISULTATI - Social Proof Unificato
-   ============================== */
-.numbers-results-section {
-  padding: var(--space-7) var(--space-5);
-  background: linear-gradient(135deg, 
-    rgba(199, 158, 70, 0.04) 0%, 
-    rgba(11, 60, 93, 0.02) 50%, 
-    rgba(199, 158, 70, 0.04) 100%
-  );
-  border-radius: 24px;
-  border: 1px solid rgba(199, 158, 70, 0.1);
-}
-
-.numbers-results-header {
-  text-align: center;
-  margin-bottom: var(--space-6);
-}
-
-.numbers-results-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 2rem;
-  color: var(--color-primary);
-  margin-bottom: var(--space-2);
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.numbers-results-subtitle {
-  font-size: 1.125rem;
-  color: var(--color-muted);
-  line-height: 1.5;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Studio Numbers - Counters compatti */
-.studio-numbers {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: var(--space-4);
-  margin-bottom: var(--space-7);
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.number-value {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -592,78 +418,28 @@
   line-height: 1;
 }
 
-.number-label {
+.result-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.result-label {
   font-size: 0.875rem;
   color: var(--color-primary);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-top: var(--space-2);
-}
-
-/* Specialized Results - Badge compatti */
-.specialized-results {
-  border-top: 1px solid rgba(199, 158, 70, 0.15);
-  padding-top: var(--space-6);
-}
-
-.specialized-title {
-  text-align: center;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.5rem;
-  color: var(--color-primary);
-  margin-bottom: var(--space-5);
-}
-
-.results-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--space-4);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.result-badge {
-  display: flex;
-  align-items: center;
-  padding: var(--space-4);
-  background: #F8F9FA; /* Background uniforme */
-  border-radius: 16px;
-}
-
-.result-number {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 2rem;
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-right: var(--space-3);
-  min-width: 60px;
-}
-
-.result-info {
-  flex: 1;
-}
-
-.result-label {
-  font-size: 0.95rem;
-  color: var(--color-primary);
-  font-weight: 600;
-  margin-bottom: var(--space-1);
 }
 
 .result-member {
-  font-size: 0.825rem;
+  font-size: 0.75rem;
   color: var(--color-accent);
   font-weight: 500;
-  font-style: italic;
 }
 
 /* ==============================
-   RESPONSIVE DESIGN - Nuovo Layout Valori + Due Colonne
+   RESPONSIVE DESIGN
    ============================== */
 
 /* Tablet */
@@ -672,23 +448,18 @@
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     max-width: 1200px;
   }
-  
-  .values-horizontal {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-  }
-  
+
   .team-two-columns {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: var(--space-5);
   }
-  
+
   .numbers-grid {
-    grid-template-columns: repeat(2, 1fr); /* Su tablet 2x2 */
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .results-list {
-    grid-template-columns: repeat(2, 1fr); /* Su tablet 2x2 */
+
+  .values-horizontal {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
 
@@ -696,568 +467,56 @@
 @media (max-width: 768px) {
   .team-cards {
     grid-template-columns: 1fr;
-    max-width: none;
-    gap: var(--space-5);
+    gap: var(--space-6);
   }
-  
-  .values-horizontal {
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
-    padding: var(--space-4);
-  }
-  
-  .values-title {
-    font-size: 1.875rem;
-  }
-  
-  .section-title {
-    font-size: 1.5rem;
-  }
-  
-  .value-icon {
-    font-size: 2rem;
-  }
-  
-  .number-value {
-    font-size: 2rem;
-  }
-  
-  .result-number {
-    font-size: 1.5rem;
-  }
-  
-  .numbers-grid {
-    grid-template-columns: 1fr; /* Su mobile tutto in colonna */
-    gap: var(--space-3);
-  }
-  
-  .results-list {
-    grid-template-columns: 1fr; /* Su mobile tutto in colonna */
-    gap: var(--space-3);
-  }
-}
 
-/* ==============================
-   CREDENTIALS - TEMPORANEAMENTE DISATTIVATI
-   ============================== */
-/* 
-.team-card-credentials {
-  background: linear-gradient(135deg, 
-    rgba(199, 158, 70, 0.12) 0%, 
-    rgba(220, 173, 74, 0.08) 50%, 
-    rgba(11, 60, 93, 0.06) 100%
-  );
-  color: var(--color-primary);
-  padding: var(--space-3);
-  border-radius: 16px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-align: center;
-  border: 1px solid rgba(199, 158, 70, 0.3);
-  position: relative;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 12px rgba(199, 158, 70, 0.08);
-}
-
-.team-card-credentials::before {
-  content: '⚖️';
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 24px;
-  height: 24px;
-  background: var(--color-accent);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  box-shadow: 0 2px 8px rgba(199, 158, 70, 0.3);
-}
-*/
-
-/* ==============================
-   SEZIONI OBSOLETE - RIMOSSE PER DESIGN UNIFICATO 2025
-   ============================== */
-
-
-
-/* ==============================
-   RESPONSIVE DESIGN - MOBILE FIRST OPTIMIZED
-   ============================== */
-
-/* Tablet optimization */
-@media (max-width: 1024px) {
-  .team-section {
-    padding: var(--space-5) 0;
-    border-radius: 20px 20px 0 0;
-  }
-  
-  .team-cards {
-    grid-template-columns: 1fr;
-    gap: var(--space-5);
-  }
-  
   .team-card {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .values-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-3);
-  }
-}
-
-/* Mobile landscape and portrait */
-@media (max-width: 768px) {
-  .team-section {
-    padding: var(--space-4) 0;
-    border-radius: 16px 16px 0 0;
-    display: flex;
     flex-direction: column;
-  }
-  
-  /* Mobile-specific content switching */
-  .title-desktop, .subtitle-desktop {
-    display: none;
-  }
-  
-  .title-mobile, .subtitle-mobile {
-    display: block;
-  }
-  
-  /* Hide values section completely on mobile - too cluttered */
-  .team-values {
-    display: none;
-  }
-  
-  .team-trust {
-    order: 2;
-  }
-  
-  .team-container {
-    padding-inline: var(--space-3);
-  }
-  
-  .team-cards-header {
-    margin-bottom: var(--space-4);
-  }
-  
-  .team-cards-title {
-    font-size: clamp(1.75rem, 5vw, 2.5rem);
-    margin-bottom: var(--space-2);
-  }
-  
-  /* Mobile: Show only essential stats */
-  .team-inline-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-3);
-    padding: var(--space-3);
-    background: linear-gradient(135deg, 
-      rgba(199, 158, 70, 0.06) 0%, 
-      rgba(255, 255, 255, 0.95) 100%
-    );
-    border-radius: 16px;
-    border: 1px solid rgba(199, 158, 70, 0.15);
-    margin-top: var(--space-3);
-  }
-  
-  /* Hide secondary stats on mobile */
-  .inline-stat.secondary {
-    display: none;
-  }
-  
-  .inline-stat.essential {
     text-align: center;
-    padding: var(--space-2);
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 12px;
+    padding: var(--space-5);
   }
-  
-  .inline-stat-number {
-    font-size: 1.25rem;
-  }
-  
-  .inline-stat-label {
-    font-size: 0.6875rem;
-  }
-  
-  .team-cards {
-    gap: var(--space-4);
-    margin-bottom: var(--space-5);
-  }
-  
-  .team-card {
-    padding: var(--space-4);
-  }
-  
+
   .team-avatar {
     width: 100px;
     height: 100px;
   }
-  
-  .team-card-name {
-    font-size: 1.125rem;
-  }
-  
-  .team-card-role {
-    font-size: 0.875rem;
-  }
-  
-  .team-card-text {
-    font-size: 0.875rem;
-    line-height: 1.6;
-  }
-  
-  /* Simplified credentials on mobile - TEMPORANEAMENTE DISATTIVATO */
-  /*
-  .team-card-credentials {
-    padding: var(--space-2);
-    font-size: 0.75rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.3;
-    position: relative;
-  }
-  
-  .team-card-credentials::after {
-    content: "...";
-    position: absolute;
-    bottom: 4px;
-    right: 8px;
-    background: linear-gradient(90deg, transparent, rgba(199, 158, 70, 0.1) 50%);
-    color: var(--color-accent);
-    font-weight: 600;
-    padding-left: 8px;
-  }
-  */
-  
-  .values-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
-  }
-  
-  .value-item {
-    padding: var(--space-3);
-  }
-  
-  .value-name {
-    font-size: 1.125rem;
-  }
-  
-  .value-name::before {
-    left: -20px;
-  }
-  
-  .values-title {
-    font-size: clamp(1.5rem, 4vw, 2rem);
-  }
-  
-  .team-trust {
-    padding: var(--space-5) var(--space-4);
-    margin-top: var(--space-4);
-  }
-  
-  .trust-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-3);
-  }
-  
-  .trust-number {
-    font-size: clamp(1.5rem, 4vw, 2rem);
-  }
-  
-  .trust-label {
-    font-size: 0.8125rem;
-  }
-}
 
-/* Small mobile devices */
-@media (max-width: 480px) {
-  .team-section {
-    padding: var(--space-3) 0;
-  }
-  
-  .team-container {
-    padding-inline: var(--space-2);
-  }
-  
-  /* Ultra-minimal stats for small screens */
-  .team-inline-stats {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-2);
-    padding: var(--space-2);
-    margin-top: var(--space-2);
-  }
-  
-  .inline-stat {
-    padding: var(--space-1);
-  }
-  
-  .inline-stat-number {
-    font-size: 1.25rem;
-    margin-bottom: 0.25rem;
-  }
-  
-  .inline-stat-label {
-    font-size: 0.6875rem;
-    line-height: 1.2;
-  }
-  
-  .team-card {
-    padding: var(--space-3);
-  }
-  
-  .team-avatar {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .value-item {
-    padding: var(--space-2);
-  }
-  
-  .value-name::before {
+  .title-desktop,
+  .subtitle-desktop {
     display: none;
   }
-  
-  .team-trust {
-    padding: var(--space-4) var(--space-3);
-  }
-  
-  .trust-stats {
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
-  }
-}
 
-/* Desktop Executive Presentation */
-@media (min-width: 1025px) {
-  .team-section {
-    padding: var(--space-9) 0; /* More dramatic spacing on desktop */
-  }
-  
-  .team-container {
-    max-width: 1400px; /* Expanded container for desktop */
-  }
-  
-  /* Symmetric layout for team cards */
-  .team-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Symmetric layout */
-    gap: var(--space-6); /* Consistent gaps */
-    align-items: stretch; /* Same height cards */
-  }
-  
-  .team-card {
-    height: 100%; /* Ensure equal height */
-  }
-  
-  /* Enhanced desktop stats presentation */
-  .team-inline-stats {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-4);
-    padding: var(--space-4);
-    margin-top: var(--space-5);
-  }
-  
-  .inline-stat {
-    padding: var(--space-3);
-  }
-  
-  .inline-stat-number {
-    font-size: 2rem; /* Bigger numbers for desktop impact */
-  }
-  
-  /* Values section desktop enhancement */
-  .values-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-5);
-  }
-}
-
-/* Tablet optimizations - show all stats */
-@media (min-width: 768px) and (max-width: 1024px) {
-  /* Show all stats on tablet and up */
-  .inline-stat.secondary {
+  .title-mobile,
+  .subtitle-mobile {
     display: block;
   }
-  
-  /* 4-column layout for all stats on tablet */
-  .team-inline-stats {
-    grid-template-columns: repeat(4, 1fr);
+
+  .numbers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
   }
-  
-  .inline-stat {
-    text-align: center;
-    padding: var(--space-2);
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 12px;
-  }
-}
 
-.value-item {
-  background: #F8F9FA; /* Background uniforme */
-  border-radius: 16px;
-  padding: var(--space-4);
-  text-align: center;
-  position: relative;
-}
-
-.value-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--color-accent) 0%, transparent 100%);
-  border-radius: 16px 16px 0 0;
-}
-
-
-
-/* Icon styles removed for professional appearance */
-
-.value-name {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.25rem;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: var(--space-2);
-  position: relative;
-}
-
-.value-name::before {
-  content: '◆'; /* Premium diamond symbol */
-  position: absolute;
-  left: -24px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--color-accent);
-  font-size: 12px;
-}
-
-.value-text {
-  font-size: 0.875rem;
-  color: #374151;
-  line-height: 1.5;
-}
-
-/* ==============================
-   TRUST SECTION
-   ============================== */
-.team-trust {
-  /* Enterprise-grade statistics section */
-  background: linear-gradient(145deg, 
-    rgba(11, 60, 93, 0.08) 0%, 
-    rgba(199, 158, 70, 0.12) 30%, 
-    rgba(220, 173, 74, 0.08) 70%, 
-    rgba(11, 60, 93, 0.06) 100%
-  );
-  padding: var(--space-8) var(--space-6);
-  border-radius: 24px;
-  border: 2px solid rgba(199, 158, 70, 0.2);
-  position: relative;
-  backdrop-filter: blur(15px);
-  box-shadow: 
-    0 16px 40px rgba(199, 158, 70, 0.12),
-    0 8px 20px rgba(11, 60, 93, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-
-.team-trust::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, 
-    var(--color-accent) 0%, 
-    var(--color-primary) 50%, 
-    var(--color-accent) 100%
-  );
-  border-radius: 24px 24px 0 0;
-}
-
-.trust-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: var(--space-4);
-  text-align: center;
-}
-
-.trust-stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.trust-number {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(2rem, 3vw + 1rem, 3rem); /* Bigger presence */
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 2px 4px rgba(199, 158, 70, 0.2);
-  position: relative;
-}
-
-.trust-number::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 2px;
-  background: var(--color-accent);
-  border-radius: 1px;
-}
-
-.trust-label {
-  font-size: 0.875rem;
-  color: var(--color-muted);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* ==============================
-   RESPONSIVE MOBILE - Pulito e leggibile
-   ============================== */
-@media (max-width: 768px) {
-  .team-cards {
+  .results-list {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
-    max-width: none;
   }
-  
-  .team-card {
-    padding: var(--space-6);
-    min-height: auto; /* Lascia che il contenuto determini l'altezza */
-  }
-  
-  .team-card-name {
-    font-size: 1.25rem; /* Ridotto per mobile */
-  }
-  
-  .team-card-text {
-    font-size: 1rem;
-    line-height: 1.6;
+
+  .values-horizontal {
+    grid-template-columns: 1fr;
   }
 }
 
+/* Small mobile */
+@media (max-width: 480px) {
+  .team-container {
+    padding-inline: var(--space-3);
+  }
+
+  .numbers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .number-item,
+  .result-item {
+    padding: var(--space-3);
+  }
+}
