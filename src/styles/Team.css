@@ -1,11 +1,11 @@
 /* ==============================
-   TEAM SECTION - Presentazione Avvocatesse
-   Strategically positioned between Hero and Main
+   TEAM SECTION - Solo Card delle Avvocatesse - AGGIORNATO
+   Posizionata dopo About per mostrare i professionisti
    ============================== */
 
 .team-section {
-  padding: var(--space-6) 0; /* Reduced from space-9 to space-6 */
-  /* Background matching Hero vibes - warm professional gradient */
+  padding: var(--space-2) 0; /* Ridotto ulteriormente per avvicinare all'Hero */
+  /* Background matching previous sections */
   background: linear-gradient(135deg, 
     rgba(211, 201, 189, 0.15) 0%, 
     rgba(224, 214, 201, 0.12) 25%, 
@@ -15,7 +15,6 @@
   );
   position: relative;
   z-index: 5;
-  border-radius: 24px 24px 0 0;
 }
 
 .team-container {
@@ -25,59 +24,90 @@
 }
 
 /* ==============================
-   HEADER SECTION
+   TEAM HEADER - Badge + Titolo + Sottotitolo
    ============================== */
 .team-header {
   text-align: center;
-  margin-bottom: var(--space-5); /* Reduced from space-8 to space-5 */
-  max-width: 700px;
+  margin-bottom: var(--space-6); /* Ridotto da space-8 per avvicinare le sezioni */
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .team-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  /* Gold accent badge for premium positioning */
-  background: rgba(199, 158, 70, 0.12);
-  color: var(--color-primary); /* Navy text for excellent contrast */
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
+  display: inline-block;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  color: white;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 25px;
   font-size: 0.875rem;
   font-weight: 600;
-  border: 1px solid rgba(199, 158, 70, 0.3);
-  backdrop-filter: blur(10px);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   margin-bottom: var(--space-3);
 }
 
-/* Desktop content display */
-@media (min-width: 769px) {
-  .title-mobile, .subtitle-mobile {
+.team-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw + 1rem, 3rem);
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+  line-height: 1.2;
+}
+
+.team-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Mobile/Desktop content switching */
+.title-mobile, .subtitle-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .title-desktop, .subtitle-desktop {
     display: none;
   }
   
-  .title-desktop, .subtitle-desktop {
+  .title-mobile, .subtitle-mobile {
     display: block;
-  }
-}
-
-/* Mobile content styling */
-@media (max-width: 768px) {
-  .title-mobile {
-    display: block;
-  }
-  
-  .subtitle-mobile {
-    display: block;
-    font-size: 0.9375rem;
-    line-height: 1.5;
-    font-weight: 500;
   }
 }
 
 /* ==============================
-   INLINE STATS IN HEADER
+   CARDS HEADER SECTION - OBSOLETO
+   ============================== */
+.team-cards-header {
+  text-align: center;
+  margin-bottom: var(--space-5);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-cards-title {
+  font-family: var(--font-display);
+  font-weight: 800; /* Matching Hero title weight */
+  font-size: clamp(2.25rem, 3.5vw + 1rem, 3rem); /* More consistent with Hero scale */
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.team-cards-subtitle {
+  font-size: clamp(0.95rem, 1vw + 0.75rem, 1.125rem);
+  color: var(--color-muted);
+  line-height: 1.5;
+  margin-bottom: var(--space-5);
+}
+
+/* ==============================
+   INLINE STATS IN TEAM
    ============================== */
 .team-inline-stats {
   display: grid;
@@ -115,30 +145,17 @@
   letter-spacing: 0.05em;
 }
 
-.team-title {
-  font-family: var(--font-display);
-  font-weight: 800; /* Matching Hero title weight */
-  font-size: clamp(2.25rem, 3.5vw + 1rem, 3rem); /* More consistent with Hero scale */
-  color: var(--color-primary);
-  margin-bottom: var(--space-3);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.team-subtitle {
-  font-size: clamp(0.95rem, 1vw + 0.75rem, 1.125rem); /* Slightly smaller */
-  color: var(--color-muted);
-  line-height: 1.5; /* Reduced line height for compactness */
-  margin-bottom: 0;
-}
-
 /* ==============================
    TEAM CARDS
    ============================== */
 .team-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: var(--space-4); /* Reduced from space-6 to space-4 */
-  margin-bottom: var(--space-6); /* Reduced from space-9 to space-6 */
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: var(--space-7);
+  margin-bottom: var(--space-7); /* Ridotto da space-9 per compattare */
+  max-width: 1400px; /* Allargate per miglior leggibilità */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .team-card {
@@ -151,21 +168,21 @@
     rgba(253, 252, 251, 0.98) 100%
   );
   border: 1px solid rgba(210, 198, 185, 0.25);
-  border-radius: 16px;
-  padding: var(--space-5);
-  /* Professional shadow - no hover effects */
+  border-radius: 16px; /* Torno al radius originale per look più classico */
+  padding: var(--space-7); /* Padding generoso ma non eccessivo */
+  /* Shadows delicate per eleganza senza pesantezza */
   box-shadow: 
-    0 8px 25px rgba(164, 147, 123, 0.08),
-    0 3px 10px rgba(196, 184, 168, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 0 20px rgba(250, 248, 245, 0.3);
+    0 8px 24px rgba(164, 147, 123, 0.08),
+    0 3px 8px rgba(196, 184, 168, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
   position: relative;
   backdrop-filter: blur(8px);
-  /* Garantisce altezza uniforme delle card */
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 360px; /* Altezza più generosa per contenuto */
 }
+
+/* Rimuovo hover effects per semplicità e pulizia */
 
 /* Rende il body della card flessibile per distribuire lo spazio */
 .team-card-body {
@@ -187,10 +204,10 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  /* Strategic gold accent for premium team positioning */
+  height: 3px; /* Torno alla dimensione originale per eleganza */
   background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
   opacity: 0.9;
+  border-radius: 16px 16px 0 0;
 }
 
 /* Hover effects removed for performance and professional consistency */
@@ -224,18 +241,18 @@
 .team-card-name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.375rem; /* Leggermente più grande per impatto */
   color: #0B3C5D;
-  margin-bottom: var(--space-1);
-  line-height: 1.3;
+  margin-bottom: var(--space-2); /* Più spazio sotto il nome */
+  line-height: 1.2;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .team-card-title {
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: 0.9375rem; /* Leggermente più grande */
   color: var(--color-muted);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3); /* Più spazio per respirare */
   font-style: italic;
 }
 
@@ -246,32 +263,53 @@
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4); /* Più spazio sotto il badge */
   background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
-  padding: 0.5rem 1rem;
+  padding: 0.625rem 1.25rem; /* Padding più generoso */
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 2px 8px rgba(199, 158, 70, 0.25);
 }
 
 .team-card-text {
-  font-size: 0.9375rem;
+  font-size: 1rem; /* Dimensione più leggibile */
   color: #374151;
-  line-height: 1.6;
-  margin-bottom: var(--space-3);
+  line-height: 1.65; /* Line-height più generoso per leggibilità */
+  margin-bottom: var(--space-5); /* Più spazio prima degli achievements */
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
   text-align: left;
   hyphens: auto;
   word-spacing: 0.05em;
+  flex: 1;
+}
+
+/* Bottone "Scopri di più" */
+.read-more-btn {
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  margin-top: var(--space-2);
+  padding: var(--space-1) 0;
+  text-decoration: underline;
+  transition: all 0.2s ease;
+  display: block;
+}
+
+.read-more-btn:hover {
+  color: var(--color-accent-hover);
+  transform: translateX(2px);
 }
 
 .team-card-philosophy {
-  font-size: 0.9375rem;
+  font-size: 1rem; /* Consistente con il testo */
   color: var(--color-accent);
   font-style: italic;
   font-weight: 500;
-  margin: var(--space-3) 0;
-  padding: var(--space-2) var(--space-3);
+  margin: var(--space-4) 0; /* Più spazio sopra e sotto */
+  padding: var(--space-3) var(--space-4); /* Padding più generoso */
   background: rgba(199, 158, 70, 0.08);
   border-left: 3px solid var(--color-accent);
   border-radius: 0 8px 8px 0;
@@ -279,60 +317,431 @@
 }
 
 /* ==============================
-   ACHIEVEMENTS GRID
+   1. I NOSTRI VALORI - Sezione orizzontale coerente con le card
    ============================== */
-.team-card-achievements {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
+.team-values-section {
+  margin-top: var(--space-6); /* Ridotto da space-8 */
+  margin-bottom: var(--space-7); /* Ridotto da space-8 */
+  max-width: 1400px; /* Stessa larghezza delle card */
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.achievement-item {
+.values-header {
   text-align: center;
-  padding: var(--space-3);
-  background: rgba(199, 158, 70, 0.08); /* Subtle gold accent */
-  border-radius: 12px;
-  border: 1px solid rgba(199, 158, 70, 0.15);
+  margin-bottom: var(--space-6);
 }
 
-.achievement-number {
-  display: block;
+.values-title {
   font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.75rem; /* Increased impact */
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  font-weight: 700;
+  font-size: 2.25rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 0.5rem;
-  position: relative;
-  text-shadow: 0 2px 4px rgba(199, 158, 70, 0.15);
 }
 
-.achievement-number::before {
-  content: '';
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  width: 8px;
-  height: 8px;
-  background: var(--color-accent);
-  border-radius: 50%;
-  opacity: 0.7;
-}
-
-.achievement-label {
-  font-size: 0.8125rem;
+.values-subtitle {
+  font-size: 1.125rem;
   color: var(--color-muted);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.values-horizontal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  padding: var(--space-6);
+  background: #F8F9FA; /* Background uniforme del body */
+  border-radius: 24px;
+  border: 1px solid rgba(199, 158, 70, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 
+              0 2px 4px rgba(0, 0, 0, 0.06); /* Effetto tridimensionale */
+}
+
+.value-item {
+  text-align: center;
+  padding: var(--space-5);
+  background: rgba(255, 255, 255, 0.8); /* Background contrastante rispetto al contenitore */
+  border-radius: 20px;
+  border: 1px solid rgba(199, 158, 70, 0.2);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08), 
+              0 1px 4px rgba(0, 0, 0, 0.06); /* Effetto tridimensionale */
+}
+
+.value-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-3);
+  opacity: 0.8;
+}
+
+.value-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.value-text {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+/* ==============================
+   2. SEZIONI AFFIANCATE: Esperienza | Risultati 
+   ============================== */
+.team-two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  max-width: 1400px; /* Coerente con card e valori */
+  margin: 0 auto var(--space-8) auto;
+}
+
+/* Stili comuni per entrambe le sezioni */
+.numbers-section,
+.results-section {
+  background: #F8F9FA; /* Background uniforme del body */
+  border-radius: 24px;
+  padding: var(--space-6);
+  border: 1px solid rgba(199, 158, 70, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 
+              0 2px 4px rgba(0, 0, 0, 0.06); /* Effetto tridimensionale */
+}
+
+
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-5);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--color-muted);
+  line-height: 1.5;
   font-weight: 500;
 }
 
 /* ==============================
-   CREDENTIALS
+   SEZIONE A: LA NOSTRA ESPERIENZA IN NUMERI
    ============================== */
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Una sola riga con 4 colonne */
+  gap: var(--space-3); /* Gap ridotto per compensare */
+}
+
+.number-item {
+  text-align: center;
+  padding: var(--space-4);
+  background: #F8F9FA; /* Background uniforme del body */
+  border-radius: 16px;
+}
+
+.number-value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.number-label {
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==============================
+   SEZIONE B: RISULTATI SPECIALIZZAZIONE
+   ============================== */
+.results-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Una sola riga con 4 colonne */
+  gap: var(--space-3); /* Gap ridotto per compensare */
+}
+
+.result-item {
+  display: flex;
+  flex-direction: column; /* Disposizione verticale all'interno di ogni item */
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2); /* Gap ridotto interno */
+  padding: var(--space-3); /* Padding ridotto */
+  background: #F8F9FA; /* Background uniforme del body */
+  border-radius: 16px;
+}
+
+.result-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.75rem; /* Dimensione ridotta per layout compatto */
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-1);
+}
+
+.result-content {
+  text-align: center; /* Centrato per layout verticale */
+  width: 100%;
+}
+
+.result-label {
+  font-size: 0.8rem; /* Dimensione ridotta per compattezza */
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+  line-height: 1.2;
+}
+
+.result-member {
+  font-size: 0.7rem; /* Dimensione ridotta per compattezza */
+  color: var(--color-accent);
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* ==============================
+   2. NUMERI + RISULTATI - Social Proof Unificato
+   ============================== */
+.numbers-results-section {
+  padding: var(--space-7) var(--space-5);
+  background: linear-gradient(135deg, 
+    rgba(199, 158, 70, 0.04) 0%, 
+    rgba(11, 60, 93, 0.02) 50%, 
+    rgba(199, 158, 70, 0.04) 100%
+  );
+  border-radius: 24px;
+  border: 1px solid rgba(199, 158, 70, 0.1);
+}
+
+.numbers-results-header {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.numbers-results-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.numbers-results-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Studio Numbers - Counters compatti */
+.studio-numbers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-7);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.number-value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.number-label {
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: var(--space-2);
+}
+
+/* Specialized Results - Badge compatti */
+.specialized-results {
+  border-top: 1px solid rgba(199, 158, 70, 0.15);
+  padding-top: var(--space-6);
+}
+
+.specialized-title {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-5);
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-4);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.result-badge {
+  display: flex;
+  align-items: center;
+  padding: var(--space-4);
+  background: #F8F9FA; /* Background uniforme */
+  border-radius: 16px;
+}
+
+.result-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-right: var(--space-3);
+  min-width: 60px;
+}
+
+.result-info {
+  flex: 1;
+}
+
+.result-label {
+  font-size: 0.95rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}
+
+.result-member {
+  font-size: 0.825rem;
+  color: var(--color-accent);
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN - Nuovo Layout Valori + Due Colonne
+   ============================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .team-cards {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    max-width: 1200px;
+  }
+  
+  .values-horizontal {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .team-two-columns {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .numbers-grid {
+    grid-template-columns: repeat(2, 1fr); /* Su tablet 2x2 */
+  }
+  
+  .results-list {
+    grid-template-columns: repeat(2, 1fr); /* Su tablet 2x2 */
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .team-cards {
+    grid-template-columns: 1fr;
+    max-width: none;
+    gap: var(--space-5);
+  }
+  
+  .values-horizontal {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+  
+  .values-title {
+    font-size: 1.875rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .value-icon {
+    font-size: 2rem;
+  }
+  
+  .number-value {
+    font-size: 2rem;
+  }
+  
+  .result-number {
+    font-size: 1.5rem;
+  }
+  
+  .numbers-grid {
+    grid-template-columns: 1fr; /* Su mobile tutto in colonna */
+    gap: var(--space-3);
+  }
+  
+  .results-list {
+    grid-template-columns: 1fr; /* Su mobile tutto in colonna */
+    gap: var(--space-3);
+  }
+}
+
+/* ==============================
+   CREDENTIALS - TEMPORANEAMENTE DISATTIVATI
+   ============================== */
+/* 
 .team-card-credentials {
-  /* Silicon Valley premium credential styling */
   background: linear-gradient(135deg, 
     rgba(199, 158, 70, 0.12) 0%, 
     rgba(220, 173, 74, 0.08) 50%, 
@@ -340,7 +749,7 @@
   );
   color: var(--color-primary);
   padding: var(--space-3);
-  border-radius: 16px; /* More premium feel */
+  border-radius: 16px;
   font-size: 0.875rem;
   font-weight: 600;
   text-align: center;
@@ -351,7 +760,7 @@
 }
 
 .team-card-credentials::before {
-  content: '⚖️'; /* Legal symbol for premium positioning */
+  content: '⚖️';
   position: absolute;
   top: -8px;
   right: -8px;
@@ -365,51 +774,13 @@
   font-size: 10px;
   box-shadow: 0 2px 8px rgba(199, 158, 70, 0.3);
 }
+*/
 
 /* ==============================
-   STUDIO VALUES SECTION
+   SEZIONI OBSOLETE - RIMOSSE PER DESIGN UNIFICATO 2025
    ============================== */
-.team-values {
-  margin-bottom: var(--space-5); /* Reduced from space-8 to space-5 */
-  text-align: center;
-}
 
-.values-content {
-  max-width: 900px;
-  margin: 0 auto;
-}
 
-.values-title {
-  font-family: var(--font-display);
-  font-weight: 800; /* More authoritative */
-  font-size: clamp(1.75rem, 2.5vw + 1rem, 2.5rem); /* Bigger presence */
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: var(--space-5);
-  text-align: center;
-  position: relative;
-}
-
-.values-title::after {
-  content: '';
-  position: absolute;
-  bottom: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 100%);
-  border-radius: 2px;
-}
-
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Smaller min width */
-  gap: var(--space-3); /* Reduced gap */
-  margin-top: var(--space-3); /* Reduced top margin */
-}
 
 /* ==============================
    RESPONSIVE DESIGN - MOBILE FIRST OPTIMIZED
@@ -469,18 +840,13 @@
     padding-inline: var(--space-3);
   }
   
-  .team-header {
+  .team-cards-header {
     margin-bottom: var(--space-4);
   }
   
-  .team-title {
+  .team-cards-title {
     font-size: clamp(1.75rem, 5vw, 2.5rem);
     margin-bottom: var(--space-2);
-  }
-  
-  .team-subtitle {
-    font-size: clamp(0.875rem, 2vw, 1rem);
-    line-height: 1.6;
   }
   
   /* Mobile: Show only essential stats */
@@ -545,19 +911,14 @@
     line-height: 1.6;
   }
   
-  /* Hide achievement counters on mobile to reduce clutter */
-  .team-card-achievements {
-    display: none;
-  }
-  
-  /* Simplified credentials on mobile */
+  /* Simplified credentials on mobile - TEMPORANEAMENTE DISATTIVATO */
+  /*
   .team-card-credentials {
     padding: var(--space-2);
     font-size: 0.75rem;
-    /* Show only first 2 lines on mobile */
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    line-clamp: 2; /* Standard property */
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -565,7 +926,6 @@
     position: relative;
   }
   
-  /* Add subtle "more" indicator */
   .team-card-credentials::after {
     content: "...";
     position: absolute;
@@ -576,6 +936,7 @@
     font-weight: 600;
     padding-left: 8px;
   }
+  */
   
   .values-grid {
     grid-template-columns: 1fr;
@@ -656,11 +1017,6 @@
   .team-avatar {
     width: 80px;
     height: 80px;
-  }
-  
-  .team-card-achievements {
-    grid-template-columns: 1fr;
-    gap: var(--space-2);
   }
   
   .value-item {
@@ -747,23 +1103,11 @@
 }
 
 .value-item {
-  /* Silicon Valley premium card design */
-  background: linear-gradient(145deg, 
-    rgba(255, 255, 255, 0.95) 0%, 
-    rgba(250, 248, 245, 0.9) 30%, 
-    rgba(199, 158, 70, 0.04) 70%, 
-    rgba(11, 60, 93, 0.03) 100%
-  );
-  border: 1px solid rgba(199, 158, 70, 0.2);
-  border-radius: 16px; /* More modern */
-  padding: var(--space-4); /* Increased for premium feel */
+  background: #F8F9FA; /* Background uniforme */
+  border-radius: 16px;
+  padding: var(--space-4);
   text-align: center;
-  box-shadow: 
-    0 8px 25px rgba(199, 158, 70, 0.08),
-    0 3px 10px rgba(11, 60, 93, 0.05);
   position: relative;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .value-item::before {
@@ -890,5 +1234,30 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* ==============================
+   RESPONSIVE MOBILE - Pulito e leggibile
+   ============================== */
+@media (max-width: 768px) {
+  .team-cards {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    max-width: none;
+  }
+  
+  .team-card {
+    padding: var(--space-6);
+    min-height: auto; /* Lascia che il contenuto determini l'altezza */
+  }
+  
+  .team-card-name {
+    font-size: 1.25rem; /* Ridotto per mobile */
+  }
+  
+  .team-card-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 }
 

@@ -257,12 +257,16 @@
   background: linear-gradient(135deg, var(--color-accent-hover) 0%, #e6b654 100%);
 }
 
-/* CTA button hover removed for consistency */
+/* ==============================
+   ACTIVITY GRID - OTTIMIZZATO PER UX
+   ============================== */
 .activity-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-4); /* Reduced from space-5 to space-4 */
-  margin-top: var(--space-4); /* Reduced margin top */
+  /* DESKTOP: 2x2 grid per migliore scanning */
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5); /* Aumentato per migliore breathing room */
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-6); /* Spazio consistente */
 }
 .activity-card {
   /* Hero-inspired gradient matching Team cards */
@@ -274,17 +278,23 @@
     rgba(253, 252, 251, 0.98) 100%
   );
   border: 1px solid rgba(210, 198, 185, 0.25);
-  border-radius: 16px;
-  padding: var(--space-5) var(--space-4); /* Reduced padding for compactness */
+  border-radius: 20px; /* Aumentato per look più moderno */
+  padding: var(--space-6) var(--space-5); /* Più spazio interno per readability */
   text-align: left;
   /* Professional shadow consistent with Hero and Team */
   box-shadow: 
-    0 8px 25px rgba(164, 147, 123, 0.08),
-    0 3px 10px rgba(196, 184, 168, 0.06),
+    0 12px 32px rgba(164, 147, 123, 0.12), /* Shadow più profonda */
+    0 4px 12px rgba(196, 184, 168, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
     inset 0 0 20px rgba(250, 248, 245, 0.3);
   position: relative;
   backdrop-filter: blur(8px);
+  /* CRITICAL: Equal height per tutte le card */
+  min-height: 280px; /* Height minima per consistency */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuzione spazio */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Subtle hover feedback */
 }
 
 .activity-card::before {
@@ -293,19 +303,42 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 4px; /* Aumentata per maggiore visibilità */
   /* Strategic gold accent bar for visual hierarchy */
   background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
   opacity: 0.9;
+  border-radius: 20px 20px 0 0; /* Match border radius */
 }
 
-/* Hover effects removed for performance and consistency with Hero */
+/* SUBTLE HOVER per migliorare interazione */
+.activity-card:hover {
+  transform: translateY(-2px); /* Movimento sottile */
+  box-shadow: 
+    0 16px 40px rgba(164, 147, 123, 0.15),
+    0 6px 16px rgba(196, 184, 168, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 20px rgba(250, 248, 245, 0.3);
+}
+
+@media (max-width: 768px) {
+  /* Rimuovi hover su mobile per performance */
+  .activity-card:hover {
+    transform: none;
+    box-shadow: 
+      0 12px 32px rgba(164, 147, 123, 0.12),
+      0 4px 12px rgba(196, 184, 168, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 0 20px rgba(250, 248, 245, 0.3);
+  }
+}
 
 .activity-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-3); /* Reduced from space-4 to space-3 */
+  margin-bottom: var(--space-4); /* Aumentato per hierarchy */
+  flex-wrap: wrap; /* Wrap su schermi small */
+  gap: var(--space-2); /* Gap tra elementi */
 }
 
 .activity-category {
@@ -336,16 +369,18 @@
 .activity-title { 
   font-family: var(--font-display); 
   font-weight: 700; 
-  font-size: clamp(1.25rem, 1vw + 1rem, 1.5rem); 
+  font-size: clamp(1.375rem, 1.2vw + 1rem, 1.625rem); /* Leggermente più grande */
   margin: 0 0 var(--space-3); 
   color: var(--color-primary);
+  line-height: 1.3; /* Migliorata line-height per readability */
 }
 
 .activity-text { 
   color: var(--color-text); 
-  font-size: 1rem; 
-  line-height: 1.6; 
+  font-size: clamp(0.9375rem, 0.8vw + 0.8rem, 1.0625rem); /* Responsive e leggibile */
+  line-height: 1.65; /* Ottimizzata per reading flow */
   margin: 0 0 var(--space-4); 
+  flex: 1; /* Prende spazio disponibile per uniform height */
 }
 
 .activity-results {
@@ -391,15 +426,17 @@
     padding-inline: var(--space-6);
   }
   
-  /* Premium 2x2 grid for desktop services */
+  /* OTTIMIZZATO: 2x2 grid per migliore visual scanning */
   .activity-grid { 
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-6); /* Generous spacing */
-    margin-top: var(--space-6);
+    grid-template-columns: repeat(2, 1fr); /* Mantenuto 2x2 per readability */
+    gap: var(--space-7); /* Generoso breathing room */
+    margin-top: var(--space-7);
+    margin-bottom: var(--space-8);
   }
   
   .activity-card {
-    padding: var(--space-6) var(--space-5);
+    padding: var(--space-7) var(--space-6); /* Aumentato padding per premium feel */
+    min-height: 320px; /* Aumentata min-height per desktop */
   }
   
   .main-title {
@@ -492,8 +529,6 @@
     padding-inline: var(--space-3);
   }
   
-
-  
   .main-title {
     font-size: clamp(1.75rem, 5vw, 2.25rem);
     margin-bottom: var(--space-2);
@@ -510,46 +545,51 @@
   }
   
   .activity-grid { 
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-    margin-top: var(--space-3);
+    grid-template-columns: 1fr; /* Single column mobile */
+    gap: var(--space-5); /* Aumentato gap per breathing room */
+    margin-top: var(--space-4);
   }
   
   .activity-card { 
-    text-align: center;
-    padding: var(--space-4);
+    text-align: left; /* Testo allineato a sinistra per migliore reading */
+    padding: var(--space-5) var(--space-4); /* Più padding per touch targets */
+    min-height: auto; /* Height auto su mobile */
   }
   
   .activity-header {
     flex-direction: column;
+    align-items: flex-start; /* Allineamento naturale */
     gap: var(--space-2);
-    text-align: center;
     margin-bottom: var(--space-3);
   }
   
   .activity-title {
-    font-size: clamp(1.125rem, 3vw, 1.375rem);
+    font-size: clamp(1.25rem, 3.5vw, 1.5rem);
     margin-bottom: var(--space-2);
+    line-height: 1.25; /* Tight line-height per mobile */
   }
   
   .activity-text {
-    font-size: 0.9375rem;
+    font-size: clamp(0.9375rem, 2vw, 1.0625rem);
     line-height: 1.6;
     margin-bottom: var(--space-3);
   }
   
   .activity-category {
-    font-size: 0.75rem;
+    font-size: 0.8125rem; /* Leggermente più grande */
+    order: 1; /* Category prima del badge */
   }
   
   .activity-badge {
-    font-size: 0.6875rem;
-    padding: 0.375rem 0.625rem;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem; /* Più padding per touch */
+    order: 2;
   }
   
   .activity-results {
-    font-size: 0.8125rem;
-    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem; /* Increased padding */
+    margin-top: auto; /* Push to bottom */
   }
   
   .main-cta-section {
@@ -567,8 +607,9 @@
   }
   
   .main-cta-button {
-    padding: 0.875rem 1.5rem;
-    font-size: 1rem;
+    padding: 1rem 1.75rem; /* Aumentato per migliore touch target */
+    font-size: 1.0625rem;
+    min-height: 48px; /* Minimum touch target */
   }
 }
 

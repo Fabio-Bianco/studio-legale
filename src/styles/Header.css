@@ -227,7 +227,7 @@
   overscroll-behavior: contain; /* Prevent scroll chaining */
 }
 
-.nav-mobile.active {
+.nav-mobile.active {  
   right: 0;
 }
 

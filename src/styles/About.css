@@ -1,0 +1,137 @@
+/* ==============================
+   ABOUT SECTION - Badge Chi Siamo e Esperienza
+   Posizionata subito dopo Hero per presentare lo studio
+   ============================== */
+
+.about-section {
+  padding: var(--space-2) 0; /* Ridotto drasticamente dato che è vuota */
+  /* Background matching Hero vibes - warm professional gradient */
+  background: linear-gradient(135deg, 
+    rgba(211, 201, 189, 0.15) 0%, 
+    rgba(224, 214, 201, 0.12) 25%, 
+    rgba(248, 249, 250, 0.8) 50%, 
+    rgba(196, 184, 168, 0.1) 75%, 
+    rgba(183, 167, 144, 0.15) 100%
+  );
+  position: relative;
+  z-index: 5;
+  border-radius: 24px 24px 0 0;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: var(--space-4);
+  text-align: center;
+}
+
+/* ==============================
+   BADGE CHI SIAMO
+   ============================== */
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* Gold accent badge for premium positioning */
+  background: rgba(199, 158, 70, 0.12);
+  color: var(--color-primary); /* Navy text for excellent contrast */
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(199, 158, 70, 0.3);
+  backdrop-filter: blur(10px);
+  margin-bottom: var(--space-3);
+}
+
+/* ==============================
+   TITOLO ESPERIENZA
+   ============================== */
+.about-title {
+  font-family: var(--font-display);
+  font-weight: 800; /* Matching Hero title weight */
+  font-size: clamp(2.25rem, 3.5vw + 1rem, 3rem); /* More consistent with Hero scale */
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.about-subtitle {
+  font-size: clamp(0.95rem, 1vw + 0.75rem, 1.125rem); /* Slightly smaller */
+  color: var(--color-muted);
+  line-height: 1.5; /* Reduced line height for compactness */
+  margin-bottom: 0;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Desktop content display */
+@media (min-width: 769px) {
+  .title-mobile, .subtitle-mobile {
+    display: none;
+  }
+  
+  .title-desktop, .subtitle-desktop {
+    display: block;
+  }
+}
+
+/* Mobile content styling */
+@media (max-width: 768px) {
+  .title-desktop, .subtitle-desktop {
+    display: none;
+  }
+  
+  .title-mobile {
+    display: block;
+  }
+  
+  .subtitle-mobile {
+    display: block;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  
+  .about-section {
+    padding: var(--space-1) 0; /* Minimo padding su mobile */
+    border-radius: 16px 16px 0 0;
+  }
+  
+  .about-container {
+    padding-inline: var(--space-3);
+  }
+  
+  .about-title {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    margin-bottom: var(--space-2);
+  }
+  
+  .about-subtitle {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    line-height: 1.6;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .about-section {
+    padding: var(--space-1) 0; /* Minimo padding anche per small mobile */
+  }
+  
+  .about-container {
+    padding-inline: var(--space-2);
+  }
+}
+
+/* Desktop Executive Presentation */
+@media (min-width: 1025px) {
+  .about-section {
+    padding: var(--space-2) 0; /* Ridotto anche su desktop */
+  }
+  
+  .about-container {
+    max-width: 1400px; /* Expanded container for desktop */
+  }
+}

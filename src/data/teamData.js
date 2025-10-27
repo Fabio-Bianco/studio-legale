@@ -4,6 +4,10 @@ import avvTenoreImg from '../assets/avv_tenore.jpg';
 
 /**
  * Dati del team legale - Array strutturati per riutilizzo
+ * 
+ * NOTA: I campi 'credentials' sono temporaneamente disattivati nella UI
+ * per migliorare la leggibilità delle card. Il codice è mantenuto 
+ * per eventuali future riattivazioni.
  */
 
 export const teamMembers = [
@@ -12,13 +16,9 @@ export const teamMembers = [
     name: "Avv. Patrizia Livieri",
     title: "Fondatrice dello Studio",
     role: "• Immigrazione • Diritto di Famiglia",
-    description: `Svolgo la mia attività principalmente nella provincia di Brindisi, specializzandomi in diritto di famiglia e immigrazione. 
+    description: `Svolgo la mia attività principalmente nella provincia di Brindisi, specializzandomi in diritto di famiglia e immigrazione. Il ruolo di traduttrice giurata nelle lingue inglese, francese e spagnolo, mi consente di offrire supporto qualificato in ambito di immigrazione, asilo e cittadinanza. Credo profondamente nel valore del rapporto umano e diretto: ogni persona ha una storia unica che merita ascolto, rispetto e chiarezza autentica.
 
-Il ruolo di traduttrice giurata nelle lingue inglese, francese e spagnolo, mi consente di offrire supporto qualificato in ambito di immigrazione, asilo e cittadinanza, accompagnando i clienti in ogni fase del percorso legale.
-
-Credo profondamente nel valore del rapporto umano e diretto: ogni persona ha una storia unica che merita ascolto, rispetto e chiarezza. Per questo utilizzo sempre un linguaggio semplice ma preciso, perché comprendere è il primo passo verso una soluzione consapevole.
-
-Considero il mio lavoro un privilegio: accompagnare le persone nei momenti più delicati della loro vita, offrendo competenza tecnica, empatia autentica e dedizione totale al loro benessere.`,
+Per questo utilizzo sempre un linguaggio semplice ma preciso, perché comprendere è il primo passo verso una soluzione consapevole. Considero il mio lavoro un privilegio: accompagnare le persone nei momenti più delicati della loro vita, offrendo competenza tecnica, empatia autentica e dedizione totale al loro benessere.`,
     contact: {
       email: "patrizia.livieri@gmail.com",
       pec: "livieri.patrizia@coabrindisi.legalmail.it",
@@ -60,13 +60,9 @@ Considero il mio lavoro un privilegio: accompagnare le persone nei momenti più 
     name: "Avv. Federica Tenore",
     title: "Curatore Minorile",
     role: "• Sovraindebitamento • Recupero Crediti",
-    description: `Ho acquisito esperienza approfondita in diritto di famiglia, approfondendo gli aspetti civilistici e penalistici di questa materia complessa e delicata.
+    description: `Ho acquisito esperienza approfondita in diritto di famiglia, approfondendo gli aspetti civilistici e penalistici di questa materia complessa e delicata. Mi occupo di procedure da sovraindebitamento, recupero crediti e tutela del consumatore, gestendo sinistri stradali, casi di malasanità e responsabilità medica con approccio tecnico e determinato.
 
-Mi occupo di procedure da sovraindebitamento, recupero crediti, tutela del consumatore, gestendo sinistri stradali, casi di malasanità e responsabilità medica con approccio tecnico e determinato.
-
-La mia pratica spazia dalla responsabilità contrattuale ed extracontrattuale alle differenze retributive, dalle nomine di amministratori di sostegno agli sfratti, dai ricorsi ABF ai ricorsi amministrativi INPS.
-
-Sono inserita nell'elenco degli Avvocati per il Patrocinio a Spese dello Stato per il settore civile, garantendo assistenza qualificata anche a chi ha difficoltà economiche, perché tutti meritano giustizia.`,
+La mia pratica spazia dalla responsabilità contrattuale ed extracontrattuale alle differenze retributive, dalle nomine di amministratori di sostegno agli sfratti. Sono inserita nell'elenco degli Avvocati per il Patrocinio a Spese dello Stato, garantendo assistenza qualificata anche a chi ha difficoltà economiche, perché tutti meritano giustizia.`,
     contact: {
       email: "avv.federicatenore@gmail.com", 
       pec: "tenore.federica@coamilano.legalmail.it",
