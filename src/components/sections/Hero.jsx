@@ -67,17 +67,13 @@ export default function Hero() {
       <div className="hero-container">
         {/* Contenuto principale a sinistra */}
         <div className="hero-content">
-          <div className="hero-badge">
-            ⚖️ Oltre {studioStats.find(stat => stat.label === "Casi Risolti")?.number || "500+"} casi risolti con successo
-          </div>
-          
           <h1 id="hero-title" className="hero-title">
-            Tutela Legale
-            <span className="hero-title-highlight">Professionale</span>
+            Studio Livieri Tenore
+            <span className="hero-title-highlight">Due Professioniste, Una Visione</span>
           </h1>
 
           <p className="hero-tagline">
-            <strong>Consulenza gratuita entro 24h</strong> — Soluzioni concrete per famiglia, contratti e recupero crediti Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium cumque quae quo vitae dolor quia exercitationem provident, veritatis iure earum eius! Saepe sint debitis earum a, eius nisi dolorem.
+            Nel panorama giuridico contemporaneo la complessità normativa spesso allontana le persone dalla giustizia. Noi abbiamo scelto una strada diversa: <strong>trasformare l'eccellenza tecnica in soluzioni umane e accessibili</strong>.
           </p>
 
           <div className="hero-cta-group">

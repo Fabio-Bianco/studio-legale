@@ -8,24 +8,6 @@ export default function About() {
   return (
     <Layout className="about-page">
       
-      {/* Opening Statement - Impatto immediato */}
-      <section className="about-opening">
-        <div className="about-container">
-          <div className="opening-content">
-            <div className="opening-badge">Dal 2014</div>
-            <h1 className="opening-title">
-              Studio Livieri Tenore
-              <span className="title-accent">Due Professioniste, Una Visione</span>
-            </h1>
-            <div className="opening-lead">
-              Nel panorama giuridico contemporaneo, dove la complessità normativa 
-              spesso allontana le persone dalla giustizia, noi abbiamo scelto una strada diversa: 
-              <strong>trasformare l'eccellenza tecnica in soluzioni umane e accessibili</strong>.
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Genesis Story - La nascita dello studio */}
       <section className="about-genesis">
         <div className="about-container">
