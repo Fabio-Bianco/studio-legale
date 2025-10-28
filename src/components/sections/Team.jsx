@@ -149,7 +149,6 @@ export default function Team() {
                     <div className="result-number">{achievement.number}</div>
                     <div className="result-content">
                       <div className="result-label">{achievement.label}</div>
-                      <div className="result-member">{member.name.split(' ')[1]}</div>
                     </div>
                   </div>
                 ))

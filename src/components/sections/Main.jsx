@@ -42,68 +42,49 @@ export default function Main() {
           <p className="main-description">Soluzioni concrete per ogni situazione legale</p>
 
           <div className={`activity-grid ${isMobile && !isExpanded ? 'collapsed' : 'expanded'}`}>
-            {/* Card 1 - Always visible */}
-            <div className="activity-card">
+            {/* Card 1 - Immigrazione e Cittadinanza */}
+            <Link to="/services" className="activity-card">
+              <div className="activity-header">
+                <div className="activity-category">Immigrazione e Cittadinanza</div>
+              </div>
+              <h3 className="activity-title">Percorso verso la Cittadinanza</h3>
+              <p className="activity-text">
+                <strong>Realizziamo il tuo futuro in Italia.</strong> Assistenza completa per visti, permessi di soggiorno, ricongiungimenti familiari e cittadinanza italiana. Un percorso guidato verso la stabilità e i tuoi diritti.
+              </p>
+            </Link>
+
+            {/* Card 2 - Diritto di Famiglia */}
+            <Link to="/services" className="activity-card">
               <div className="activity-header">
                 <div className="activity-category">Diritto di Famiglia</div>
-                <div className="activity-badge">Avv. Patrizia Livieri</div>
               </div>
               <h3 className="activity-title">Protezione Famiglia</h3>
               <p className="activity-text">
-                <strong>Separarsi senza traumi.</strong> Accordi consensuali in 90 giorni, 
-                tutela economica garantita, custodia condivisa equilibrata.
+                <strong>Separarsi senza traumi.</strong> Accordi consensuali, tutela economica garantita, custodia condivisa equilibrata. Affrontiamo insieme i momenti difficili per proteggere ciò che conta davvero: il benessere dei tuoi cari.
               </p>
-              <div className="activity-results">
-                ✓ 95% accordi senza tribunale • ✓ Mediazione inclusa
-              </div>
-            </div>
+            </Link>
 
-            {/* Card 2 - Always visible */}
-            <div className="activity-card">
-              <div className="activity-header">
-                <div className="activity-category">Diritto Contrattuale</div>
-                <div className="activity-badge">Avv. Federica Bianchi</div>
-              </div>
-              <h3 className="activity-title">Contratti Blindati</h3>
-              <p className="activity-text">
-                <strong>Zero sorprese, massima sicurezza.</strong> Contratti iron-clad, 
-                clausole di protezione, exit strategy sempre coperte.
-              </p>
-              <div className="activity-results">
-                ✓ Revisione in 48h • ✓ Assistenza post-firma
-              </div>
-            </div>
-
-            {/* Collapsible Cards - Hidden on mobile when collapsed */}
-            <div className={`activity-card ${isMobile && !isExpanded ? 'mobile-hidden' : ''}`}>
+            {/* Card 3 - Recupero Crediti */}
+            <Link to="/services" className="activity-card">
               <div className="activity-header">
                 <div className="activity-category">Recupero Crediti</div>
-                <div className="activity-badge">Risultati Garantiti</div>
               </div>
-              <h3 className="activity-title">Crediti Recuperati</h3>
+              <h3 className="activity-title">I Tuoi Crediti Recuperati</h3>
               <p className="activity-text">
-                <strong>I tuoi soldi, recuperati.</strong> Azioni mirate, tempi certi, 
-                success fee solo a risultato ottenuto.
+                <strong>Riottieni ciò che ti spetta.</strong> Strategie efficaci per il recupero di crediti commerciali e privati. Azioni mirate, procedure stragiudiziali e giudiziali per garantire il rientro dei tuoi investimenti.
               </p>
-              <div className="activity-results">
-                ✓ 87% recuperi riusciti • ✓ No win, no fee
-              </div>
-            </div>
+            </Link>
 
-            <div className={`activity-card ${isMobile && !isExpanded ? 'mobile-hidden' : ''}`}>
+            {/* Card 4 - Sovraindebitamento */}
+            <Link to="/services" className="activity-card">
               <div className="activity-header">
-                <div className="activity-category">Diritto d'Impresa</div>
-                <div className="activity-badge">Legal Protection</div>
+                <div className="activity-category">Sovraindebitamento</div>
               </div>
-              <h3 className="activity-title">Azienda Protetta</h3>
+              <h3 className="activity-title">Libertà dai Debiti</h3>
               <p className="activity-text">
-                <strong>La tua azienda al sicuro.</strong> Legal check continuo, 
-                prevenzione contenziosi, crescita senza rischi legali.
+                <strong>Una nuova opportunità di ripartire.</strong> Procedure di sovraindebitamento, piani di rientro personalizzati, protezione del patrimonio familiare. Trasformiamo il peso dei debiti in un percorso verso la serenità finanziaria.
               </p>
-              <div className="activity-results">
-                ✓ Canone fisso mensile • ✓ SLA garantito
-              </div>
-            </div>
+            </Link>
           </div>
 
           {/* Mobile Toggle Button */}

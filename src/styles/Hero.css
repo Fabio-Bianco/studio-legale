@@ -119,8 +119,7 @@
   line-height: 1.1;
   color: var(--color-primary);
   margin: 0;
-  padding-top: var(--space-4);
-  margin-top: var(--space-4);
+  padding-top: var(--space-3);
   text-align: left;
   letter-spacing: -0.02em;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -134,23 +133,30 @@
   display: block;
   font-size: 0.65em;
   font-weight: 500;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .hero-tagline {
-  font-size: clamp(0.9rem, 1vw + 0.7rem, 1rem);
+  font-size: clamp(1rem, 1.2vw + 0.8rem, 1.125rem);
   color: var(--color-muted);
   margin: 0;
+  margin-top: var(--space-6);
   text-align: left;
-  max-width: 400px;
-  line-height: 1.4;
+  max-width: 900px;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.hero-tagline strong {
+  color: var(--color-primary);
+  font-weight: 700;
 }
 
 /* ==============================
    CTA Button
    ============================== */
 .hero-cta-group {
-  margin-top: var(--space-2);
+  margin-top: var(--space-7);
 }
 
 .hero-button {
@@ -287,16 +293,20 @@
   .hero-title {
     font-size: clamp(3.25rem, 4.5vw + 1rem, 4.75rem); /* Bigger desktop impact */
     line-height: 1.05;
-    padding-top: var(--space-8);
-    margin-top: var(--space-5);
+    padding-top: var(--space-4);
     margin-bottom: var(--space-3);
   }
 
   .hero-tagline {
-    font-size: clamp(1.125rem, 1.2vw + 0.8rem, 1.375rem);
+    font-size: clamp(1.125rem, 1.3vw + 0.9rem, 1.375rem);
     max-width: 520px;
-    line-height: 1.6;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
     color: rgba(55, 65, 81, 0.9);
+  }
+
+  .hero-cta-group {
+    margin-top: var(--space-8);
   }
 
   /* Premium CTA design */
@@ -422,14 +432,19 @@
 
   .hero-title {
     font-size: clamp(1.75rem, 4vw, 2.25rem);
-    padding-top: var(--space-5);
-    margin-top: var(--space-3);
+    padding-top: var(--space-2);
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow for mobile */
   }
 
   .hero-tagline {
-    font-size: 0.9rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    letter-spacing: 0.005em;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-cta-group {
+    margin-top: var(--space-6);
   }
 
   .hero-button {
@@ -563,12 +578,16 @@
 
   .hero-title {
     font-size: clamp(1.5rem, 6.5vw, 2rem);
-    padding-top: var(--space-4);
-    margin-top: var(--space-2);
+    padding-top: var(--space-1);
   }
 
   .hero-tagline {
     font-size: 0.875rem;
-    line-height: 1.5;
+    line-height: 1.45;
+    letter-spacing: 0.005em;
+  }
+
+  .hero-cta-group {
+    margin-top: var(--space-5);
   }
 }

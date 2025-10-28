@@ -73,7 +73,7 @@ export default function Hero() {
           </h1>
 
           <p className="hero-tagline">
-            Nel panorama giuridico contemporaneo la complessità normativa spesso allontana le persone dalla giustizia. Noi abbiamo scelto una strada diversa: <strong>trasformare l'eccellenza tecnica in soluzioni umane e accessibili</strong>.
+            Quando il diritto diventa strumento di protezione e non di ostacolo. <strong>Offriamo consulenza legale strategica con un approccio umano e soluzioni mirate</strong>.
           </p>
 
           <div className="hero-cta-group">
