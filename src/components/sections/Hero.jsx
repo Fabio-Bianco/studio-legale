@@ -56,8 +56,8 @@ export default function Hero() {
           <div className="hero-content">
             <h1 id="hero-title" className="hero-title">
               Studio Livieri Tenore
-              <span className="hero-subtitle">Due Professioniste, Una Visione</span>
             </h1>
+            <p className="hero-subtitle">Due Professioniste, Una Visione</p>
 
             <p className="hero-description">
               Quando il diritto diventa strumento di protezione e non di ostacolo. 
