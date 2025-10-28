@@ -52,10 +52,10 @@
 .hero-bg-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  opacity: 0.7;
-  filter: brightness(0.9) contrast(1.05);
-  object-position: center center;
+  object-fit: contain; /* Mostra l'immagine completa senza tagli */
+  opacity: 0.75; /* Bilanciata per leggibilità e nitidezza */
+  filter: brightness(0.9) contrast(1.02) saturate(1.05); /* Filtri più delicati */
+  object-position: center center; /* Centrata */
   transition: all 0.3s ease;
   /* Prevent touch interference on mobile */
   pointer-events: none;

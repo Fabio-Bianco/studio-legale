@@ -283,8 +283,8 @@
   border-radius: 12px;
   overflow: hidden;
   
-  /* FORMATO VERTICALE come richiesto */
-  aspect-ratio: 4/5; /* Rettangolo verticale */
+  /* FORMATO ORIZZONTALE - rettangoli larghi */
+  aspect-ratio: 16/9; /* Rettangolo orizzontale */
   
   /* SHADOW MINIMALISTA */
   box-shadow: 
@@ -296,24 +296,22 @@
   flex-direction: column;
   justify-content: flex-end; /* Contenuto in basso */
   
-  /* NO HOVER SULLA CARD come richiesto */
+  /* NO HOVER SULLA CARD - solo contenuti interni */
   transition: none;
   cursor: pointer;
 }
 
-/* IMMAGINE CARD */
-.card-image {
+/* IMMAGINE CARD (USO <img> per object-fit) */
+.card-img {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  
-  /* TRANSIZIONE per effetto B&N */
-  transition: filter 0.3s ease;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* crop mantenendo il focus */
+  object-position: center center;
+  border: 0;
+  transition: filter 0.3s ease; /* Solo transizione per B&N */
 }
 
 /* IMMAGINI SPECIFICHE PER OGNI AREA LEGALE */
@@ -386,8 +384,8 @@
   backdrop-filter: blur(8px);
 }
 
-/* EFFETTI HOVER MINIMI come richiesto */
-.activity-card:hover .card-image {
+/* EFFETTI HOVER MINIMI - solo B&N su immagine e piccole animazioni */
+.activity-card:hover .card-img {
   /* IMMAGINE IN B&N al hover */
   filter: grayscale(100%);
 }
@@ -400,92 +398,29 @@
 .activity-card:hover .card-arrow {
   /* PICCOLO EFFETTO sulla freccia */
   background: rgba(255, 255, 255, 1);
-  transform: scale(1.1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
 }
 
-.activity-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(11, 60, 93, 0.1) 0%,
-    rgba(164, 147, 123, 0.05) 50%,
-    rgba(199, 158, 70, 0.1) 100%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 16px;
-}
+/* Rimosse le regole ::before e ::after per eliminare freccia duplicata e overlay */
 
-/* FRECCIA NAVIGAZIONE STILE IMMAGINE */
-.activity-card::after {
-  content: '→';
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  color: white;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(8px);
-}
-
-/* HOVER EFFECT CONTENUTO - Come richiesto */
-.activity-card:hover {
-  transform: translateY(-4px); /* Ridotto movimento */
-  border-color: rgba(255, 255, 255, 0.3);
-  
-  /* SHADOW PIÙ CONTENUTA */
-  box-shadow: 
-    0 12px 32px rgba(0, 0, 0, 0.25),
-    0 6px 16px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
-}
+/* HOVER EFFECT CONTENUTO - Rimosso per card sobrie */
 
 /* Hover sulla freccia */
 .activity-card:hover::after {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: scale(1.1);
+  /* Rimosso - nessuna freccia duplicata */
 }
 
 /* Overlay hover */
 .activity-card:hover::before {
-  opacity: 1;
+  /* Rimosso - nessun overlay sulla card */
 }
 
-/* Effetto attivo per feedback tattile */
-.activity-card:active {
-  transform: translateY(-2px) scale(1.01);
-  transition: all 0.1s ease;
-}
+/* Effetto attivo per feedback tattile - rimosso */
 
 @media (max-width: 768px) {
-  /* Hover ottimizzato per mobile - effetti ridotti */
-  .activity-card:hover {
-    transform: translateY(-2px); /* Movimento contenuto per mobile */
-    box-shadow: 
-      0 10px 24px rgba(0, 0, 0, 0.3),
-      0 4px 12px rgba(0, 0, 0, 0.25);
-    border-color: rgba(255, 255, 255, 0.25);
-  }
-  
   /* Focus states per accessibilità touch */
   .activity-card:focus {
-    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline: 2px solid rgba(199, 158, 70, 0.6);
     outline-offset: 2px;
   }
 }

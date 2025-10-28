@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/Hero.css";
-import heroImage from "../../assets/hero_figures_final.webp";
+import heroImage from "../../assets/hero-img.png";
 import { studioStats } from "../../data/teamData";
 /**
  * Hero component con background image, effetto cascata e sticky CTA mobile

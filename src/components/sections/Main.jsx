@@ -3,6 +3,15 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/Main.css";
 
+// Immagini per le card attività
+
+import imgContract from "../../assets/diritto-contrattuale.jpg";
+import imgFamily from "../../assets/diritto-di-famiglia.jpg";
+import imgLabor from "../../assets/diritto-lavoro.jpg";
+import imgImmigration from "../../assets/immigrazione.jpg";
+import imgDebtRecovery from "../../assets/recupero-crediti.jpg";
+import imgOverIndebt from "../../assets/sovraindebbitamento.jpg";
+
 export default function Main() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -44,42 +53,42 @@ export default function Main() {
             
             {/* Card 1 - Diritto di Famiglia */}
             <Link to="/services" className="activity-card">
-              <div className="card-image family-law"></div>
+              <img src={imgFamily} alt="Diritto di Famiglia" className="card-img" />
               <h3 className="activity-title">Diritto di Famiglia</h3>
               <div className="card-arrow">→</div>
             </Link>
 
             {/* Card 2 - Recupero Crediti */}
             <Link to="/services" className="activity-card">
-              <div className="card-image debt-recovery"></div>
+              <img src={imgDebtRecovery} alt="Recupero Crediti" className="card-img" />
               <h3 className="activity-title">Recupero Crediti</h3>
               <div className="card-arrow">→</div>
             </Link>
 
             {/* Card 3 - Sovraindebitamento */}
             <Link to="/services" className="activity-card">
-              <div className="card-image debt-relief"></div>
+              <img src={imgOverIndebt} alt="Sovraindebitamento" className="card-img" />
               <h3 className="activity-title">Sovraindebitamento</h3>
               <div className="card-arrow">→</div>
             </Link>
 
             {/* Card 4 - Immigrazione e Cittadinanza */}
             <Link to="/services" className="activity-card">
-              <div className="card-image immigration"></div>
+              <img src={imgImmigration} alt="Immigrazione e Cittadinanza" className="card-img" />
               <h3 className="activity-title">Immigrazione e Cittadinanza</h3>
               <div className="card-arrow">→</div>
             </Link>
 
             {/* Card 5 - Diritto del Lavoro */}
             <Link to="/services" className="activity-card">
-              <div className="card-image labor-law"></div>
+              <img src={imgLabor} alt="Diritto del Lavoro" className="card-img" />
               <h3 className="activity-title">Diritto del Lavoro</h3>
               <div className="card-arrow">→</div>
             </Link>
 
             {/* Card 6 - Diritto Contrattuale */}
             <Link to="/services" className="activity-card">
-              <div className="card-image contract-law"></div>
+              <img src={imgContract} alt="Diritto Contrattuale" className="card-img" />
               <h3 className="activity-title">Diritto Contrattuale</h3>
               <div className="card-arrow">→</div>
             </Link>
