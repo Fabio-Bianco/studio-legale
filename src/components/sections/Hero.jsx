@@ -2,18 +2,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/Hero.css";
-import heroImage from "../../assets/hero-img.png";
-import { studioStats } from "../../data/teamData";
+import heroImg1 from "../../assets/hero-img.png";
+import heroImg2 from "../../assets/hero-img-2.png";
+
 /**
- * Hero component con background image, effetto cascata e sticky CTA mobile
+ * Enterprise Hero Section - Legal Services
+ * Split image architecture with professional overlay system
  */
 export default function Hero() {
   const [showStickyCTA, setShowStickyCTA] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show sticky CTA when user scrolls past hero (mobile only)
-      const heroHeight = window.innerHeight * 0.6; // 60vh threshold
+      const heroHeight = window.innerHeight * 0.65;
       const shouldShow = window.scrollY > heroHeight && window.innerWidth <= 768;
       setShowStickyCTA(shouldShow);
     };
@@ -21,80 +22,70 @@ export default function Hero() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  return (
-    <section className="hero" aria-labelledby="hero-title">
 
-      {/* Responsive Hero Image with Enhanced Art Direction */}
-      <div className="hero-image-wrapper">
-        <picture className="hero-picture">
-          {/* Mobile-optimized versions with srcset for performance */}
-          <source 
-            media="(max-width: 480px)" 
-            srcSet={`${heroImage} 480w`}
-            sizes="100vw"
-          />
-          <source 
-            media="(max-width: 768px)" 
-            srcSet={`${heroImage} 768w`}
-            sizes="100vw"
-          />
-          {/* Tablet version */}
-          <source 
-            media="(max-width: 1024px)" 
-            srcSet={`${heroImage} 1024w`}
-            sizes="100vw"
-          />
-          {/* Desktop version */}
+  return (
+    <section className="hero-section" aria-labelledby="hero-title">
+      {/* Enterprise Split Image Background */}
+      <div className="hero-background">
+        <div className="hero-image-left">
           <img 
-            className="hero-bg-image" 
-            src={heroImage} 
-            alt="Avvocati esperti in diritto civile e contrattuale - Studio legale professionale"
+            src={heroImg2} 
+            alt=""
+            className="hero-img hero-img--left"
             loading="eager"
             decoding="async"
-            fetchPriority="high"
-            role="img"
-            aria-describedby="hero-title"
           />
-        </picture>
+        </div>
+        <div className="hero-image-right">
+          <img 
+            src={heroImg1} 
+            alt=""
+            className="hero-img hero-img--right"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
         
-        {/* Enhanced mobile overlay with intelligent gradient */}
-        <div className="hero-mobile-overlay"></div>
-        
-        {/* Mobile contrast enhancer - adaptive based on image */}
-        <div className="hero-text-backdrop"></div>
+        {/* Professional Overlay System */}
+        <div className="hero-overlay"></div>
       </div>
-      
-      <div className="hero-container">
-        {/* Contenuto principale a sinistra */}
-        <div className="hero-content">
-          <h1 id="hero-title" className="hero-title">
-            Studio Livieri Tenore
-            <span className="hero-title-highlight">Due Professioniste, Una Visione</span>
-          </h1>
 
-          <p className="hero-tagline">
-            Quando il diritto diventa strumento di protezione e non di ostacolo. <strong>Offriamo consulenza legale strategica con un approccio umano e soluzioni mirate</strong>.
-          </p>
+      {/* Content Container */}
+      <div className="hero-wrapper">
+        <div className="hero-container">
+          <div className="hero-content">
+            <h1 id="hero-title" className="hero-title">
+              Studio Livieri Tenore
+              <span className="hero-subtitle">Due Professioniste, Una Visione</span>
+            </h1>
 
-          <div className="hero-cta-group">
-            <Link to="/consultation" className="hero-button hero-button-primary">
-              <span className="hero-button-text">Consulenza Gratuita Ora</span>
-              <span className="hero-button-subtitle">Rispondiamo entro le 24h</span>
-                          </Link>
-            <p className="hero-cta-trust">
-              ✓ Nessun impegno  ✓ Consulenza gratuita
+            <p className="hero-description">
+              Quando il diritto diventa strumento di protezione e non di ostacolo. 
+              <strong> Offriamo consulenza legale strategica con un approccio umano e soluzioni mirate</strong>.
             </p>
-          </div>
-          
-          {/* Mobile Sticky CTA - appears only on mobile scroll */}
-          <div className={`hero-sticky-cta ${showStickyCTA ? 'visible' : ''}`}>
-            <Link to="/consultation" className="sticky-cta-button">
-              <span>Consulenza Gratuita</span>
-              <span className="sticky-cta-indicator">→</span>
-            </Link>
+
+            <div className="hero-actions">
+              <Link to="/consultation" className="hero-cta">
+                <span className="hero-cta-text">Consulenza Gratuita Ora</span>
+                <span className="hero-cta-sub">Rispondiamo entro le 24h</span>
+              </Link>
+              <p className="hero-trust">
+                ✓ Nessun impegno  ✓ Consulenza gratuita
+              </p>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Mobile Sticky CTA */}
+      {showStickyCTA && (
+        <div className="hero-sticky-cta">
+          <Link to="/consultation" className="sticky-cta-btn">
+            <span>Consulenza Gratuita</span>
+            <span className="sticky-arrow">→</span>
+          </Link>
+        </div>
+      )}
     </section>
   );
 }
