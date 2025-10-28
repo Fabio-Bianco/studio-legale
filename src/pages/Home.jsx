@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <Layout className="home-page">
       <Hero />
+      <Main />
       <About />
       <Team />
-      <Main />
     </Layout>
   );
 }

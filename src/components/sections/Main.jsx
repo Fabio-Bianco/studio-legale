@@ -37,53 +37,51 @@ export default function Main() {
         
         {/* Aree di Attività - Sezione principale */}
         <section className="activities" aria-labelledby="activities-title">
-          <h2 id="activities-title" className="main-title">Dalla Consulenza alla Soluzione</h2>
-          <p className="main-subtitle">Le nostre specializzazioni</p>
-          <p className="main-description">Soluzioni concrete per ogni situazione legale</p>
+          <h2 id="activities-title" className="main-title">Le Nostre Specializzazioni</h2>
+          <p className="main-subtitle">Soluzioni concrete per ogni situazione legale</p>
 
           <div className={`activity-grid ${isMobile && !isExpanded ? 'collapsed' : 'expanded'}`}>
-            {/* Card 1 - Immigrazione e Cittadinanza */}
+            
+            {/* Card 1 - Diritto di Famiglia */}
             <Link to="/services" className="activity-card">
-              <div className="activity-header">
-                <div className="activity-category">Immigrazione e Cittadinanza</div>
-              </div>
-              <h3 className="activity-title">Percorso verso la Cittadinanza</h3>
-              <p className="activity-text">
-                <strong>Realizziamo il tuo futuro in Italia.</strong> Assistenza completa per visti, permessi di soggiorno, ricongiungimenti familiari e cittadinanza italiana. Un percorso guidato verso la stabilità e i tuoi diritti.
-              </p>
+              <div className="card-image family-law"></div>
+              <h3 className="activity-title">Diritto di Famiglia</h3>
+              <div className="card-arrow">→</div>
             </Link>
 
-            {/* Card 2 - Diritto di Famiglia */}
+            {/* Card 2 - Recupero Crediti */}
             <Link to="/services" className="activity-card">
-              <div className="activity-header">
-                <div className="activity-category">Diritto di Famiglia</div>
-              </div>
-              <h3 className="activity-title">Protezione Famiglia</h3>
-              <p className="activity-text">
-                <strong>Separarsi senza traumi.</strong> Accordi consensuali, tutela economica garantita, custodia condivisa equilibrata. Affrontiamo insieme i momenti difficili per proteggere ciò che conta davvero: il benessere dei tuoi cari.
-              </p>
+              <div className="card-image debt-recovery"></div>
+              <h3 className="activity-title">Recupero Crediti</h3>
+              <div className="card-arrow">→</div>
             </Link>
 
-            {/* Card 3 - Recupero Crediti */}
+            {/* Card 3 - Sovraindebitamento */}
             <Link to="/services" className="activity-card">
-              <div className="activity-header">
-                <div className="activity-category">Recupero Crediti</div>
-              </div>
-              <h3 className="activity-title">I Tuoi Crediti Recuperati</h3>
-              <p className="activity-text">
-                <strong>Riottieni ciò che ti spetta.</strong> Strategie efficaci per il recupero di crediti commerciali e privati. Azioni mirate, procedure stragiudiziali e giudiziali per garantire il rientro dei tuoi investimenti.
-              </p>
+              <div className="card-image debt-relief"></div>
+              <h3 className="activity-title">Sovraindebitamento</h3>
+              <div className="card-arrow">→</div>
             </Link>
 
-            {/* Card 4 - Sovraindebitamento */}
+            {/* Card 4 - Immigrazione e Cittadinanza */}
             <Link to="/services" className="activity-card">
-              <div className="activity-header">
-                <div className="activity-category">Sovraindebitamento</div>
-              </div>
-              <h3 className="activity-title">Libertà dai Debiti</h3>
-              <p className="activity-text">
-                <strong>Una nuova opportunità di ripartire.</strong> Procedure di sovraindebitamento, piani di rientro personalizzati, protezione del patrimonio familiare. Trasformiamo il peso dei debiti in un percorso verso la serenità finanziaria.
-              </p>
+              <div className="card-image immigration"></div>
+              <h3 className="activity-title">Immigrazione e Cittadinanza</h3>
+              <div className="card-arrow">→</div>
+            </Link>
+
+            {/* Card 5 - Diritto del Lavoro */}
+            <Link to="/services" className="activity-card">
+              <div className="card-image labor-law"></div>
+              <h3 className="activity-title">Diritto del Lavoro</h3>
+              <div className="card-arrow">→</div>
+            </Link>
+
+            {/* Card 6 - Diritto Contrattuale */}
+            <Link to="/services" className="activity-card">
+              <div className="card-image contract-law"></div>
+              <h3 className="activity-title">Diritto Contrattuale</h3>
+              <div className="card-arrow">→</div>
             </Link>
           </div>
 
@@ -92,7 +90,7 @@ export default function Main() {
             <div className="mobile-toggle-section">
               {!isExpanded && (
                 <div className="hidden-cards-indicator">
-                  <span className="indicator-text">+2 servizi aggiuntivi</span>
+                  <span className="indicator-text">+4 servizi aggiuntivi</span>
                 </div>
               )}
               <button 
