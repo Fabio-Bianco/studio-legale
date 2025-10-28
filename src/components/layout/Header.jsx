@@ -87,8 +87,8 @@ export default function Header() {
       <nav className="nav-desktop" aria-label="Navigazione principale">
         <ul>
           <li><Link to="/" className="nav-link">Home</Link></li>
-          <li><Link to="/about" className="nav-link">Chi Siamo</Link></li>
           <li><Link to="/services" className="nav-link">Servizi Legali</Link></li>
+          <li><Link to="/about" className="nav-link">Chi Siamo</Link></li>
           <li><Link to="/contact" className="nav-link">Contatti</Link></li>
           <li><Link to="/consultation" className="nav-link nav-cta">Consulenza Gratuita</Link></li>
         </ul>
@@ -139,13 +139,13 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/about" className="mobile-nav-link" onClick={closeMenu}>
-              <span className="mobile-nav-text">Chi Siamo</span>
+            <Link to="/services" className="mobile-nav-link" onClick={closeMenu}>
+              <span className="mobile-nav-text">Servizi Legali</span>
             </Link>
           </li>
           <li>
-            <Link to="/services" className="mobile-nav-link" onClick={closeMenu}>
-              <span className="mobile-nav-text">Servizi Legali</span>
+            <Link to="/about" className="mobile-nav-link" onClick={closeMenu}>
+              <span className="mobile-nav-text">Chi Siamo</span>
             </Link>
           </li>
           <li>
