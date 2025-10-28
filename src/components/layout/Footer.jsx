@@ -99,7 +99,7 @@ export default function Footer() {
             <span className="footer-separator">•</span>
             <Link to="/terms" className="footer-legal-link">Termini di Servizio</Link>
             <span className="footer-separator">•</span>
-            <Link to="/contact" className="footer-legal-link">Mappa del Sito</Link>
+            <Link to="/sitemap" className="footer-legal-link">Mappa del Sito</Link>
           </div>
         </div>
       </div>
