@@ -11,8 +11,7 @@ export default function FreeConsultation() {
     phone: '',
     legalArea: '',
     message: '',
-    urgency: '',
-    preferredContact: 'phone'
+    urgency: ''
   });
 
   // Form validation and accessibility
@@ -27,39 +26,34 @@ export default function FreeConsultation() {
 
   // Focus management for accessibility
   useEffect(() => {
-    // Focus error summary when errors appear
     if (Object.keys(errors).length > 0 && errorSummaryRef.current) {
       errorSummaryRef.current.focus();
     }
   }, [errors]);
 
   useEffect(() => {
-    // Focus success message when form is submitted successfully
     if (submitStatus === 'success' && successMessageRef.current) {
       successMessageRef.current.focus();
     }
   }, [submitStatus]);
 
-  // Form validation with accessibility
+  // Form validation
   const validateForm = () => {
     const newErrors = {};
     
-    // Name validation
     if (!formData.name.trim()) {
       newErrors.name = 'Il nome è obbligatorio';
     } else if (formData.name.trim().length < 2) {
       newErrors.name = 'Il nome deve contenere almeno 2 caratteri';
     }
 
-    // Email validation (enhanced pattern)
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
       newErrors.email = 'L\'email è obbligatoria';
     } else if (!emailPattern.test(formData.email)) {
-      newErrors.email = 'Inserisci un\'email valida (esempio: nome@dominio.it)';
+      newErrors.email = 'Inserisci un\'email valida';
     }
 
-    // Phone validation (Italian format)
     const phonePattern = /^[+]?[0-9\s\-()]{8,15}$/;
     if (!formData.phone.trim()) {
       newErrors.phone = 'Il numero di telefono è obbligatorio';
@@ -67,27 +61,24 @@ export default function FreeConsultation() {
       newErrors.phone = 'Inserisci un numero di telefono valido';
     }
 
-    // Message validation
     if (!formData.message.trim()) {
-      newErrors.message = 'La descrizione della situazione è obbligatoria';
+      newErrors.message = 'La descrizione è obbligatoria';
     } else if (formData.message.trim().length < 20) {
-      newErrors.message = 'Descrivi la tua situazione con almeno 20 caratteri per ricevere assistenza adeguata';
+      newErrors.message = 'Descrivi la situazione con almeno 20 caratteri';
     }
 
     return newErrors;
   };
 
-  // Enhanced input change handler
+  // Input change handler
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     
-    // Real-time validation feedback
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
 
-    // Clear specific error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,
@@ -96,56 +87,32 @@ export default function FreeConsultation() {
     }
   };
 
-  // Enhanced form submission
+  // Form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Validate form
     const newErrors = validateForm();
     
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
-      
-      // Announce errors to screen readers
-      const errorCount = Object.keys(newErrors).length;
-      const announcement = `Trovati ${errorCount} errori nel modulo. Controlla i campi evidenziati e riprova.`;
-      
-      // Create temporary live region for announcement
-      const liveRegion = document.createElement('div');
-      liveRegion.setAttribute('aria-live', 'assertive');
-      liveRegion.setAttribute('aria-atomic', 'true');
-      liveRegion.className = 'sr-only';
-      liveRegion.textContent = announcement;
-      document.body.appendChild(liveRegion);
-      
-      // Remove after announcement
-      setTimeout(() => {
-        document.body.removeChild(liveRegion);
-      }, 1000);
-      
       return;
     }
 
-    // Clear any previous errors
     setErrors({});
     setIsSubmitting(true);
     
     try {
-      // Simulate form submission (replace with actual API call)
+      // Simulate form submission
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      // Success handling
       setSubmitStatus('success');
-      
-      // Reset form after successful submission
       setFormData({
         name: '',
         email: '',
         phone: '',
         legalArea: '',
         message: '',
-        urgency: '',
-        preferredContact: 'phone'
+        urgency: ''
       });
       
     } catch (error) {
@@ -159,54 +126,54 @@ export default function FreeConsultation() {
   return (
     <Layout className="consultation-page" showScrollProgress={false}>
       
-      {/* Hero Section - Optimized for Conversion */}
-      <section 
-        className="consultation-hero"
-        aria-labelledby="hero-title"
-      >
+      {/* Hero Section - Clean & Professional */}
+      <section className="consultation-hero" aria-labelledby="hero-title">
         <div className="consultation-hero-container">
-          <h1 
-            id="hero-title"
-            className="consultation-hero-title"
-          >
-            Consulenza Legale Gratuita
-          </h1>
-          
-          <p className="consultation-hero-description">
-            <strong>Descrivi la tua situazione</strong> e ricevi assistenza legale professionale entro 24 ore. 
-            Consulenza telefonica completamente gratuita e senza impegno.
-          </p>
-          
-          {/* Trust Indicators - Enhanced */}
-          <div className="consultation-trust-grid">
-            <div className="consultation-trust-item">
-              <span className="consultation-trust-icon" aria-hidden="true">⚡</span>
-              <div className="consultation-trust-title">Risposta Rapida</div>
-              <div className="consultation-trust-subtitle">Entro 24 ore lavorative</div>
-            </div>
+          <div className="consultation-hero-content">
             
-            <div className="consultation-trust-item">
-              <span className="consultation-trust-icon" aria-hidden="true">📞</span>
-              <div className="consultation-trust-title">Consulenza Telefonica</div>
-              <div className="consultation-trust-subtitle">Chiamata diretta con avvocato</div>
+            <div className="consultation-urgency-badge">
+              Risposta garantita entro 24 ore
             </div>
+
+            <h1 id="hero-title" className="consultation-hero-title">
+              Consulenza Legale Gratuita
+            </h1>
             
-            <div className="consultation-trust-item">
-              <span className="consultation-trust-icon" aria-hidden="true">✅</span>
-              <div className="consultation-trust-title">Totalmente Gratuita</div>
-              <div className="consultation-trust-subtitle">Nessun costo o impegno</div>
+            <p className="consultation-hero-description">
+              Parla direttamente con un avvocato esperto. Descrivi la tua situazione 
+              e ricevi una consulenza telefonica professionale, completamente gratuita.
+            </p>
+
+            <div className="consultation-hero-benefits">
+              <div className="consultation-benefit">
+                <span className="consultation-benefit-icon">⚡</span>
+                <span>Risposta entro 24h</span>
+              </div>
+              <div className="consultation-benefit">
+                <span className="consultation-benefit-icon">💯</span>
+                <span>100% Gratuita</span>
+              </div>
+              <div className="consultation-benefit">
+                <span className="consultation-benefit-icon">🛡️</span>
+                <span>Senza impegno</span>
+              </div>
             </div>
+
+            <div className="consultation-social-proof">
+              <div className="consultation-rating">
+                <div className="consultation-stars">★★★★★</div>
+                <span>4.9/5 · Oltre 500 consulenze gratuite</span>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Form Section - WCAG AAA Compliant */}
-      <section 
-        className="consultation-form-section"
-        aria-labelledby="form-title"
-      >
+      {/* Form Section */}
+      <section className="consultation-form-section" aria-labelledby="form-title">
         <div className="consultation-form-container">
-          
+
           {/* Success Message */}
           {submitStatus === 'success' && (
             <div 
@@ -226,7 +193,7 @@ export default function FreeConsultation() {
             </div>
           )}
 
-          {/* Error Summary for Screen Readers */}
+          {/* Error Summary */}
           {Object.keys(errors).length > 0 && (
             <div 
               ref={errorSummaryRef}
@@ -258,17 +225,17 @@ export default function FreeConsultation() {
           )}
 
           <div className="consultation-form-wrapper">
-            <h2 
-              id="form-title"
-              className="consultation-form-title"
-            >
-              Descrivi la Tua Situazione Legale
-            </h2>
             
-            <p className="consultation-form-subtitle">
-              Compila il modulo e riceverai una chiamata da uno dei nostri esperti. 
-              Tutti i campi contrassegnati con * sono obbligatori.
-            </p>
+            <div className="consultation-form-header">
+              <h2 id="form-title" className="consultation-form-title">
+                Richiedi la Tua Consulenza Gratuita
+              </h2>
+              
+              <p className="consultation-form-subtitle">
+                Compila i campi essenziali e ti contatteremo entro 24 ore per la consulenza gratuita. 
+                <span className="consultation-time-estimate">⏱️ Richiede solo 2 minuti</span>
+              </p>
+            </div>
 
             <form 
               ref={formRef}
@@ -276,14 +243,14 @@ export default function FreeConsultation() {
               noValidate
               className="consultation-form"
             >
-              
-              {/* Nome e Cognome */}
+
+              {/* Nome */}
               <div className="consultation-form-group">
                 <label 
                   htmlFor="name"
                   className={`consultation-form-label required ${errors.name ? 'error' : ''}`}
                 >
-                  Nome e Cognome
+                  Il tuo nome
                 </label>
                 <input
                   type="text"
@@ -294,11 +261,12 @@ export default function FreeConsultation() {
                   aria-describedby={`name-help ${errors.name ? 'name-error' : ''}`}
                   aria-invalid={errors.name ? 'true' : 'false'}
                   className={`consultation-form-input ${errors.name ? 'consultation-form-error' : ''}`}
-                  placeholder="Inserisci il tuo nome completo"
+                  placeholder="Mario Rossi"
                   maxLength="100"
+                  autoComplete="name"
                 />
                 <div id="name-help" className="consultation-form-help">
-                  Inserisci nome e cognome per identificarti durante la consulenza
+                  Come preferisci essere chiamato durante la consulenza
                 </div>
                 {errors.name && (
                   <div 
@@ -313,7 +281,7 @@ export default function FreeConsultation() {
                 )}
               </div>
 
-              {/* Email e Telefono - Row */}
+              {/* Email e Telefono */}
               <div className="consultation-form-row">
                 <div className="consultation-form-group">
                   <label 
@@ -331,11 +299,12 @@ export default function FreeConsultation() {
                     aria-describedby={`email-help ${errors.email ? 'email-error' : ''}`}
                     aria-invalid={errors.email ? 'true' : 'false'}
                     className={`consultation-form-input ${errors.email ? 'consultation-form-error' : ''}`}
-                    placeholder="nome@email.com"
+                    placeholder="mario.rossi@email.com"
                     maxLength="100"
+                    autoComplete="email"
                   />
                   <div id="email-help" className="consultation-form-help">
-                    Ti invieremo una conferma della richiesta
+                    Per confermarti la consulenza
                   </div>
                   {errors.email && (
                     <div 
@@ -350,12 +319,12 @@ export default function FreeConsultation() {
                   )}
                 </div>
 
-                <div className="consultation-form-group">
+                <div className="consultation-form-group consultation-primary-field">
                   <label 
                     htmlFor="phone"
                     className={`consultation-form-label required ${errors.phone ? 'error' : ''}`}
                   >
-                    Telefono
+                    📱 Numero di telefono
                   </label>
                   <input
                     type="tel"
@@ -365,12 +334,13 @@ export default function FreeConsultation() {
                     onChange={handleInputChange}
                     aria-describedby={`phone-help ${errors.phone ? 'phone-error' : ''}`}
                     aria-invalid={errors.phone ? 'true' : 'false'}
-                    className={`consultation-form-input ${errors.phone ? 'consultation-form-error' : ''}`}
-                    placeholder="+39 123 456 7890"
+                    className={`consultation-form-input consultation-primary-input ${errors.phone ? 'consultation-form-error' : ''}`}
+                    placeholder="123 456 7890"
                     maxLength="20"
+                    autoComplete="tel"
                   />
-                  <div id="phone-help" className="consultation-form-help">
-                    Ti chiameremo per la consulenza gratuita
+                  <div id="phone-help" className="consultation-form-help consultation-primary-help">
+                    <strong>Ti chiamiamo noi</strong> - Inserisci il numero dove essere contattato
                   </div>
                   {errors.phone && (
                     <div 
@@ -386,11 +356,11 @@ export default function FreeConsultation() {
                 </div>
               </div>
 
-              {/* Area Legale e Urgenza - Row */}
+              {/* Area Legale e Urgenza */}
               <div className="consultation-form-row">
                 <div className="consultation-form-group">
                   <label htmlFor="legalArea" className="consultation-form-label">
-                    Area Legale di Interesse
+                    Area di interesse
                   </label>
                   <select
                     id="legalArea"
@@ -400,24 +370,24 @@ export default function FreeConsultation() {
                     className="consultation-form-select"
                     aria-describedby="legalArea-help"
                   >
-                    <option value="">Seleziona un'area (opzionale)</option>
-                    <option value="famiglia">Diritto di Famiglia</option>
-                    <option value="contratti">Diritto Contrattuale</option>
+                    <option value="">Seleziona (opzionale)</option>
+                    <option value="famiglia">Famiglia</option>
+                    <option value="contratti">Contratti</option>
                     <option value="crediti">Recupero Crediti</option>
-                    <option value="impresa">Diritto d'Impresa</option>
-                    <option value="immobiliare">Diritto Immobiliare</option>
-                    <option value="lavoro">Diritto del Lavoro</option>
-                    <option value="penale">Diritto Penale</option>
+                    <option value="impresa">Impresa</option>
+                    <option value="immobiliare">Immobiliare</option>
+                    <option value="lavoro">Lavoro</option>
+                    <option value="penale">Penale</option>
                     <option value="altro">Altro</option>
                   </select>
                   <div id="legalArea-help" className="consultation-form-help">
-                    Aiutaci a indirizzarti verso l'esperto più adatto
+                    Ci aiuta a indirizzarti al giusto esperto
                   </div>
                 </div>
 
                 <div className="consultation-form-group">
                   <label htmlFor="urgency" className="consultation-form-label">
-                    Livello di Urgenza
+                    Urgenza
                   </label>
                   <select
                     id="urgency"
@@ -427,25 +397,25 @@ export default function FreeConsultation() {
                     className="consultation-form-select"
                     aria-describedby="urgency-help"
                   >
-                    <option value="">Seleziona urgenza</option>
-                    <option value="bassa">Bassa - Posso attendere qualche giorno</option>
-                    <option value="media">Media - Entro 24-48 ore</option>
-                    <option value="alta">Alta - Entro oggi se possibile</option>
-                    <option value="critica">Critica - Urgentissimo</option>
+                    <option value="">Seleziona</option>
+                    <option value="bassa">📅 Posso attendere</option>
+                    <option value="media">⏰ Entro 1-2 giorni</option>
+                    <option value="alta">🔥 Entro oggi</option>
+                    <option value="critica">🚨 Urgentissimo</option>
                   </select>
                   <div id="urgency-help" className="consultation-form-help">
-                    Ci aiuta a prioritizzare la tua richiesta
+                    Per prioritizzare la richiesta
                   </div>
                 </div>
               </div>
 
               {/* Messaggio */}
-              <div className="consultation-form-group">
+              <div className="consultation-form-group consultation-message-field">
                 <label 
                   htmlFor="message"
                   className={`consultation-form-label required ${errors.message ? 'error' : ''}`}
                 >
-                  Descrivi la Tua Situazione
+                  📝 Descrivi la tua situazione
                 </label>
                 <textarea
                   id="message"
@@ -455,13 +425,16 @@ export default function FreeConsultation() {
                   aria-describedby={`message-help ${errors.message ? 'message-error' : ''}`}
                   aria-invalid={errors.message ? 'true' : 'false'}
                   className={`consultation-form-textarea ${errors.message ? 'consultation-form-error' : ''}`}
-                  placeholder="Descrivi dettagliatamente la tua situazione legale. Più informazioni fornisci, migliore sarà l'assistenza che potremo offrirti..."
+                  placeholder="Esempio: Ho un problema con il mio datore di lavoro che non mi paga gli straordinari da 3 mesi. Cosa posso fare?"
                   maxLength="2000"
-                  rows="6"
+                  rows="5"
                 />
                 <div id="message-help" className="consultation-form-help">
-                  Minimo 20 caratteri. Sii specifico per ricevere consigli mirati 
-                  ({formData.message.length}/2000 caratteri)
+                  <div className="consultation-help-tips">
+                    <strong>💡 Suggerimenti:</strong> Includi date, importi, documenti che hai. 
+                    Più dettagli = consigli più precisi.
+                    <span className="consultation-character-count">({formData.message.length}/2000 caratteri)</span>
+                  </div>
                 </div>
                 {errors.message && (
                   <div 
@@ -476,38 +449,7 @@ export default function FreeConsultation() {
                 )}
               </div>
 
-              {/* Modalità di Contatto Preferita */}
-              <fieldset className="consultation-form-group">
-                <legend className="consultation-form-label">
-                  Modalità di Contatto Preferita
-                </legend>
-                <div className="consultation-form-radio-group">
-                  <label className="consultation-form-radio-label">
-                    <input
-                      type="radio"
-                      name="preferredContact"
-                      value="phone"
-                      checked={formData.preferredContact === 'phone'}
-                      onChange={handleInputChange}
-                      className="consultation-form-radio"
-                    />
-                    <span>📞 Chiamata telefonica (consigliata)</span>
-                  </label>
-                  <label className="consultation-form-radio-label">
-                    <input
-                      type="radio"
-                      name="preferredContact"
-                      value="email"
-                      checked={formData.preferredContact === 'email'}
-                      onChange={handleInputChange}
-                      className="consultation-form-radio"
-                    />
-                    <span>📧 Prima risposta via email</span>
-                  </label>
-                </div>
-              </fieldset>
-
-              {/* Privacy e Consenso */}
+              {/* Privacy */}
               <div className="consultation-form-checkbox-group">
                 <input
                   type="checkbox"
@@ -517,36 +459,97 @@ export default function FreeConsultation() {
                   aria-describedby="privacy-help"
                 />
                 <label htmlFor="privacy" className="consultation-form-checkbox-label">
-                  Accetto il trattamento dei dati personali secondo la <a href="/privacy" target="_blank">Privacy Policy</a> 
-                  e autorizzo il contatto per la consulenza legale gratuita richiesta.
+                  Accetto la <a href="/privacy" target="_blank">Privacy Policy</a> 
+                  e autorizzo il contatto per la consulenza gratuita.
                 </label>
               </div>
 
               {/* Submit Button */}
-              <button
-                type="submit"
-                className="consultation-form-submit"
-                disabled={isSubmitting}
-                aria-describedby="submit-help"
-              >
-                {isSubmitting ? (
-                  <>
-                    <span aria-hidden="true">⏳</span>
-                    Invio in corso...
-                  </>
-                ) : (
-                  <>
-                    📋 Invia Richiesta di Consulenza
-                  </>
-                )}
-              </button>
-              
-              <div id="submit-help" className="consultation-form-help consultation-form-submit-help">
-                🔒 I tuoi dati sono protetti e non verranno condivisi con terzi
+              <div className="consultation-cta-section">
+                <button
+                  type="submit"
+                  className="consultation-form-submit"
+                  disabled={isSubmitting}
+                  aria-describedby="submit-help"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <span className="consultation-submit-icon">⏳</span>
+                      <span className="consultation-submit-text">Invio in corso...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="consultation-submit-icon">📞</span>
+                      <span className="consultation-submit-text">Richiedi Consulenza Gratuita</span>
+                      <span className="consultation-submit-time">Ti chiamiamo entro 24h</span>
+                    </>
+                  )}
+                </button>
+                
+                <div id="submit-help" className="consultation-form-help consultation-form-submit-help">
+                  <div className="consultation-submit-benefits">
+                    <div className="consultation-submit-benefit">
+                      <span>🔒</span> Dati protetti
+                    </div>
+                    <div className="consultation-submit-benefit">
+                      <span>💯</span> Completamente gratuita
+                    </div>
+                    <div className="consultation-submit-benefit">
+                      <span>❌</span> Nessun impegno
+                    </div>
+                  </div>
+                </div>
               </div>
 
             </form>
           </div>
+
+          {/* FAQ Section */}
+          <div className="consultation-faq">
+            <h3 className="consultation-faq-title">Domande Frequenti</h3>
+            <div className="consultation-faq-grid">
+              <div className="consultation-faq-item">
+                <div className="consultation-faq-question">
+                  <span className="consultation-faq-icon">❓</span>
+                  È davvero gratuita?
+                </div>
+                <div className="consultation-faq-answer">
+                  Sì, completamente gratuita. Nessun costo nascosto e nessun obbligo.
+                </div>
+              </div>
+
+              <div className="consultation-faq-item">
+                <div className="consultation-faq-question">
+                  <span className="consultation-faq-icon">⏰</span>
+                  Quanto dura?
+                </div>
+                <div className="consultation-faq-answer">
+                  15-20 minuti, tempo sufficiente per una prima valutazione professionale.
+                </div>
+              </div>
+
+              <div className="consultation-faq-item">
+                <div className="consultation-faq-question">
+                  <span className="consultation-faq-icon">🛡️</span>
+                  I dati sono sicuri?
+                </div>
+                <div className="consultation-faq-answer">
+                  Protetti secondo GDPR e coperti dal segreto professionale.
+                </div>
+              </div>
+
+              <div className="consultation-faq-item">
+                <div className="consultation-faq-question">
+                  <span className="consultation-faq-icon">📞</span>
+                  Dopo la chiamata?
+                </div>
+                <div className="consultation-faq-answer">
+                  Valutazione della situazione e preventivo trasparente se necessario.
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
       

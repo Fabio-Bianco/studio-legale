@@ -1,8 +1,8 @@
 // src/components/layout/Header.jsx
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'; 
+import { studioInfo, mainNavigation } from "../../data/studioData";
 import "../../styles/Header.css";
-import { studioInfo } from "../../data/teamData";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -86,11 +86,16 @@ export default function Header() {
       {/* Desktop Navigation */}
       <nav className="nav-desktop" aria-label="Navigazione principale">
         <ul>
-          <li><Link to="/" className="nav-link">Home</Link></li>
-          <li><Link to="/services" className="nav-link">Servizi Legali</Link></li>
-          <li><Link to="/about" className="nav-link">Chi Siamo</Link></li>
-          <li><Link to="/contact" className="nav-link">Contatti</Link></li>
-          <li><Link to="/consultation" className="nav-link nav-cta">Consulenza Gratuita</Link></li>
+          {mainNavigation.map((item, index) => (
+            <li key={index}>
+              <Link 
+                to={item.path} 
+                className={`nav-link ${item.cta ? 'nav-cta' : ''}`}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
 
@@ -124,7 +129,7 @@ export default function Header() {
         <div className="mobile-menu-header">
           <div className="mobile-brand">
             <h2 className="mobile-brand-title">{studioInfo.shortName}</h2>
-            <span className="mobile-brand-subtitle">{studioInfo.mobileSubtitle}</span>
+            <span className="mobile-brand-subtitle">{studioInfo.subtitle}</span>
           </div>
           <button className="close-btn" aria-label="Chiudi menu" onClick={closeMenu}>
             ×
@@ -133,42 +138,34 @@ export default function Header() {
 
         {/* Mobile Navigation Links */}
         <ul className="mobile-nav-list">
-          <li>
-            <Link to="/" className="mobile-nav-link" onClick={closeMenu}>
-              <span className="mobile-nav-text">Home</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/services" className="mobile-nav-link" onClick={closeMenu}>
-              <span className="mobile-nav-text">Servizi Legali</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" className="mobile-nav-link" onClick={closeMenu}>
-              <span className="mobile-nav-text">Chi Siamo</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" className="mobile-nav-link" onClick={closeMenu}>
-              <span className="mobile-nav-text">📞 Contatti</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/consultation" className="mobile-nav-link mobile-nav-cta" onClick={closeMenu}>
-              <span className="mobile-nav-text">🎯 Consulenza Gratuita</span>
-            </Link>
-          </li>
+          {mainNavigation.map((item, index) => (
+            <li key={index}>
+              <Link 
+                to={item.path} 
+                className={`mobile-nav-link ${item.cta ? 'mobile-nav-cta' : ''}`} 
+                onClick={closeMenu}
+              >
+                <span className="mobile-nav-text">
+                  {item.cta ? '🎯 ' : ''}{item.label}
+                </span>
+              </Link>
+            </li>
+          ))}
         </ul>
 
         {/* Mobile Contact Info */}
         <div className="mobile-contact">
           <div className="mobile-contact-item">
             <span className="contact-label">Chiamata diretta</span>
-            <a href="tel:+390212334567" className="contact-value">+39 02 1234567</a>
+            <a href={`tel:${studioInfo.contact.phone}`} className="contact-value">
+              {studioInfo.contact.phoneFormatted}
+            </a>
           </div>
           <div className="mobile-contact-item">
             <span className="contact-label">Email rapida</span>
-            <a href="mailto:info@studiolegale.it" className="contact-value">info@studiolegale.it</a>
+            <a href={`mailto:${studioInfo.contact.email}`} className="contact-value">
+              {studioInfo.contact.email}
+            </a>
           </div>
         </div>
       </nav>

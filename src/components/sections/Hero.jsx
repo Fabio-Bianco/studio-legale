@@ -1,9 +1,8 @@
 // src/components/sections/Hero.jsx
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { heroData } from "../../data/heroData";
 import "../../styles/Hero.css";
-import heroImg1 from "../../assets/hero-img.png";
-import heroImg2 from "../../assets/hero-img-2.png";
 
 /**
  * Enterprise Hero Section - Legal Services
@@ -29,8 +28,8 @@ export default function Hero() {
       <div className="hero-background">
         <div className="hero-image-left">
           <img 
-            src={heroImg2} 
-            alt=""
+            src={heroData.images.left} 
+            alt={heroData.images.altLeft}
             className="hero-img hero-img--left"
             loading="eager"
             decoding="async"
@@ -38,8 +37,8 @@ export default function Hero() {
         </div>
         <div className="hero-image-right">
           <img 
-            src={heroImg1} 
-            alt=""
+            src={heroData.images.right} 
+            alt={heroData.images.altRight}
             className="hero-img hero-img--right"
             loading="eager"
             decoding="async"
@@ -55,22 +54,27 @@ export default function Hero() {
         <div className="hero-container">
           <div className="hero-content">
             <h1 id="hero-title" className="hero-title">
-              Studio Livieri Tenore
+              {heroData.title}
             </h1>
-            <p className="hero-subtitle">Due Professioniste, Una Visione</p>
+            <p className="hero-subtitle">{heroData.subtitle}</p>
 
             <p className="hero-description">
-              Quando il diritto diventa strumento di protezione e non di ostacolo. 
-              <strong> Offriamo consulenza legale strategica con un approccio umano e soluzioni mirate</strong>.
+              {heroData.description} 
+              <strong> {heroData.descriptionBold}</strong>.
             </p>
 
             <div className="hero-actions">
-              <Link to="/consultation" className="hero-cta">
-                <span className="hero-cta-text">Consulenza Gratuita Ora</span>
-                <span className="hero-cta-sub">Rispondiamo entro le 24h</span>
+              <Link to={heroData.cta.link} className="hero-cta">
+                <span className="hero-cta-text">{heroData.cta.text}</span>
+                <span className="hero-cta-sub">{heroData.cta.subtext}</span>
               </Link>
               <p className="hero-trust">
-                ✓ Nessun impegno  ✓ Consulenza gratuita
+                {heroData.trustBadges.map((badge, index) => (
+                  <React.Fragment key={index}>
+                    ✓ {badge}
+                    {index < heroData.trustBadges.length - 1 ? '  ' : ''}
+                  </React.Fragment>
+                ))}
               </p>
             </div>
           </div>
@@ -80,9 +84,9 @@ export default function Hero() {
       {/* Mobile Sticky CTA */}
       {showStickyCTA && (
         <div className="hero-sticky-cta">
-          <Link to="/consultation" className="sticky-cta-btn">
-            <span>Consulenza Gratuita</span>
-            <span className="sticky-arrow">→</span>
+          <Link to={heroData.cta.link} className="sticky-cta-btn">
+            <span>{heroData.stickyCTA.text}</span>
+            <span className="sticky-arrow">{heroData.stickyCTA.arrow}</span>
           </Link>
         </div>
       )}

@@ -66,11 +66,14 @@ src/
 │   ├── LegalServices.jsx
 │   ├── Contact.jsx
 │   ├── FreeConsultation.jsx
-│   ├── Privacy.jsx       # ✨ Nuovo
-│   ├── Terms.jsx         # ✨ Nuovo
-│   └── Sitemap.jsx       # ✨ Nuovo
-├── data/
-│   └── teamData.js
+│   ├── Privacy.jsx       # ✨ Pagina legale
+│   ├── Terms.jsx         # ✨ Pagina legale
+│   └── Sitemap.jsx       # ✨ Pagina legale
+├── data/                 # 📊 Dati centralizzati (NUOVO)
+│   ├── teamData.js       # Team e professionisti
+│   ├── servicesData.js   # ✨ Servizi legali
+│   ├── studioData.js     # ✨ Info studio e contatti
+│   └── heroData.js       # ✨ Hero section
 ├── assets/               # Immagini ottimizzate
 ├── styles/               # CSS modulari
 │   ├── tokens.css        # Design system
@@ -82,6 +85,28 @@ src/
 │   └── ...
 └── App.jsx              # Router principale
 ```
+
+---
+
+## 📊 Gestione Dati (Data Layer)
+
+### ✅ **Struttura Centralizzata**
+Tutti i dati sono separati dai componenti e organizzati in `src/data/`:
+
+**File Dati:**
+- **`teamData.js`** - Profili avvocati, specializzazioni, contatti
+- **`servicesData.js`** - 12 servizi legali con descrizioni e features
+- **`studioData.js`** - Info studio, contatti, navigazione, CTA
+- **`heroData.js`** - Contenuti hero section homepage
+
+**Vantaggi:**
+- ✅ **Manutenibilità**: Aggiorna dati in un solo punto
+- ✅ **Scalabilità**: Facile aggiungere nuovi contenuti
+- ✅ **Consistenza**: Dati uniformi in tutto il sito
+- ✅ **No duplicazioni**: Definiti una sola volta
+- ✅ **Pronto per CMS/API**: Facile integrare backend
+
+**Documentazione completa:** Vedi [DATA-STRUCTURE.md](DATA-STRUCTURE.md)
 
 ---
 
