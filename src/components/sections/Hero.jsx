@@ -65,7 +65,10 @@ export default function Hero() {
 
             <div className="hero-actions">
               <Link to={heroData.cta.link} className="hero-cta">
-                <span className="hero-cta-text">{heroData.cta.text}</span>
+                <span className="hero-cta-text">
+                  <span className="cta-desktop">{heroData.cta.text}</span>
+                  <span className="cta-mobile">{heroData.cta.textMobile || heroData.cta.text}</span>
+                </span>
                 <span className="hero-cta-sub">{heroData.cta.subtext}</span>
               </Link>
               <p className="hero-trust">

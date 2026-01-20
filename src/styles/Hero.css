@@ -136,7 +136,8 @@
 
 .hero-description strong {
   color: var(--color-primary);
-  font-weight: 700;
+  font-weight: 800; /* Più bold */
+  font-size: 1.05em; /* Leggermente più grande */
 }
 
 /* =================================================
@@ -197,16 +198,20 @@
 }
 
 .hero-cta-sub {
-  font-size: 0.875rem; /* Riportato alla dimensione originale */
-  opacity: 0.9;
-  font-weight: 500;
+  font-size: 0.9375rem; /* Più grande per visibilità */
+  opacity: 0.95; /* Più visibile */
+  font-weight: 600; /* Più enfasi */
+  letter-spacing: 0.01em;
 }
 
 .hero-trust {
-  margin-top: 1.75rem; /* Aumentato spazio dalla CTA */
+  margin-top: 1.75rem;
   font-size: 0.925rem;
-  color: #6b7280;
-  font-weight: 500;
+  color: #4b5563; /* Più contrasto */
+  font-weight: 600; /* Più enfasi */
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 /* =================================================
@@ -353,16 +358,56 @@
   
   .hero-cta {
     width: 100%;
-    padding: var(--space-4) var(--space-5);
+    padding: 1.125rem var(--space-5); /* Padding ottimizzato */
     font-size: 1.0625rem;
-    min-height: 64px; /* Più alto per essere più prominente */
-    box-shadow: 0 8px 24px rgba(199, 158, 70, 0.4); /* Più ombra */
+    min-height: 68px; /* Leggermente più alto */
+    box-shadow: 0 8px 24px rgba(199, 158, 70, 0.4);
+  }
+  
+  .hero-cta-text {
+    font-size: 1.25rem; /* Più grande */
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  
+  /* Nascondi versione desktop su mobile */
+  .cta-desktop {
+    display: none;
+  }
+  
+  .cta-mobile {
+    display: block;
   }
   
   .hero-trust {
-    margin-top: var(--space-4); /* Più spazio sopra */
-    font-size: 0.9375rem; /* Leggermente più grande */
-    color: #4b5563; /* Più contrasto */
+    margin-top: var(--space-4);
+    font-size: 1rem;
+    color: #374151;
+    font-weight: 600;
+    gap: 0.75rem;
+  }
+  
+  .hero-cta-sub {
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 1;
+  }
+}
+
+/* Desktop - mostra versione completa */
+@media (min-width: 769px) {
+  .cta-desktop {
+    display: block;
+  }
+  
+  .cta-mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {    font-size: 1rem; /* Ancora più grande su mobile */
+    font-weight: 600;
+    opacity: 1;
   }
 }
 
@@ -401,15 +446,25 @@
     width: 100%;
     max-width: 100%;
     font-size: 1rem;
-    min-height: 52px;
+    min-height: 64px; /* Aumentato per small mobile */
   }
   
   .hero-cta-text {
-    font-size: 1rem;
+    font-size: 1.125rem; /* Aumentato per small mobile */
+    font-weight: 700;
   }
   
   .hero-cta-sub {
-    font-size: 0.8125rem;
+    font-size: 0.875rem; /* Più grande su small mobile */
+    font-weight: 600;
+    opacity: 1;
+  }
+  
+  .hero-trust {
+    font-size: 0.9375rem; /* Più grande */
+    color: #374151; /* Più contrasto */
+    font-weight: 600;
+  }
   }
   
   .hero-trust {

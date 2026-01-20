@@ -20,6 +20,7 @@ export const heroData = {
   // CTA (Call to Action)
   cta: {
     text: "Consulenza Gratuita Ora",
+    textMobile: "Consulenza Gratuita",
     subtext: "Rispondiamo entro le 24h",
     link: "/consultation"
   },
