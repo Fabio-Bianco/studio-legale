@@ -225,6 +225,9 @@
 .hamburger-btn.active {
   background: rgba(199, 158, 70, 0.2);
   border-color: rgba(199, 158, 70, 0.5);
+  opacity: 0; /* Nascondi quando attivo */
+  pointer-events: none; /* Disabilita interazione */
+  visibility: hidden; /* Nascondi completamente */
 }
 
 .hamburger-btn.active .hamburger-line:nth-child(1) {
@@ -254,11 +257,13 @@
   visibility: hidden;
   transition: all 0.3s ease;
   backdrop-filter: blur(4px);
+  pointer-events: none; /* Disabilita click sul backdrop */
 }
 
 .mobile-backdrop.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: none; /* Mantiene disabilitato anche quando attivo */
 }
 
 .nav-mobile {
@@ -274,13 +279,14 @@
     rgba(10, 51, 78, 0.96) 100%
   );
   backdrop-filter: blur(20px);
-  z-index: 1001;
+  z-index: 1002; /* Più alto del backdrop */
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   box-shadow: -8px 0 32px rgba(0, 0, 0, 0.3);
   overflow-y: auto;
   overscroll-behavior: contain; /* Prevent scroll chaining */
+  pointer-events: auto; /* Assicura che il menu sia interattivo */
 }
 
 .nav-mobile.active {  
@@ -393,6 +399,10 @@
   border-left: 3px solid transparent;
   min-height: 48px; /* Touch target optimization */
   -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  pointer-events: auto; /* Assicura che i link siano cliccabili */
+  position: relative;
+  z-index: 1;
 }
 
 .mobile-nav-link:hover {

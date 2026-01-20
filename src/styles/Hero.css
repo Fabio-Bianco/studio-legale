@@ -312,52 +312,57 @@
   }
   
   .hero-container {
-    padding: 0 var(--space-4); /* Padding consistente mobile */
+    padding: 0 var(--space-4);
   }
   
   .hero-content {
-    padding: var(--space-4) 0 var(--space-5) 0;
-    margin-left: 0; /* Centra su mobile */
+    padding: var(--space-5) 0 var(--space-6) 0;
+    margin-left: 0;
     max-width: 100%;
   }
   
   .hero-title {
-    font-size: clamp(2rem, 8vw, 3rem);
+    font-size: clamp(2rem, 8vw, 2.75rem);
     white-space: normal;
-    line-height: 1.1;
-    margin-bottom: var(--space-2);
+    line-height: 1.25; /* Aumentato da 1.1 per più respiro */
+    margin-bottom: var(--space-3); /* Più spazio sotto */
   }
   
   .hero-subtitle {
     display: block;
     margin-left: 0;
-    margin-top: var(--space-2);
-    font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+    margin-top: 0;
+    margin-bottom: var(--space-4); /* Più spazio prima della description */
+    font-size: clamp(1rem, 3.5vw, 1.125rem);
+    line-height: 1.4;
   }
   
   .hero-description {
     font-size: clamp(1rem, 3vw, 1.125rem);
-    margin-top: var(--space-3);
-    line-height: 1.6;
+    margin-top: 0;
+    margin-bottom: var(--space-5); /* Più spazio prima del CTA */
+    line-height: 1.65; /* Più leggibile */
   }
   
   .hero-actions {
-    margin-top: var(--space-4);
+    margin-top: var(--space-5);
     flex-direction: column;
     width: 100%;
-    gap: var(--space-3);
+    gap: var(--space-4);
   }
   
   .hero-cta {
     width: 100%;
     padding: var(--space-4) var(--space-5);
     font-size: 1.0625rem;
-    min-height: 56px; /* Touch target ottimizzato */
+    min-height: 64px; /* Più alto per essere più prominente */
+    box-shadow: 0 8px 24px rgba(199, 158, 70, 0.4); /* Più ombra */
   }
   
   .hero-trust {
-    margin-top: var(--space-3);
-    font-size: 0.875rem;
+    margin-top: var(--space-4); /* Più spazio sopra */
+    font-size: 0.9375rem; /* Leggermente più grande */
+    color: #4b5563; /* Più contrasto */
   }
 }
 

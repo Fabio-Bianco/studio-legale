@@ -48,8 +48,13 @@ export default function Header() {
 
   const closeMenu = (e) => {
     if (e) {
-      e.preventDefault();
-      e.stopPropagation();
+      // Non prevenire default se è un link
+      if (e.target.tagName === 'A' || e.target.closest('a')) {
+        // Lascia che il link funzioni normalmente
+      } else {
+        e.preventDefault();
+        e.stopPropagation();
+      }
     }
     setIsMenuOpen(false);
   };
@@ -144,7 +149,10 @@ export default function Header() {
               <Link 
                 to={item.path} 
                 className={`mobile-nav-link ${item.cta ? 'mobile-nav-cta' : ''}`} 
-                onClick={closeMenu}
+                onClick={(e) => {
+                  // Chiudi il menu dopo un piccolo delay per permettere la navigazione
+                  setTimeout(() => setIsMenuOpen(false), 100);
+                }}
               >
                 <span className="mobile-nav-text">
                   {item.cta ? '🎯 ' : ''}{item.label}
