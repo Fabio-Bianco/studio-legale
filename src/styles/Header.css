@@ -225,9 +225,7 @@
 .hamburger-btn.active {
   background: rgba(199, 158, 70, 0.2);
   border-color: rgba(199, 158, 70, 0.5);
-  opacity: 0; /* Nascondi quando attivo */
-  pointer-events: none; /* Disabilita interazione */
-  visibility: hidden; /* Nascondi completamente */
+  /* Rimosso opacity: 0 e visibility: hidden per permettere il click */
 }
 
 .hamburger-btn.active .hamburger-line:nth-child(1) {

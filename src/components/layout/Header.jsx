@@ -47,15 +47,6 @@ export default function Header() {
   };
 
   const closeMenu = (e) => {
-    if (e) {
-      // Non prevenire default se è un link
-      if (e.target.tagName === 'A' || e.target.closest('a')) {
-        // Lascia che il link funzioni normalmente
-      } else {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    }
     setIsMenuOpen(false);
   };
 
