@@ -79,6 +79,7 @@ export default function Header() {
       <div className="header-brand">
         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
           <h1 className="brand-title">{studioInfo.name}</h1>
+          <h1 className="brand-title-mobile" dangerouslySetInnerHTML={{ __html: studioInfo.nameMobile || studioInfo.name }}></h1>
           <span className="brand-subtitle">{studioInfo.subtitle}</span>
         </Link>
       </div>

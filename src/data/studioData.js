@@ -8,6 +8,7 @@
 export const studioInfo = {
     // Brand
     name: "Studio Legale Livieri - Tenore",
+    nameMobile: "Studio Legale<br/>Livieri - Tenore",
     shortName: "Livieri - Tenore",
     subtitle: "Esperienza • Competenza • Risultati",
     tagline: "Due Professioniste, Una Visione",
