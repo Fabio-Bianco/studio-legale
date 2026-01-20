@@ -144,13 +144,27 @@
 
 /* Mostra hamburger su mobile */
 @media (max-width: 768px) {
+  .header-container {
+    padding: var(--space-3) var(--space-4);
+  }
+  
   .hamburger-btn {
     display: flex !important;
+    min-height: 48px;
+    min-width: 48px;
   }
   
   /* Nascondi nav desktop su mobile */
   .nav-desktop {
     display: none !important;
+  }
+  
+  .brand-title {
+    font-size: clamp(1.125rem, 4vw, 1.25rem);
+  }
+  
+  .brand-subtitle {
+    font-size: clamp(0.75rem, 2vw, 0.8125rem);
   }
 }
 

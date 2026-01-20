@@ -610,11 +610,24 @@
 /* Tablet e Mobile */
 @media (max-width: 768px) {
   .services-hero {
-    padding: clamp(3rem, 6vw, 5rem) 0;
+    padding: clamp(3rem, 6vw, 5rem) var(--space-4);
+  }
+  
+  .services-hero-container {
+    padding: 0 var(--space-4);
+  }
+  
+  .services-container {
+    padding: 0 var(--space-4);
   }
   
   .services-hero-title {
-    font-size: clamp(2rem, 6vw, 2.5rem);
+    font-size: clamp(1.875rem, 6vw, 2.5rem);
+    margin-bottom: var(--space-3);
+  }
+  
+  .services-hero-subtitle {
+    font-size: clamp(1rem, 3vw, 1.25rem);
   }
   
   .services-filters {
@@ -622,17 +635,19 @@
   }
   
   .services-filters-title {
-    font-size: clamp(1.25rem, 4vw, 1.5rem);
+    font-size: clamp(1.125rem, 4vw, 1.375rem);
     margin-bottom: var(--space-3);
   }
   
   .filters-buttons {
     gap: var(--space-2);
+    flex-wrap: wrap;
   }
   
   .filter-btn {
-    padding: 0.625rem 1rem;
-    font-size: 0.8125rem;
+    padding: var(--space-2) var(--space-3);
+    font-size: clamp(0.8125rem, 2vw, 0.875rem);
+    min-height: 44px;
   }
   
   .services-grid {
@@ -641,22 +656,37 @@
     margin-bottom: var(--space-8);
   }
   
+  .service-card {
+    padding: var(--space-4);
+  }
+  
   .service-content {
-    padding: var(--space-3);
+    padding: var(--space-4);
   }
   
   .service-image {
-    height: 120px;
+    height: 140px;
+  }
+  
+  .service-title {
+    font-size: clamp(1.125rem, 4vw, 1.375rem);
+  }
+  
+  .service-description {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
   }
   
   .service-actions {
     flex-direction: column;
+    gap: var(--space-2);
   }
   
   .service-cta-primary,
   .service-cta-secondary {
     flex: none;
     width: 100%;
+    min-height: 48px;
+    padding: var(--space-3) var(--space-4);
   }
   
   .services-final-cta {
@@ -664,15 +694,25 @@
     border-radius: 12px;
   }
   
+  .services-cta-title {
+    font-size: clamp(1.5rem, 5vw, 1.875rem);
+  }
+  
+  .services-cta-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+  }
+  
   .services-cta-actions {
     flex-direction: column;
     align-items: center;
+    gap: var(--space-3);
   }
   
   .services-cta-actions .services-cta-primary,
   .services-cta-actions .services-cta-secondary {
     width: 100%;
-    max-width: 280px;
+    max-width: 320px;
+    min-height: 52px;
   }
 }
 
@@ -974,8 +1014,31 @@
 }
 
 @media (max-width: 768px) {
+  .legal-container {
+    padding: 0 var(--space-4);
+  }
+  
   .legal-content {
-    padding: 0 var(--space-2);
+    padding: 0 var(--space-4);
+  }
+  
+  .legal-title {
+    font-size: clamp(1.875rem, 6vw, 2.5rem);
+    margin-bottom: var(--space-3);
+  }
+  
+  .legal-subtitle {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+  }
+  
+  .section-title {
+    font-size: clamp(1.125rem, 4vw, 1.375rem);
+    margin-bottom: var(--space-3);
+  }
+  
+  .legal-text,
+  .legal-list li {
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
   }
   
   .legal-section {
@@ -984,22 +1047,43 @@
   }
   
   .sitemap-section {
-    padding: var(--space-4);
+    padding: var(--space-6) var(--space-4);
+  }
+  
+  .sitemap-title {
+    font-size: clamp(1.875rem, 6vw, 2.5rem);
+  }
+  
+  .sitemap-category-title {
+    font-size: clamp(1.125rem, 4vw, 1.375rem);
+  }
+  
+  .sitemap-link {
+    min-height: 48px;
+    padding: var(--space-3);
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
   }
   
   .sitemap-cta {
-    padding: var(--space-5) var(--space-3);
+    padding: var(--space-6) var(--space-4);
+  }
+  
+  .sitemap-cta-title {
+    font-size: clamp(1.5rem, 5vw, 1.875rem);
   }
   
   .sitemap-cta-buttons {
     flex-direction: column;
     align-items: center;
+    gap: var(--space-3);
   }
   
   .sitemap-cta-primary,
   .sitemap-cta-secondary {
     width: 100%;
-    max-width: 200px;
+    max-width: 280px;
+    min-height: 48px;
+    padding: var(--space-3) var(--space-4);
   }
 }
 
@@ -1019,12 +1103,21 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .page-container {
+    padding: 0 var(--space-4);
+  }
+  
   .page-hero {
-    padding: var(--space-6) 0;
+    padding: var(--space-6) var(--space-4);
   }
   
   .page-hero-title {
-    font-size: var(--fs-h2);
+    font-size: clamp(1.875rem, 6vw, 2.5rem);
+    margin-bottom: var(--space-3);
+  }
+  
+  .page-hero-subtitle {
+    font-size: clamp(1rem, 3vw, 1.25rem);
   }
   
   .page-card-grid {
@@ -1038,6 +1131,20 @@
   
   .page-card-icon {
     font-size: 2.5rem;
+  }
+  
+  .page-card-title {
+    font-size: clamp(1.125rem, 4vw, 1.375rem);
+  }
+  
+  .page-card-text {
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  }
+  
+  .page-cta-button {
+    width: 100%;
+    min-height: 48px;
+    padding: var(--space-3) var(--space-4);
   }
 }
 

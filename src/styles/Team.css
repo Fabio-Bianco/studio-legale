@@ -465,6 +465,20 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+  .team-section {
+    padding: var(--space-6) var(--space-4);
+  }
+  
+  .team-title {
+    font-size: clamp(1.875rem, 6vw, 2.5rem);
+    margin-bottom: var(--space-3);
+  }
+  
+  .team-subtitle {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    margin-bottom: var(--space-5);
+  }
+  
   .team-cards {
     grid-template-columns: 1fr;
     gap: var(--space-6);
@@ -480,6 +494,24 @@
     width: 100px;
     height: 100px;
   }
+  
+  .member-name {
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
+  }
+  
+  .member-role {
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  }
+  
+  .member-bio {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+  }
+  
+  .contact-links a {
+    min-height: 48px;
+    min-width: 48px;
+    padding: var(--space-3);
+  }
 
   .title-desktop,
   .subtitle-desktop {
@@ -493,7 +525,15 @@
 
   .numbers-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-2);
+    gap: var(--space-3);
+  }
+  
+  .number-item {
+    padding: var(--space-3);
+  }
+  
+  .number-value {
+    font-size: clamp(1.5rem, 5vw, 1.875rem);
   }
 
   .results-list {

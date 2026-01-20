@@ -737,8 +737,33 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+  .about-section {
+    padding: var(--space-6) var(--space-4);
+  }
+  
   .about-container {
-    padding-inline: var(--space-3);
+    padding-inline: var(--space-4);
+  }
+  
+  .opening-title,
+  .narrative-title,
+  .expertise-title,
+  .philosophy-title,
+  .statement-title {
+    font-size: clamp(1.875rem, 6vw, 2.5rem);
+    margin-bottom: var(--space-3);
+  }
+  
+  .opening-subtitle,
+  .narrative-subtitle {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    margin-bottom: var(--space-4);
+  }
+  
+  .opening-description,
+  .narrative-text,
+  .expertise-description {
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
   }
 
   .opening-content {
@@ -752,40 +777,64 @@
 
   .values-matrix {
     grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .value-card {
+    padding: var(--space-4);
   }
 
   .commitment-item {
     flex-direction: column;
     text-align: center;
+    padding: var(--space-4);
   }
 
   .timeline-stats {
     grid-template-columns: 1fr;
+    gap: var(--space-4);
   }
 
   .achievement-grid {
     flex-direction: column;
+    gap: var(--space-4);
+  }
+  
+  .cta-button,
+  .contact-button {
+    min-height: 48px;
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
   }
 }
 
 /* Small mobile */
 @media (max-width: 480px) {
+  .about-section {
+    padding: var(--space-5) var(--space-3);
+  }
+  
   .about-container {
-    padding-inline: var(--space-2);
+    padding-inline: var(--space-3);
   }
 
   .opening-title {
-    font-size: 2rem;
+    font-size: clamp(1.75rem, 7vw, 2rem);
   }
 
   .narrative-title,
   .expertise-title,
   .philosophy-title,
   .statement-title {
-    font-size: 1.75rem;
+    font-size: clamp(1.625rem, 6vw, 1.875rem);
   }
 
   .profile-showcase {
     padding: var(--space-5);
+  }
+  
+  .cta-button,
+  .contact-button {
+    min-height: 44px;
   }
 }

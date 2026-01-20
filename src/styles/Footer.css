@@ -308,6 +308,41 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Tablet */
+@media (max-width: 768px) {
+  .footer-container {
+    padding: var(--space-6) var(--space-4);
+    gap: var(--space-5);
+  }
+  
+  .footer-brand-title {
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
+  }
+  
+  .footer-brand-subtitle {
+    font-size: clamp(0.8rem, 2vw, 0.875rem);
+  }
+  
+  .footer-brand-description {
+    font-size: clamp(0.75rem, 2vw, 0.8125rem);
+  }
+  
+  .footer-heading {
+    font-size: clamp(1rem, 3vw, 1.125rem);
+    margin-bottom: var(--space-3);
+  }
+  
+  .contact-link,
+  .footer-link {
+    min-height: 48px;
+    font-size: clamp(0.875rem, 2.5vw, 0.9375rem);
+  }
+  
+  .footer-bottom-container {
+    padding: var(--space-3) var(--space-4);
+  }
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .footer-link,
